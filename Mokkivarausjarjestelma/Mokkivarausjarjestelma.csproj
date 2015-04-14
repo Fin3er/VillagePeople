@@ -57,16 +57,124 @@
     <Compile Include="Asiakkaanhallinta.Designer.cs">
       <DependentUpon>Asiakkaanhallinta.cs</DependentUpon>
     </Compile>
+    <Compile Include="Asiakkaat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Asiakkaat.Designer.cs">
+      <DependentUpon>Asiakkaat.cs</DependentUpon>
+    </Compile>
     <Compile Include="asiakkaatDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>asiakkaatDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Asiakkaat_lisaa_muokkaa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Asiakkaat_lisaa_muokkaa.Designer.cs">
+      <DependentUpon>Asiakkaat_lisaa_muokkaa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Etusivu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Etusivu.Designer.cs">
+      <DependentUpon>Etusivu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kayttajat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kayttajat.Designer.cs">
+      <DependentUpon>Kayttajat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kayttajat_lisaa_muokkaa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kayttajat_lisaa_muokkaa.Designer.cs">
+      <DependentUpon>Kayttajat_lisaa_muokkaa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kirjautuminen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kirjautuminen.Designer.cs">
+      <DependentUpon>Kirjautuminen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Laskutus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Laskutus.Designer.cs">
+      <DependentUpon>Laskutus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Laskutus_lisaa_muokkaa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Laskutus_lisaa_muokkaa.Designer.cs">
+      <DependentUpon>Laskutus_lisaa_muokkaa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lisapalvelut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lisapalvelut.Designer.cs">
+      <DependentUpon>Lisapalvelut.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Lisapalvelut_lisaa_muokkaa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Lisapalvelut_lisaa_muokkaa.Designer.cs">
+      <DependentUpon>Lisapalvelut_lisaa_muokkaa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mokit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mokit.Designer.cs">
+      <DependentUpon>Mokit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mokkivaraus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mokkivaraus.Designer.cs">
+      <DependentUpon>Mokkivaraus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mokki_lisaa_muokkaa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mokki_lisaa_muokkaa.Designer.cs">
+      <DependentUpon>Mokki_lisaa_muokkaa.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Raportit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Raportit.Designer.cs">
+      <DependentUpon>Raportit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tietokanta.cs" />
+    <Compile Include="Toimipiste.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Toimipiste.Designer.cs">
+      <DependentUpon>Toimipiste.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Toimipiste_lisaa_muokkaa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Toimipiste_lisaa_muokkaa.Designer.cs">
+      <DependentUpon>Toimipiste_lisaa_muokkaa.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Asiakkaanhallinta.resx">
       <DependentUpon>Asiakkaanhallinta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Asiakkaat_lisaa_muokkaa.resx">
+      <DependentUpon>Asiakkaat_lisaa_muokkaa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Etusivu.resx">
+      <DependentUpon>Etusivu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kirjautuminen.resx">
+      <DependentUpon>Kirjautuminen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mokkivaraus.resx">
+      <DependentUpon>Mokkivaraus.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -77,6 +185,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Raportit.resx">
+      <DependentUpon>Raportit.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="asiakkaatDataSet.xsc">
       <DependentUpon>asiakkaatDataSet.xsd</DependentUpon>
     </None>
