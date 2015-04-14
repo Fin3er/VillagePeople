@@ -28,9 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // Asiakkaat
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "Asiakkaat";
+            this.ClientSize = new System.Drawing.Size(1184, 761);
+            this.Name = "Asiakkaat";
+            this.Text = "Village People Mökkivarausjärjestelmä";
+            this.ResumeLayout(false);
+
         }
 
         #endregion

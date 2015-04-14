@@ -28,9 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // Mokki_lisaa_muokkaa
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "Mokki_lisaa_muokkaa";
+            this.ClientSize = new System.Drawing.Size(1184, 761);
+            this.Name = "Mokki_lisaa_muokkaa";
+            this.Text = "Village People Mökkivarausjärjestelmä";
+            this.ResumeLayout(false);
+
         }
 
         #endregion

@@ -164,11 +164,17 @@
     <EmbeddedResource Include="Asiakkaanhallinta.resx">
       <DependentUpon>Asiakkaanhallinta.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Asiakkaat.resx">
+      <DependentUpon>Asiakkaat.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Asiakkaat_lisaa_muokkaa.resx">
       <DependentUpon>Asiakkaat_lisaa_muokkaa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Etusivu.resx">
       <DependentUpon>Etusivu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kayttajat.resx">
+      <DependentUpon>Kayttajat.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Kayttajat_lisaa_muokkaa.resx">
       <DependentUpon>Kayttajat_lisaa_muokkaa.cs</DependentUpon>
@@ -176,8 +182,26 @@
     <EmbeddedResource Include="Kirjautuminen.resx">
       <DependentUpon>Kirjautuminen.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Laskutus.resx">
+      <DependentUpon>Laskutus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Laskutus_lisaa_muokkaa.resx">
+      <DependentUpon>Laskutus_lisaa_muokkaa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lisapalvelut.resx">
+      <DependentUpon>Lisapalvelut.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lisapalvelut_lisaa_muokkaa.resx">
+      <DependentUpon>Lisapalvelut_lisaa_muokkaa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mokit.resx">
+      <DependentUpon>Mokit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Mokkivaraus.resx">
       <DependentUpon>Mokkivaraus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mokki_lisaa_muokkaa.resx">
+      <DependentUpon>Mokki_lisaa_muokkaa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -190,6 +214,12 @@
     </Compile>
     <EmbeddedResource Include="Raportit.resx">
       <DependentUpon>Raportit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Toimipiste.resx">
+      <DependentUpon>Toimipiste.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Toimipiste_lisaa_muokkaa.resx">
+      <DependentUpon>Toimipiste_lisaa_muokkaa.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="asiakkaatDataSet.xsc">
       <DependentUpon>asiakkaatDataSet.xsd</DependentUpon>
