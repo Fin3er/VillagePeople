@@ -1,11 +1,12 @@
 /*Tämä on vain tähänastiseen testikäyttöön tehty tietokanta, ei siis lopullinen tietokanta. 
+Itse väänsin tietokannan MySQL WorkBenchillä käyttöliittymän kautta. 
 CREATE DATABASE IF NOT EXISTS asiakkaat;
 USE asiakkaat;
 
 DROP TABLE IF EXISTS `asiakas`;
 
 CREATE TABLE `asiakas` (
-  `asiakasnumero` varchar(45) NOT NULL,
+  `asiakasnumero` int(11) NOT NULL AUTO_INCREMENT,
   `nimitys` varchar(3) DEFAULT NULL,
   `etunimi` varchar(45) DEFAULT NULL,
   `sukunimi` varchar(45) DEFAULT NULL,
