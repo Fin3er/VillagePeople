@@ -293,6 +293,7 @@
             this.btnLisaaUusiAsiakas.TabIndex = 22;
             this.btnLisaaUusiAsiakas.Text = "Lisää uusi asiakas";
             this.btnLisaaUusiAsiakas.UseVisualStyleBackColor = true;
+            this.btnLisaaUusiAsiakas.Click += new System.EventHandler(this.btnLisaaUusiAsiakas_Click);
             // 
             // btnPoistaAsiakas
             // 

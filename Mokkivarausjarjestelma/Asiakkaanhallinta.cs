@@ -113,6 +113,11 @@ namespace Mokkivarausjarjestelma
                       
         }
 
+        private void btnLisaaUusiAsiakas_Click(object sender, EventArgs e)
+        {
+            new Asiakkaat_lisaa_muokkaa().Show();
+        }
+
         
     }
 }
