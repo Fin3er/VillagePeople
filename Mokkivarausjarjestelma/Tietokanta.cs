@@ -51,6 +51,8 @@ namespace Mokkivarausjarjestelma
         
         //Kantaluokan abstrakti metodi Update-lauseille
         public abstract void UpdateQuery(Asiakas a);
+
+        public abstract void InsertQuery(Asiakas a);
         
 
         //Tietokanta luokan konstruktori
@@ -119,7 +121,6 @@ namespace Mokkivarausjarjestelma
             command.CommandText = @"UPDATE asiakas SET etunimi=@etunimi, sukunimi=@sukunimi, syntymaaika=@syntymaaika,
             katuosoite=@katuosoite, postinumero=@postinumero, postitoimipaikka=@postitoimipaikka, maa=@maa, puhelinnumero=@puhelinnumero,sahkopostiosoite=@sahkopostiosoite WHERE asiakasnumero=@asiakasnumero";
             //Lisätään updatequeryyn parametrina annetun asiakkaan tiedot
-            command.Parameters.AddWithValue("@asiakasnumero", a.Asiakasnumero);
             command.Parameters.AddWithValue("@etunimi", a.Etunimi);
             command.Parameters.AddWithValue("@sukunimi", a.Sukunimi);
             command.Parameters.AddWithValue("@syntymaaika", a.Syntymaaika);
@@ -136,6 +137,27 @@ namespace Mokkivarausjarjestelma
             CloseConnection();
         }
 
+        public override void InsertQuery(Asiakas a)
+        {
+            command = con.CreateCommand();
+            Connect();
+            command.CommandText = @"INSERT INTO asiakas (etunimi,sukunimi,syntymaaika,katuosoite,postinumero,postitoimipaikka,maa,puhelinnumero,sahkopostiosoite)
+                                VALUES (@etunimi, @sukunimi, @syntymaaika, @katuosoite, @postinumero, @postitoimipaikka, @maa, @puhelinnumero, @sahkopostiosoite)";
+            command.Parameters.AddWithValue("@etunimi", a.Etunimi);
+            command.Parameters.AddWithValue("@sukunimi", a.Sukunimi);
+            command.Parameters.AddWithValue("@syntymaaika", a.Syntymaaika);
+            command.Parameters.AddWithValue("@katuosoite", a.Postiosoite);
+            command.Parameters.AddWithValue("@postinumero", a.Postinumero);
+            command.Parameters.AddWithValue("@postitoimipaikka", a.Postitoimipaikka);
+            command.Parameters.AddWithValue("@maa", a.Maa);
+            command.Parameters.AddWithValue("@puhelinnumero", a.Puhelinnumero);
+            command.Parameters.AddWithValue("@sahkopostiosoite", a.Sahkoposti);
+            command.ExecuteNonQuery();
+            //Viesti, joka ilmoittaa tietojen päivityksen onnistuneen
+            MessageBox.Show("Uusi asiakas lisätty", "Vahvistus", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            //Suljetaan yhteys
+            CloseConnection();
+        }
        
     }
 }

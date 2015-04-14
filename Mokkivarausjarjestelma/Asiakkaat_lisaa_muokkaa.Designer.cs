@@ -37,7 +37,7 @@
             this.lblSukunimi = new System.Windows.Forms.Label();
             this.txtbSukunimi = new System.Windows.Forms.TextBox();
             this.lblSyntymaaika = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpSyntymaaika = new System.Windows.Forms.DateTimePicker();
             this.lblPostinumero = new System.Windows.Forms.Label();
             this.txtbPostinumero = new System.Windows.Forms.TextBox();
             this.lblPostitoimipaikka = new System.Windows.Forms.Label();
@@ -155,12 +155,12 @@
             this.lblSyntymaaika.TabIndex = 35;
             this.lblSyntymaaika.Text = "Syntymäaika:";
             // 
-            // dateTimePicker1
+            // dtpSyntymaaika
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(37, 252);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 37;
+            this.dtpSyntymaaika.Location = new System.Drawing.Point(37, 252);
+            this.dtpSyntymaaika.Name = "dtpSyntymaaika";
+            this.dtpSyntymaaika.Size = new System.Drawing.Size(200, 20);
+            this.dtpSyntymaaika.TabIndex = 37;
             // 
             // lblPostinumero
             // 
@@ -259,7 +259,7 @@
             this.txtbPuhelinnumero.Location = new System.Drawing.Point(269, 246);
             this.txtbPuhelinnumero.Margin = new System.Windows.Forms.Padding(4);
             this.txtbPuhelinnumero.Name = "txtbPuhelinnumero";
-            this.txtbPuhelinnumero.Size = new System.Drawing.Size(132, 26);
+            this.txtbPuhelinnumero.Size = new System.Drawing.Size(147, 26);
             this.txtbPuhelinnumero.TabIndex = 47;
             // 
             // lblSahkopostiosoite
@@ -276,7 +276,7 @@
             // txtbSahkopostiosoite
             // 
             this.txtbSahkopostiosoite.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtbSahkopostiosoite.Location = new System.Drawing.Point(11, 246);
+            this.txtbSahkopostiosoite.Location = new System.Drawing.Point(37, 246);
             this.txtbSahkopostiosoite.Margin = new System.Windows.Forms.Padding(4);
             this.txtbSahkopostiosoite.Name = "txtbSahkopostiosoite";
             this.txtbSahkopostiosoite.Size = new System.Drawing.Size(216, 26);
@@ -305,7 +305,7 @@
             this.grbxhlotiedot.Controls.Add(this.lblSukunimi);
             this.grbxhlotiedot.Controls.Add(this.txtbSukunimi);
             this.grbxhlotiedot.Controls.Add(this.lblSyntymaaika);
-            this.grbxhlotiedot.Controls.Add(this.dateTimePicker1);
+            this.grbxhlotiedot.Controls.Add(this.dtpSyntymaaika);
             this.grbxhlotiedot.Location = new System.Drawing.Point(123, 65);
             this.grbxhlotiedot.Name = "grbxhlotiedot";
             this.grbxhlotiedot.Size = new System.Drawing.Size(639, 336);
@@ -360,6 +360,7 @@
             this.btntallenna.TabIndex = 55;
             this.btntallenna.Text = "Tallenna";
             this.btntallenna.UseVisualStyleBackColor = true;
+            this.btntallenna.Click += new System.EventHandler(this.btntallenna_Click);
             // 
             // btnperuuta
             // 
@@ -436,7 +437,7 @@
         private System.Windows.Forms.Label lblSukunimi;
         private System.Windows.Forms.TextBox txtbSukunimi;
         private System.Windows.Forms.Label lblSyntymaaika;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpSyntymaaika;
         private System.Windows.Forms.Label lblPostinumero;
         private System.Windows.Forms.TextBox txtbPostinumero;
         private System.Windows.Forms.Label lblPostitoimipaikka;
