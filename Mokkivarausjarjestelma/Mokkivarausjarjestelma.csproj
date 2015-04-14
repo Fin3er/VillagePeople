@@ -170,6 +170,9 @@
     <EmbeddedResource Include="Etusivu.resx">
       <DependentUpon>Etusivu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Kayttajat_lisaa_muokkaa.resx">
+      <DependentUpon>Kayttajat_lisaa_muokkaa.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Kirjautuminen.resx">
       <DependentUpon>Kirjautuminen.cs</DependentUpon>
     </EmbeddedResource>
