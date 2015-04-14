@@ -33,7 +33,7 @@ namespace Mokkivarausjarjestelma
             //Yhdistetään tietokantaan
             testi.Connect();
             //Annetaan querylause asiakastietojen hakemiseen
-            testi.SelectQuery("Select * from asiakas");
+            testi.SelectQuery();
             //Lista saa arvokseen asiakastietokantaluokan listan
             lista = testi.lista;
             //Suljetaan yhteys tietokantaan
@@ -47,23 +47,24 @@ namespace Mokkivarausjarjestelma
             cbbxNimitys.Items.Add("Dr.");
         }
 
-        //Metodi asiakkaan tietojen päivittämiseen
-        public void updateAsiakasData()
+        //Metodi asiakkaan tietojen päivittämiseen, parametriksi muokattava asiakas
+        public void updateAsiakasData(Asiakas a)
         {
             //Tehdään vain jos asiakas on olemassa
-            if(this.asiakas!=null)
+            if(a!=null)
             {
-                this.asiakas.Asiakasnumero = Convert.ToString(txbxAsiakasnumero);
-                this.asiakas.Etunimi = Convert.ToString(txtbEtunimi);
-                this.asiakas.Sukunimi = Convert.ToString(txtbSukunimi);
-                this.asiakas.Syntymaaika = Convert.ToString(txtbSyntymaaika);
-                this.asiakas.Postiosoite = Convert.ToString(txtbKatuosoite);
-                this.asiakas.Postinumero = Convert.ToString(txtbPostinumero);
-                this.asiakas.Postitoimipaikka = Convert.ToString(txtbPostitoimipaikka);
-                this.asiakas.Maa = Convert.ToString(txtbMaa);
-                this.asiakas.Puhelinnumero = Convert.ToString(txtbPostinumero);
-                this.asiakas.Sahkoposti = Convert.ToString(txtbSahkopostiosoite);
+                a.Asiakasnumero = Convert.ToString(txbxAsiakasnumero.Text);
+                a.Etunimi = Convert.ToString(txtbEtunimi.Text);
+                a.Sukunimi = Convert.ToString(txtbSukunimi.Text);
+                a.Syntymaaika = Convert.ToString(txtbSyntymaaika.Text);
+                a.Postiosoite = Convert.ToString(txtbKatuosoite.Text);
+                a.Postinumero = Convert.ToString(txtbPostinumero.Text);
+                a.Postitoimipaikka = Convert.ToString(txtbPostitoimipaikka.Text);
+                a.Maa = Convert.ToString(txtbMaa.Text);
+                a.Puhelinnumero = Convert.ToString(txtbPostinumero.Text);
+                a.Sahkoposti = Convert.ToString(txtbSahkopostiosoite.Text);
             }
+            
         }
 
         //Metodi, joka näyttää Asiakkaan tiedot formilla
@@ -99,6 +100,17 @@ namespace Mokkivarausjarjestelma
             this.asiakas=lstbxAsiakaslista.SelectedItem as Asiakas;
             //Kutsutaan show-metodi valitulle asiakkaalle
             showAsiakas();
+        }
+
+        private void btnTallennaTiedot_Click(object sender, EventArgs e)
+        {
+            this.asiakas = lstbxAsiakaslista.SelectedItem as Asiakas;
+            MessageBox.Show("Haluatko varmasti tallettaa muokatut tiedot asiakkaalle?","Vahvistus",MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
+            updateAsiakasData(this.asiakas);
+            Asiakastietokanta testi=new Asiakastietokanta();
+            testi.UpdateQuery(this.asiakas);
+
+                      
         }
 
         
