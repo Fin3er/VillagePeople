@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Mokkivarausjarjestelma
 {
-    //Lisää, poista, tallenna tiedot painikkeet kesken. Combobox kesken.
+    //Poista painike kesken Combobox kesken. KÄYTTÖLIITTYMÄ KESKEN, TIETOKANTA KESKEN, KAIKKI KESKEN!!
     public partial class FormAsiakkaanHallinta : Form
     {
         public FormAsiakkaanHallinta()
@@ -28,6 +28,18 @@ namespace Mokkivarausjarjestelma
         //Tehdään kun Asiakkaanhallinta-form ladataan
         private void Asiakkaanhallinta_Load(object sender, EventArgs e)
         {
+            PaivitaAsiakasLista();
+            //Comboboxin vaihtoehdot
+            cbbxNimitys.Items.Add("Mr.");
+            cbbxNimitys.Items.Add("Mrs.");
+            cbbxNimitys.Items.Add("Ms.");
+            cbbxNimitys.Items.Add("Dr.");
+        }
+
+        public void PaivitaAsiakasLista()
+        {
+            //Tyhjennetään listbox
+            lstbxAsiakaslista.Items.Clear();
             //Luodaan uusi instanssi asiakastietokannasta
             Asiakastietokanta testi = new Asiakastietokanta();
             //Yhdistetään tietokantaan
@@ -40,11 +52,6 @@ namespace Mokkivarausjarjestelma
             testi.CloseConnection();
             //Tällä saadaan listbox näyttämään listan sisältämät oliot, muutetaan lista Arrayksi
             lstbxAsiakaslista.Items.AddRange(lista.ToArray());
-            //Comboboxin vaihtoehdot
-            cbbxNimitys.Items.Add("Mr.");
-            cbbxNimitys.Items.Add("Mrs.");
-            cbbxNimitys.Items.Add("Ms.");
-            cbbxNimitys.Items.Add("Dr.");
         }
 
         //Metodi asiakkaan tietojen päivittämiseen, parametriksi muokattava asiakas
@@ -107,8 +114,8 @@ namespace Mokkivarausjarjestelma
             this.asiakas = lstbxAsiakaslista.SelectedItem as Asiakas;
             MessageBox.Show("Haluatko varmasti tallettaa muokatut tiedot asiakkaalle?","Vahvistus",MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
             updateAsiakasData(this.asiakas);
-            Asiakastietokanta testi=new Asiakastietokanta();
-            testi.UpdateQuery(this.asiakas);
+            Asiakastietokanta b=new Asiakastietokanta();
+            b.UpdateQuery(this.asiakas);
 
                       
         }
@@ -116,6 +123,16 @@ namespace Mokkivarausjarjestelma
         private void btnLisaaUusiAsiakas_Click(object sender, EventArgs e)
         {
             new Asiakkaat_lisaa_muokkaa().Show();
+        }
+
+        private void btnPoistaAsiakas_Click(object sender, EventArgs e)
+        {
+            this.asiakas = lstbxAsiakaslista.SelectedItem as Asiakas;
+            MessageBox.Show("Haluatko varmasti poistaa valitun asiakkaan?", "Vahvistus", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            Asiakastietokanta b = new Asiakastietokanta();
+            b.DeleteQuery(this.asiakas);
+            PaivitaAsiakasLista();
+            
         }
 
         

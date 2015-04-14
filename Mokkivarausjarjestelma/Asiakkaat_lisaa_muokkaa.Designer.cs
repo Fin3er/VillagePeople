@@ -370,6 +370,7 @@
             this.btnperuuta.TabIndex = 56;
             this.btnperuuta.Text = "Peruuta";
             this.btnperuuta.UseVisualStyleBackColor = true;
+            this.btnperuuta.Click += new System.EventHandler(this.btnperuuta_Click);
             // 
             // grbxlisatiedot
             // 
@@ -415,6 +416,7 @@
             this.Controls.Add(this.lblasiakaslisää);
             this.Name = "Asiakkaat_lisaa_muokkaa";
             this.Text = "Asiakkaat_lisaa_muokkaa";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Asiakkaat_lisaa_muokkaa_FormClosed);
             this.grbxhlotiedot.ResumeLayout(false);
             this.grbxhlotiedot.PerformLayout();
             this.grbxyhteystiedot.ResumeLayout(false);

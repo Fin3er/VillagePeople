@@ -52,7 +52,11 @@ namespace Mokkivarausjarjestelma
         //Kantaluokan abstrakti metodi Update-lauseille
         public abstract void UpdateQuery(Asiakas a);
 
+        //Kantaluokan abstrakti metodi Insert-lauseille
         public abstract void InsertQuery(Asiakas a);
+
+        //Kantaluokan abstrakti metodi Delete-laueseille
+        public abstract void DeleteQuery(Asiakas a);
         
 
         //Tietokanta luokan konstruktori
@@ -88,28 +92,42 @@ namespace Mokkivarausjarjestelma
             string kasky = "Select * from asiakas";
             command = con.CreateCommand();
             command.CommandText = kasky;
-            reader = command.ExecuteReader(); 
-            while (reader.Read())
+            reader = command.ExecuteReader();
+            try
             {
-                //Luodaan, jokaista taulun riviä varten asiakasolioita 
-                Asiakas t = new Asiakas();
-                t.Asiakasnumero = reader.GetString("asiakasnumero");
-                t.Etunimi = reader.GetString("etunimi");
-                t.Sukunimi = reader.GetString("sukunimi");
-                t.Syntymaaika = reader.GetString("syntymaaika");
-                t.Postiosoite = reader.GetString("katuosoite");
-                t.Postinumero = reader.GetString("postinumero");
-                t.Postitoimipaikka = reader.GetString("postitoimipaikka");
-                t.Maa = reader.GetString("maa");
-                t.Puhelinnumero = reader.GetString("puhelinnumero");
-                t.Sahkoposti = reader.GetString("sahkopostiosoite");
-                //Lisätään luotu olio listaan
-                lista.Add(t);
-                //Alustetaan t nollaksi
-                t = null;
+                while (reader.Read())
+                {
+                    //Luodaan, jokaista taulun riviä varten asiakasolioita 
+                    Asiakas t = new Asiakas();
+                    t.Asiakasnumero = reader.GetString("asiakasnumero");
+                    t.Etunimi = reader.GetString("etunimi");
+                    t.Sukunimi = reader.GetString("sukunimi");
+                    t.Syntymaaika = reader.GetString("syntymaaika");
+                    t.Postiosoite = reader.GetString("katuosoite");
+                    t.Postinumero = reader.GetString("postinumero");
+                    t.Postitoimipaikka = reader.GetString("postitoimipaikka");
+                    t.Maa = reader.GetString("maa");
+                    t.Puhelinnumero = reader.GetString("puhelinnumero");
+                    t.Sahkoposti = reader.GetString("sahkopostiosoite");
+                    //Lisätään luotu olio listaan
+                    lista.Add(t);
+                    //Alustetaan t nollaksi
+                    t = null;
+                }
             }
-            //Suljetaan reader
-            reader.Close();
+            catch(Exception ex)
+            {
+                MessageBox.Show("Tietoja haettaessa tapahtui virhe:" + ex.ToString());
+            }
+            try
+            {
+                //Suljetaan reader
+                reader.Close();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Readeria sulkiessa tapahtui virhe:" + ex.ToString());
+            }
         }
 
         //UpdateQueryn toteutus asiakkaiden tietojen muokkaamiseen
@@ -121,6 +139,7 @@ namespace Mokkivarausjarjestelma
             command.CommandText = @"UPDATE asiakas SET etunimi=@etunimi, sukunimi=@sukunimi, syntymaaika=@syntymaaika,
             katuosoite=@katuosoite, postinumero=@postinumero, postitoimipaikka=@postitoimipaikka, maa=@maa, puhelinnumero=@puhelinnumero,sahkopostiosoite=@sahkopostiosoite WHERE asiakasnumero=@asiakasnumero";
             //Lisätään updatequeryyn parametrina annetun asiakkaan tiedot
+            command.Parameters.AddWithValue("@asiakasnumero", a.Asiakasnumero);
             command.Parameters.AddWithValue("@etunimi", a.Etunimi);
             command.Parameters.AddWithValue("@sukunimi", a.Sukunimi);
             command.Parameters.AddWithValue("@syntymaaika", a.Syntymaaika);
@@ -130,9 +149,17 @@ namespace Mokkivarausjarjestelma
             command.Parameters.AddWithValue("@maa", a.Maa);
             command.Parameters.AddWithValue("@puhelinnumero", a.Puhelinnumero);
             command.Parameters.AddWithValue("@sahkopostiosoite", a.Sahkoposti);
-            command.ExecuteNonQuery();
-            //Viesti, joka ilmoittaa tietojen päivityksen onnistuneen
-            MessageBox.Show("Asiakastiedot päivitetty", "Vahvistus", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            try
+            {
+                command.ExecuteNonQuery();
+                //Viesti, joka ilmoittaa tietojen päivityksen onnistuneen
+                MessageBox.Show("Asiakastiedot päivitetty", "Vahvistus", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Päivitettäessä tietoja tapahtui virhe: " + ex.ToString());
+            }
+            
             //Suljetaan yhteys
             CloseConnection();
         }
@@ -152,10 +179,36 @@ namespace Mokkivarausjarjestelma
             command.Parameters.AddWithValue("@maa", a.Maa);
             command.Parameters.AddWithValue("@puhelinnumero", a.Puhelinnumero);
             command.Parameters.AddWithValue("@sahkopostiosoite", a.Sahkoposti);
-            command.ExecuteNonQuery();
-            //Viesti, joka ilmoittaa tietojen päivityksen onnistuneen
-            MessageBox.Show("Uusi asiakas lisätty", "Vahvistus", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            try
+            {
+                command.ExecuteNonQuery();
+                //Viesti, joka ilmoittaa tietojen päivityksen onnistuneen
+                MessageBox.Show("Uusi asiakas lisätty", "Vahvistus", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Tapahtui virhe lisättäessä asiakasta:" + ex.ToString());
+            }
             //Suljetaan yhteys
+            CloseConnection();
+        }
+
+        //Metodi asiakkaan poistamiselle tietokannasta
+        public override void DeleteQuery(Asiakas a)
+        {
+            command = con.CreateCommand();
+            Connect();
+            command.CommandText ="DELETE FROM asiakas WHERE asiakasnumero=@asiakasnumero";
+            command.Parameters.AddWithValue("@asiakasnumero", a.Asiakasnumero);
+            try
+            {
+                command.ExecuteNonQuery();
+                MessageBox.Show("Asiakas poistettu", "Vahvistus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Tapahtui virhe asiakasta poistettaessa:" + ex.ToString());
+            }
             CloseConnection();
         }
        

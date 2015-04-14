@@ -306,6 +306,7 @@
             this.btnPoistaAsiakas.TabIndex = 23;
             this.btnPoistaAsiakas.Text = "Poista asiakas";
             this.btnPoistaAsiakas.UseVisualStyleBackColor = false;
+            this.btnPoistaAsiakas.Click += new System.EventHandler(this.btnPoistaAsiakas_Click);
             // 
             // btnTallennaTiedot
             // 
