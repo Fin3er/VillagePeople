@@ -316,6 +316,7 @@
             this.btnTallennaTiedot.TabIndex = 24;
             this.btnTallennaTiedot.Text = "Tallenna tiedot";
             this.btnTallennaTiedot.UseVisualStyleBackColor = true;
+            this.btnTallennaTiedot.Click += new System.EventHandler(this.btnTallennaTiedot_Click);
             // 
             // txbxAsiakasnumero
             // 

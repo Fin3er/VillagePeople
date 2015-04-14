@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 //Lisätyt luokat
 using MySql.Data.MySqlClient;
 using System.Windows.Forms;
-using System.ComponentModel;
+
+
+
 
 namespace Mokkivarausjarjestelma
 {
@@ -16,7 +18,7 @@ namespace Mokkivarausjarjestelma
         protected MySqlCommand command;
         protected MySqlDataReader reader;
 
-        //Metodi tietokantaan yhdistämistä varten (pitäisikö ConnectionString antaa parametrinä? Ei jos aina vain sama tietokanta kyseessä. Salasanan käyttöä pitää pohtia!)
+        //Metodi tietokantaan yhdistämistä varten 
         public void Connect()
         {
             //Yritetään avata yhteys
@@ -43,19 +45,13 @@ namespace Mokkivarausjarjestelma
             }
         }
 
-        //Kantaluokan virtuaalinen metodi Select-lauseita varten 
-        public virtual void SelectQuery(string kasky)
-        {
-            command = con.CreateCommand();
-            command.CommandText = kasky;
-            reader = command.ExecuteReader();
-        }
-
-        public virtual void InsertQuery()
-        {
-            command = con.CreateCommand();
+        //Kantaluokan abstrakti metodi Select-lauseita varten 
+        public abstract void SelectQuery();
+                  
         
-        }
+        //Kantaluokan abstrakti metodi Update-lauseille
+        public abstract void UpdateQuery(Asiakas a);
+        
 
         //Tietokanta luokan konstruktori
         public Tietokanta() {}
@@ -84,10 +80,13 @@ namespace Mokkivarausjarjestelma
         //Lista löytyneitä asiakkaita varten
         public List<Asiakas> lista = new List<Asiakas>();
       
-        //Ylikirjoitetaan kantaluokan metodi. Lisätoimintona asiakkaan tietojen lukeminen ja lisääminen listaan + readerin sulkeminen
-        public override void SelectQuery(string kasky)
+        //SelectQueryn toteutus asiakkaan tietojen hakemiseen
+        public override void SelectQuery()
         {
-            base.SelectQuery(kasky);
+            string kasky = "Select * from asiakas";
+            command = con.CreateCommand();
+            command.CommandText = kasky;
+            reader = command.ExecuteReader(); 
             while (reader.Read())
             {
                 //Luodaan, jokaista taulun riviä varten asiakasolioita 
@@ -111,12 +110,32 @@ namespace Mokkivarausjarjestelma
             reader.Close();
         }
 
-        public override void InsertQuery()
+        //UpdateQueryn toteutus asiakkaiden tietojen muokkaamiseen
+        public override void UpdateQuery(Asiakas a)
         {
-            base.InsertQuery(kasky);
-            command.CommandText = ("INSERT INTO asiakas(asiakasnumero,etunimi,sukunimi,syntymaaika,katuosoite,postinumero,postitoimipaikka,maa,puhelinnumero,sahkopostiosoite)"
-                +"VALUES(@asiakasnumero,@etunimi,@sukunimi,@syntymaaika,@katuosoite,@postinumero,@postitoimipaikka,@maa,@puhelinnumero,@sahkopostiosoite)");
-            command.Parameters.AddWithValue("@asiakasnumero",txbxAsiakasnumero.Text)
+            command = con.CreateCommand();
+            Connect();
+            //Update Query @merkityt muuttujat? korvataan parametreillä
+            command.CommandText = @"UPDATE asiakas SET etunimi=@etunimi, sukunimi=@sukunimi, syntymaaika=@syntymaaika,
+            katuosoite=@katuosoite, postinumero=@postinumero, postitoimipaikka=@postitoimipaikka, maa=@maa, puhelinnumero=@puhelinnumero,sahkopostiosoite=@sahkopostiosoite WHERE asiakasnumero=@asiakasnumero";
+            //Lisätään updatequeryyn parametrina annetun asiakkaan tiedot
+            command.Parameters.AddWithValue("@asiakasnumero", a.Asiakasnumero);
+            command.Parameters.AddWithValue("@etunimi", a.Etunimi);
+            command.Parameters.AddWithValue("@sukunimi", a.Sukunimi);
+            command.Parameters.AddWithValue("@syntymaaika", a.Syntymaaika);
+            command.Parameters.AddWithValue("@katuosoite", a.Postiosoite);
+            command.Parameters.AddWithValue("@postinumero", a.Postinumero);
+            command.Parameters.AddWithValue("@postitoimipaikka", a.Postitoimipaikka);
+            command.Parameters.AddWithValue("@maa", a.Maa);
+            command.Parameters.AddWithValue("@puhelinnumero", a.Puhelinnumero);
+            command.Parameters.AddWithValue("@sahkopostiosoite", a.Sahkoposti);
+            command.ExecuteNonQuery();
+            //Viesti, joka ilmoittaa tietojen päivityksen onnistuneen
+            MessageBox.Show("Asiakastiedot päivitetty", "Vahvistus", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            //Suljetaan yhteys
+            CloseConnection();
         }
+
+       
     }
 }
