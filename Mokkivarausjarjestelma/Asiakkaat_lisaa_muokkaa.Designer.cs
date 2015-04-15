@@ -52,14 +52,14 @@
             this.txtbSahkopostiosoite = new System.Windows.Forms.TextBox();
             this.lblasiakaslisää = new System.Windows.Forms.Label();
             this.grbxhlotiedot = new System.Windows.Forms.GroupBox();
+            this.txbxhlotunnus = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.grbxyhteystiedot = new System.Windows.Forms.GroupBox();
             this.txtblisatietoja = new System.Windows.Forms.TextBox();
             this.lbllisatietoja = new System.Windows.Forms.Label();
             this.btntallenna = new System.Windows.Forms.Button();
             this.btnperuuta = new System.Windows.Forms.Button();
             this.grbxlisatiedot = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txbxhlotunnus = new System.Windows.Forms.TextBox();
             this.grbxhlotiedot.SuspendLayout();
             this.grbxyhteystiedot.SuspendLayout();
             this.grbxlisatiedot.SuspendLayout();
@@ -313,6 +313,25 @@
             this.grbxhlotiedot.TabStop = false;
             this.grbxhlotiedot.Text = "Henkilötiedot:";
             // 
+            // txbxhlotunnus
+            // 
+            this.txbxhlotunnus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbxhlotunnus.Location = new System.Drawing.Point(269, 250);
+            this.txbxhlotunnus.Margin = new System.Windows.Forms.Padding(4);
+            this.txbxhlotunnus.Name = "txbxhlotunnus";
+            this.txbxhlotunnus.Size = new System.Drawing.Size(197, 26);
+            this.txbxhlotunnus.TabIndex = 39;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(265, 214);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(193, 20);
+            this.label1.TabIndex = 38;
+            this.label1.Text = "Henkilötunnus/Passin nro.";
+            // 
             // grbxyhteystiedot
             // 
             this.grbxyhteystiedot.Controls.Add(this.lblKatuosoite);
@@ -378,31 +397,12 @@
             this.grbxlisatiedot.Controls.Add(this.btnperuuta);
             this.grbxlisatiedot.Controls.Add(this.txtblisatietoja);
             this.grbxlisatiedot.Controls.Add(this.btntallenna);
-            this.grbxlisatiedot.Location = new System.Drawing.Point(783, 510);
+            this.grbxlisatiedot.Location = new System.Drawing.Point(839, 407);
             this.grbxlisatiedot.Name = "grbxlisatiedot";
             this.grbxlisatiedot.Size = new System.Drawing.Size(318, 203);
             this.grbxlisatiedot.TabIndex = 57;
             this.grbxlisatiedot.TabStop = false;
             this.grbxlisatiedot.Text = "Lisätiedot:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(265, 214);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(193, 20);
-            this.label1.TabIndex = 38;
-            this.label1.Text = "Henkilötunnus/Passin nro.";
-            // 
-            // txbxhlotunnus
-            // 
-            this.txbxhlotunnus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbxhlotunnus.Location = new System.Drawing.Point(269, 250);
-            this.txbxhlotunnus.Margin = new System.Windows.Forms.Padding(4);
-            this.txbxhlotunnus.Name = "txbxhlotunnus";
-            this.txbxhlotunnus.Size = new System.Drawing.Size(197, 26);
-            this.txbxhlotunnus.TabIndex = 39;
             // 
             // Asiakkaat_lisaa_muokkaa
             // 

@@ -36,7 +36,7 @@
             this.lblSukunimi = new System.Windows.Forms.Label();
             this.txtbSyntymaaika = new System.Windows.Forms.TextBox();
             this.lblSyntymaaika = new System.Windows.Forms.Label();
-            this.txtbKatuosoite = new System.Windows.Forms.TextBox();
+            this.txtbPostiosoite = new System.Windows.Forms.TextBox();
             this.txtbPostinumero = new System.Windows.Forms.TextBox();
             this.txtbMaa = new System.Windows.Forms.TextBox();
             this.txtbPostitoimipaikka = new System.Windows.Forms.TextBox();
@@ -141,14 +141,14 @@
             this.lblSyntymaaika.TabIndex = 7;
             this.lblSyntymaaika.Text = "Syntymäaika:";
             // 
-            // txtbKatuosoite
+            // txtbPostiosoite
             // 
-            this.txtbKatuosoite.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtbKatuosoite.Location = new System.Drawing.Point(346, 266);
-            this.txtbKatuosoite.Margin = new System.Windows.Forms.Padding(4);
-            this.txtbKatuosoite.Name = "txtbKatuosoite";
-            this.txtbKatuosoite.Size = new System.Drawing.Size(185, 26);
-            this.txtbKatuosoite.TabIndex = 8;
+            this.txtbPostiosoite.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtbPostiosoite.Location = new System.Drawing.Point(346, 266);
+            this.txtbPostiosoite.Margin = new System.Windows.Forms.Padding(4);
+            this.txtbPostiosoite.Name = "txtbPostiosoite";
+            this.txtbPostiosoite.Size = new System.Drawing.Size(185, 26);
+            this.txtbPostiosoite.TabIndex = 8;
             // 
             // txtbPostinumero
             // 
@@ -184,9 +184,9 @@
             this.lblKatuosoite.Location = new System.Drawing.Point(342, 242);
             this.lblKatuosoite.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblKatuosoite.Name = "lblKatuosoite";
-            this.lblKatuosoite.Size = new System.Drawing.Size(89, 20);
+            this.lblKatuosoite.Size = new System.Drawing.Size(91, 20);
             this.lblKatuosoite.TabIndex = 12;
-            this.lblKatuosoite.Text = "Katuosoite:";
+            this.lblKatuosoite.Text = "Postiosoite:";
             // 
             // lblPostitoimipaikka
             // 
@@ -361,7 +361,7 @@
             this.Controls.Add(this.txtbPostitoimipaikka);
             this.Controls.Add(this.txtbMaa);
             this.Controls.Add(this.txtbPostinumero);
-            this.Controls.Add(this.txtbKatuosoite);
+            this.Controls.Add(this.txtbPostiosoite);
             this.Controls.Add(this.lblSyntymaaika);
             this.Controls.Add(this.txtbSyntymaaika);
             this.Controls.Add(this.lblSukunimi);
@@ -390,7 +390,7 @@
         private System.Windows.Forms.Label lblSukunimi;
         private System.Windows.Forms.TextBox txtbSyntymaaika;
         private System.Windows.Forms.Label lblSyntymaaika;
-        private System.Windows.Forms.TextBox txtbKatuosoite;
+        private System.Windows.Forms.TextBox txtbPostiosoite;
         private System.Windows.Forms.TextBox txtbPostinumero;
         private System.Windows.Forms.TextBox txtbMaa;
         private System.Windows.Forms.TextBox txtbPostitoimipaikka;

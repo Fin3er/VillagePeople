@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Mokkivarausjarjestelma
 {
-    //Poista painike kesken Combobox kesken. KÄYTTÖLIITTYMÄ KESKEN, TIETOKANTA KESKEN, KAIKKI KESKEN!!
+    //Tämä luokka sisältää Asiakas-pääikkunan käyttöliittymän toiminnot 
     public partial class FormAsiakkaanHallinta : Form
     {
         public FormAsiakkaanHallinta()
@@ -20,12 +20,12 @@ namespace Mokkivarausjarjestelma
         }
 
         //Luodaan lista asiakasolioita varten
-        private List<Asiakas> lista = new List<Asiakas>();
+        private List<Asiakas> asiakaslista = new List<Asiakas>();
         
         //Saa arvoksi Asiakas-luokan olion
         private Asiakas asiakas;
         
-        //Tehdään kun Asiakkaanhallinta-form ladataan
+        //Tehdään kun Asiakkaanhallinta-form ladataan, päivitetään asiakaslista
         private void Asiakkaanhallinta_Load(object sender, EventArgs e)
         {
             PaivitaAsiakasLista();
@@ -36,26 +36,23 @@ namespace Mokkivarausjarjestelma
             cbbxNimitys.Items.Add("Dr.");
         }
 
+        //Metodi asiakaslistan päivittämiselle
         public void PaivitaAsiakasLista()
         {
             //Tyhjennetään listbox
             lstbxAsiakaslista.Items.Clear();
-            //Luodaan uusi instanssi asiakastietokannasta
-            Asiakastietokanta testi = new Asiakastietokanta();
-            //Yhdistetään tietokantaan
-            testi.Connect();
-            //Annetaan querylause asiakastietojen hakemiseen
-            testi.SelectQuery();
-            //Lista saa arvokseen asiakastietokantaluokan listan
-            lista = testi.lista;
-            //Suljetaan yhteys tietokantaan
-            testi.CloseConnection();
+            //Luodaan uusi instanssi asiakasluokasta
+            Asiakas a = new Asiakas();
+            //Käytetään asiakasluokan metodia HaeKaikkiAsiakkaat
+            a.HaeKaikkiAsiakkaatTietokannasta();
+            //Asiakaslista saa arvokseen asiakasluokan asiakaslistan
+            asiakaslista = a.asiakaslista;
             //Tällä saadaan listbox näyttämään listan sisältämät oliot, muutetaan lista Arrayksi
-            lstbxAsiakaslista.Items.AddRange(lista.ToArray());
+            lstbxAsiakaslista.Items.AddRange(asiakaslista.ToArray());
         }
 
         //Metodi asiakkaan tietojen päivittämiseen, parametriksi muokattava asiakas
-        public void updateAsiakasData(Asiakas a)
+        public void PaivitaAsiakasTiedot(Asiakas a)
         {
             //Tehdään vain jos asiakas on olemassa
             if(a!=null)
@@ -64,7 +61,7 @@ namespace Mokkivarausjarjestelma
                 a.Etunimi = Convert.ToString(txtbEtunimi.Text);
                 a.Sukunimi = Convert.ToString(txtbSukunimi.Text);
                 a.Syntymaaika = Convert.ToString(txtbSyntymaaika.Text);
-                a.Postiosoite = Convert.ToString(txtbKatuosoite.Text);
+                a.Postiosoite = Convert.ToString(txtbPostiosoite.Text);
                 a.Postinumero = Convert.ToString(txtbPostinumero.Text);
                 a.Postitoimipaikka = Convert.ToString(txtbPostitoimipaikka.Text);
                 a.Maa = Convert.ToString(txtbMaa.Text);
@@ -75,13 +72,13 @@ namespace Mokkivarausjarjestelma
         }
 
         //Metodi, joka näyttää Asiakkaan tiedot formilla
-        public void showAsiakas()
+        public void NaytaAsiakas()
         {
             //Jos olio on olemassa näytetään tiedot txtboxeissa
             txbxAsiakasnumero.Text = asiakas != null ? Convert.ToString(asiakas.Asiakasnumero) : "";
             txtbEtunimi.Text = asiakas != null ? Convert.ToString(asiakas.Etunimi) : "";
             txtbSukunimi.Text = asiakas != null ? Convert.ToString(asiakas.Sukunimi) : "";
-            txtbKatuosoite.Text = asiakas != null ? Convert.ToString(asiakas.Postiosoite) : "";
+            txtbPostiosoite.Text = asiakas != null ? Convert.ToString(asiakas.Postiosoite) : "";
             txtbPostinumero.Text = asiakas != null ? Convert.ToString(asiakas.Postinumero) : "";
             txtbPostitoimipaikka.Text=asiakas!=null?Convert.ToString(asiakas.Postitoimipaikka):"";
             txtbSyntymaaika.Text = asiakas != null ? Convert.ToString(asiakas.Syntymaaika) : "";
@@ -90,15 +87,6 @@ namespace Mokkivarausjarjestelma
             txtbPuhelinnumero.Text = asiakas != null ? Convert.ToString(asiakas.Puhelinnumero) : "";
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
         
         //Tässä toiminto, joka suoritetaan kun klikataan nimiä listboxissa
         private void lstbxAsiakaslista_SelectedIndexChanged(object sender, EventArgs e)
@@ -106,20 +94,20 @@ namespace Mokkivarausjarjestelma
             //asiakas saa arvokseen valitun Itemin listasta, joka on Asiakas tyyppiä
             this.asiakas=lstbxAsiakaslista.SelectedItem as Asiakas;
             //Kutsutaan show-metodi valitulle asiakkaalle
-            showAsiakas();
+            NaytaAsiakas();
         }
 
+        //Tallenna tiedot painikkeesta tallennetaan asiakkaan tiedot
         private void btnTallennaTiedot_Click(object sender, EventArgs e)
         {
             this.asiakas = lstbxAsiakaslista.SelectedItem as Asiakas;
             MessageBox.Show("Haluatko varmasti tallettaa muokatut tiedot asiakkaalle?","Vahvistus",MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
-            updateAsiakasData(this.asiakas);
-            Asiakastietokanta b=new Asiakastietokanta();
-            b.UpdateQuery(this.asiakas);
-
-                      
+            PaivitaAsiakasTiedot(this.asiakas);
+            Asiakas b=new Asiakas();
+            b.PaivitaAsiakasTietokantaan(this.asiakas);            
         }
 
+        //Lisää uusi asiakas painikkeesta avataan Asiakkaan lisäys ja muokkausform
         private void btnLisaaUusiAsiakas_Click(object sender, EventArgs e)
         {
             new Asiakkaat_lisaa_muokkaa().Show();
@@ -129,8 +117,8 @@ namespace Mokkivarausjarjestelma
         {
             this.asiakas = lstbxAsiakaslista.SelectedItem as Asiakas;
             MessageBox.Show("Haluatko varmasti poistaa valitun asiakkaan?", "Vahvistus", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            Asiakastietokanta b = new Asiakastietokanta();
-            b.DeleteQuery(this.asiakas);
+            Asiakas b = new Asiakas();
+            b.PoistaAsiakasTietokannasta(this.asiakas);
             PaivitaAsiakasLista();
             
         }

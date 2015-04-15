@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace Mokkivarausjarjestelma
 {
+    //Sisältää asiakkaan lisäys- ja muokkauskäyttöliittymän toiminnallisuuden
     public partial class Asiakkaat_lisaa_muokkaa : Form
     {
         public Asiakkaat_lisaa_muokkaa()
@@ -46,9 +47,9 @@ namespace Mokkivarausjarjestelma
                 }
                 try
                 {
-                    //Annetaan luotu asiakasolio parametrina Tietokanta-luokan InsertQuery-metodille, joka lisää asiakkaan tietokantaan
-                    Asiakastietokanta b = new Asiakastietokanta();
-                    b.InsertQuery(a);
+                    //Annetaan luotu asiakasolio parametrina Tietokanta-luokan LisaaAsiakasTietokantaan-metodille, joka lisää asiakkaan tietokantaan
+                    Asiakas b = new Asiakas();
+                    b.LisaaAsiakasTietokantaan(a);
                 }
                 catch(Exception ex)
                 {
