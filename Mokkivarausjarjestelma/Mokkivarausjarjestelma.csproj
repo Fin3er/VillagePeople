@@ -191,6 +191,9 @@
     <EmbeddedResource Include="Raportit.resx">
       <DependentUpon>Raportit.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Toimipiste.resx">
+      <DependentUpon>Toimipiste.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="asiakkaatDataSet.xsc">
       <DependentUpon>asiakkaatDataSet.xsd</DependentUpon>
     </None>
