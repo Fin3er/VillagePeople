@@ -16,7 +16,7 @@ namespace Mokkivarausjarjestelma
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormAsiakkaanHallinta());
+            Application.Run(new UusiVaraus());
         }
     }
 }

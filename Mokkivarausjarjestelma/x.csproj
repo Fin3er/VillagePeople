@@ -161,6 +161,12 @@
     <Compile Include="Toimipiste_lisaa_muokkaa.Designer.cs">
       <DependentUpon>Toimipiste_lisaa_muokkaa.cs</DependentUpon>
     </Compile>
+    <Compile Include="UusiVaraus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UusiVaraus.Designer.cs">
+      <DependentUpon>UusiVaraus.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Asiakkaanhallinta.resx">
       <DependentUpon>Asiakkaanhallinta.cs</DependentUpon>
     </EmbeddedResource>
@@ -220,6 +226,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Toimipiste_lisaa_muokkaa.resx">
       <DependentUpon>Toimipiste_lisaa_muokkaa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UusiVaraus.resx">
+      <DependentUpon>UusiVaraus.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="asiakkaatDataSet.xsc">
       <DependentUpon>asiakkaatDataSet.xsd</DependentUpon>
