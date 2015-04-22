@@ -167,6 +167,7 @@
     <Compile Include="UusiVaraus.Designer.cs">
       <DependentUpon>UusiVaraus.cs</DependentUpon>
     </Compile>
+    <Compile Include="Varaus.cs" />
     <EmbeddedResource Include="Asiakkaanhallinta.resx">
       <DependentUpon>Asiakkaanhallinta.cs</DependentUpon>
     </EmbeddedResource>
