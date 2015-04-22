@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{90E2EE4B-F466-41D8-990D-A73367FE29B7}</ProjectGuid>
+    <ProjectGuid>{531E25DD-7D30-4776-8AED-6D30FCC6E4DE}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Mokkivarausjarjestelma</RootNamespace>

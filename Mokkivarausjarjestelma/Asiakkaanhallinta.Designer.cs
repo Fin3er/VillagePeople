@@ -79,7 +79,6 @@
             this.lblAsiakaslista.Size = new System.Drawing.Size(97, 20);
             this.lblAsiakaslista.TabIndex = 1;
             this.lblAsiakaslista.Text = "Asiakaslista:";
-            this.lblAsiakaslista.Click += new System.EventHandler(this.label1_Click);
             // 
             // txtbEtunimi
             // 
@@ -209,7 +208,6 @@
             this.lblPostinumero.Size = new System.Drawing.Size(102, 20);
             this.lblPostinumero.TabIndex = 14;
             this.lblPostinumero.Text = "Postinumero:";
-            this.lblPostinumero.Click += new System.EventHandler(this.label7_Click);
             // 
             // lblMaa
             // 
