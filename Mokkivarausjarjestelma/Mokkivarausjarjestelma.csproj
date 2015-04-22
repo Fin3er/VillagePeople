@@ -149,12 +149,14 @@
       <DependentUpon>Raportit.cs</DependentUpon>
     </Compile>
     <Compile Include="Tietokanta.cs" />
-    <Compile Include="Toimipiste.cs">
+    <Compile Include="Toimipiste.cs" />
+    <Compile Include="Toimipisteenhallinta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Toimipiste.Designer.cs">
-      <DependentUpon>Toimipiste.cs</DependentUpon>
+    <Compile Include="Toimipisteenhallinta.Designer.cs">
+      <DependentUpon>Toimipisteenhallinta.cs</DependentUpon>
     </Compile>
+    <Compile Include="ToimipisteGetSet.cs" />
     <Compile Include="Toimipiste_lisaa_muokkaa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -191,8 +193,8 @@
     <EmbeddedResource Include="Raportit.resx">
       <DependentUpon>Raportit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Toimipiste.resx">
-      <DependentUpon>Toimipiste.cs</DependentUpon>
+    <EmbeddedResource Include="Toimipisteenhallinta.resx">
+      <DependentUpon>Toimipisteenhallinta.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="asiakkaatDataSet.xsc">
       <DependentUpon>asiakkaatDataSet.xsd</DependentUpon>
