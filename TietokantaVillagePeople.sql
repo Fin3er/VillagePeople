@@ -23,6 +23,7 @@ CREATE TABLE Mokki (
 	Kuvat VARCHAR(30)*/
 );
 CREATE TABLE Toimipiste (
+	ToimipisteId INTEGER(15) NOT NULL IDENTITY PRIMARY KEY UNIQUE,
 	Nimi VARCHAR(30),
 	Katuosoite VARCHAR(30),
 	Postinumero VARCHAR(10),
@@ -62,6 +63,29 @@ CREATE TABLE Lasku (
 	LaskutusPaiva VARCHAR(15),	
 	FOREIGN KEY (Asiakasnumero) REFERENCES Asiakas(Asiakasnumero)
 );
+
+CREATE TABLE varaus (
+	VarausId INTEGER(6) PRIMARY KEY IDENTITY NOT NULL,
+	ToimipisteId INTEGER(3) NOT NULL,
+	Asiakasnumero INTEGER(6) NOT NULL,
+	alkpvm DATETIME NOT NULL,
+	paattymispvm DATETIME NOT NULL,
+	vahvistuspvm DATETIME NOT NULL,
+	paivat INTEGER(3) NOT NULL,
+	vahvistettu  VARCHAR(5) NOT NULL,
+	alennuskoodi VARCHAR(10),
+	yopyjat VARCHAR(3),
+	lisatietoja VARCHAR(250) NOT NULL,
+	hinta DOUBLE(4) NOT NULL,
+	laskutus VARCHAR(10) NOT NULL,
+	lisatty TIMESTAMP CURRENT_TIMESTAMP,
+	FOREIGN KEY ToimipisteId REFERENCES Toimipiste(ToimipisteId),
+	FOREIGN KEY Asiakasnumero REFERENCES Asiakas(Asiakasnumero)
+);
+
+ //Paivat = paattymispvm-alkpvm, hinta=paivat*mökin hinta
+
+
 CREATE TABLE Salasanat (
 	Id INTEGER(50),
 	Salasana VARCHAR(100)	
