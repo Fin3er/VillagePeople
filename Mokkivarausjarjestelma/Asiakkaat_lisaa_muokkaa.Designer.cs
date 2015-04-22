@@ -34,9 +34,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(708, 575);
+            this.ClientSize = new System.Drawing.Size(1184, 761);
             this.Name = "Asiakkaat_lisaa_muokkaa";
-            this.Text = "Asiakkaat_lisaa_muokkaa";
+            this.Text = "Village People Mökkivarausjärjestelmä";
             this.ResumeLayout(false);
 
         }
