@@ -1,4 +1,6 @@
-﻿CREATE TABLE Asiakas (
+﻿/* MYSQL: IDENTITY => AUTO_INCREMENT ? */
+
+CREATE TABLE Asiakas (
 	Asiakasnumero INTEGER(15) NOT NULL IDENTITY PRIMARY KEY UNIQUE,
 	Titteli VARCHAR(5) NOT NULL,
 	Etunimi VARCHAR(30) NOT NULL, 
@@ -6,6 +8,7 @@
 	SyntymaAika VARCHAR(10) NOT NULL, /* pp-kk-vvvv */
 	Katuosoite VARCHAR(45) NOT NULL,  
 	Postinumero VARCHAR(20) NOT NULL,
+	Postitoimipaikka VARCHAR(20) NOT NULL,
 	Maa VARCHAR(80) NOT NULL,  /* Al Jumahiriyah al Arabiyah al Libiyah ash Shabiyah al Ishtirakiyah al Uzma = libya */
 	Kansalaisuus VARCHAR(40) NOT NULL,
 	Puhelinumero VARCHAR(40) NOT NULL,
@@ -17,7 +20,7 @@ CREATE TABLE Mokki (
 	Hinta INTEGER(8) NOT NULL,
 	HenkiloMaara INTEGER(3) NOT NULL,
 	PintaAla INTEGER(4),
-	Lemmikit BOOLEAN,
+	Lemmikit TINYINT(1),
 	/* Palvelut VARCHAR(256),
 	Kuvaus VARCHAR(256),
 	Kuvat VARCHAR(30)*/
@@ -35,7 +38,7 @@ CREATE TABLE Toimipiste (
 CREATE TABLE Lisapalvelu (
 	Hinta INTEGER(8),
 	Kuvaus VARCHAR(256),
-	Aika VARCHAR(30)
+	Aika VARCHAR(30),
 );
 CREATE TABLE Kayttaja (
 	Kayttajanumero INTEGER(15) NOT NULL IDENTITY PRIMARY KEY UNIQUE,
@@ -53,6 +56,7 @@ CREATE TABLE Kayttaja (
 
 );
 CREATE TABLE Lasku (
+	LaskuId INTEGER(15) NOT NULL IDENTITY PRIMARY KEY UNIQUE,
 	Asiakasnumero INTEGER(15) NOT NULL,
 	Hinta INTEGER(10),
 	HintaErittely INTEGER(10),
@@ -76,14 +80,12 @@ CREATE TABLE varaus (
 	alennuskoodi VARCHAR(10),
 	yopyjat VARCHAR(3),
 	lisatietoja VARCHAR(250) NOT NULL,
-	hinta DOUBLE(4) NOT NULL,
+	hinta DECIMAL(4) NOT NULL,
 	laskutus VARCHAR(10) NOT NULL,
-	lisatty TIMESTAMP CURRENT_TIMESTAMP,
-	FOREIGN KEY ToimipisteId REFERENCES Toimipiste(ToimipisteId),
-	FOREIGN KEY Asiakasnumero REFERENCES Asiakas(Asiakasnumero)
-);
-
- //Paivat = paattymispvm-alkpvm, hinta=paivat*mökin hinta
+	lisatty DATETIME NOT NULL DEFAULT NOW(),
+	FOREIGN KEY (ToimipisteId)  REFERENCES Toimipiste(ToimipisteId),
+	FOREIGN KEY (Asiakasnumero) REFERENCES Asiakas(Asiakasnumero)
+);  /*Paivat = paattymispvm-alkpvm, hinta=paivat*mökin hinta*/
 
 
 CREATE TABLE Salasanat (
