@@ -97,5 +97,6 @@ CREATE TABLE varaus (
 
 CREATE TABLE Salasanat (
 	Id INTEGER(50),
-	Salasana VARCHAR(100)	
+	Salasana VARCHAR(100),
+	FOREIGN KEY (Id) REFERENCES Kayttaja(Kayttajanumero)
 );
