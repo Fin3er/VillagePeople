@@ -91,7 +91,7 @@ CREATE TABLE varaus (
 	lisatty DATETIME NOT NULL DEFAULT NOW(),
 	FOREIGN KEY (ToimipisteId)  REFERENCES Toimipiste(ToimipisteId),
 	FOREIGN KEY (Asiakasnumero) REFERENCES Asiakas(Asiakasnumero),
-	FOREIGN KEY (Mokkinumero) REFERENCES Mokki(Mokkinumero)
+	FOREIGN KEY (Mokkinumero) REFERENCES Mokki(Mokkinumero),
 );  /*Paivat = paattymispvm-alkpvm, hinta=paivat*mökin hinta*/
 
 
