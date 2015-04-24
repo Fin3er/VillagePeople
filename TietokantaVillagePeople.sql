@@ -33,12 +33,14 @@ CREATE TABLE Toimipiste (
 	Postitoimipaikka VARCHAR(30),
 	Puhelinumero VARCHAR(15),
 	Sahkopostiosoite VARCHAR(50),
-	Yhteyshenkilo VARCHAR(30)
+	Yhteyshenkilo VARCHAR(30),
+	AukioloAika VARCHAR(30)
 );
 CREATE TABLE Lisapalvelu (
 	Hinta INTEGER(8),
 	Kuvaus VARCHAR(256),
 	Aika VARCHAR(30),
+	/* Ajankohta */
 );
 CREATE TABLE Kayttaja (
 	Kayttajanumero INTEGER(15) NOT NULL IDENTITY PRIMARY KEY UNIQUE,
@@ -47,6 +49,7 @@ CREATE TABLE Kayttaja (
 	SyntymaAika VARCHAR(10) NOT NULL, /* pp-kk-vvvv */
 	Katuosoite VARCHAR(45) NOT NULL,  
 	Postinumero VARCHAR(20) NOT NULL,
+	Postitoimipaikka VARCHAR(30),
 	Maa VARCHAR(80) NOT NULL,  /* Al Jumahiriyah al Arabiyah al Libiyah ash Shabiyah al Ishtirakiyah al Uzma = libya */
 	Kansalaisuus VARCHAR(40) NOT NULL,
 	Puhelinumero VARCHAR(40) NOT NULL,
@@ -58,6 +61,7 @@ CREATE TABLE Kayttaja (
 CREATE TABLE Lasku (
 	LaskuId INTEGER(15) NOT NULL IDENTITY PRIMARY KEY UNIQUE,
 	Asiakasnumero INTEGER(15) NOT NULL,
+	Mokkinumero INTEGER(15) NOT NULL,
 	Hinta INTEGER(10),
 	HintaErittely INTEGER(10),
 	Tilitiedot INTEGER(10),
@@ -65,13 +69,15 @@ CREATE TABLE Lasku (
 	Vastaanottaja VARCHAR(40),
 	EraPaiva VARCHAR(15),
 	LaskutusPaiva VARCHAR(15),	
-	FOREIGN KEY (Asiakasnumero) REFERENCES Asiakas(Asiakasnumero)
+	FOREIGN KEY (Asiakasnumero) REFERENCES Asiakas(Asiakasnumero),
+	FOREIGN KEY (Mokkinumero) REFERENCES Mokki(Mokkinumero)
 );
 
 CREATE TABLE varaus (
 	VarausId INTEGER(6) PRIMARY KEY IDENTITY NOT NULL,
 	ToimipisteId INTEGER(3) NOT NULL,
-	Asiakasnumero INTEGER(6) NOT NULL,
+	Asiakasnumero INTEGER(15) NOT NULL,
+	Mokkinumero INTEGER(15) NOT NULL,
 	alkpvm DATETIME NOT NULL,
 	paattymispvm DATETIME NOT NULL,
 	vahvistuspvm DATETIME NOT NULL,
@@ -84,7 +90,8 @@ CREATE TABLE varaus (
 	laskutus VARCHAR(10) NOT NULL,
 	lisatty DATETIME NOT NULL DEFAULT NOW(),
 	FOREIGN KEY (ToimipisteId)  REFERENCES Toimipiste(ToimipisteId),
-	FOREIGN KEY (Asiakasnumero) REFERENCES Asiakas(Asiakasnumero)
+	FOREIGN KEY (Asiakasnumero) REFERENCES Asiakas(Asiakasnumero),
+	FOREIGN KEY (Mokkinumero) REFERENCES Mokki(Mokkinumero)
 );  /*Paivat = paattymispvm-alkpvm, hinta=paivat*mökin hinta*/
 
 
