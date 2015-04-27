@@ -27,17 +27,17 @@ CREATE TABLE Mokki (
 );
 CREATE TABLE Toimipiste (
 	ToimipisteId INTEGER(15) NOT NULL IDENTITY PRIMARY KEY UNIQUE,
-	Nimi VARCHAR(30),
+	Nimi VARCHAR(30) NOT NULL,
 	Katuosoite VARCHAR(30),
 	Postinumero VARCHAR(10),
 	Postitoimipaikka VARCHAR(30),
 	Puhelinumero VARCHAR(15),
 	Sahkopostiosoite VARCHAR(50),
-	Yhteyshenkilo VARCHAR(30),
+	Yhteyshenkilo VARCHAR(30) NOT NULL,
 	AukioloAika VARCHAR(30)
 );
 CREATE TABLE Lisapalvelu (
-	Hinta INTEGER(8),
+	Hinta INTEGER(8) NOT NULL,
 	Kuvaus VARCHAR(256),
 	Aika VARCHAR(30),
 	/* Ajankohta */
@@ -56,7 +56,7 @@ CREATE TABLE Kayttaja (
 	Sahkopostiosoite VARCHAR(60),
 	Tyonimike VARCHAR(40),
 	Tyopiste VARCHAR(40),
-
+	FOREIGN KEY (Tyopiste) REFERENCES Toimipiste(Nimi)
 );
 CREATE TABLE Lasku (
 	LaskuId INTEGER(15) NOT NULL IDENTITY PRIMARY KEY UNIQUE,
