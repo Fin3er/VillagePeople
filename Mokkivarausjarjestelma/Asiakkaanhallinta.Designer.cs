@@ -234,12 +234,12 @@
             // 
             this.lblNimitys.AutoSize = true;
             this.lblNimitys.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNimitys.Location = new System.Drawing.Point(343, 100);
+            this.lblNimitys.Location = new System.Drawing.Point(347, 100);
             this.lblNimitys.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNimitys.Name = "lblNimitys";
-            this.lblNimitys.Size = new System.Drawing.Size(63, 20);
+            this.lblNimitys.Size = new System.Drawing.Size(50, 20);
             this.lblNimitys.TabIndex = 17;
-            this.lblNimitys.Text = "Nimitys:";
+            this.lblNimitys.Text = "Titteli:";
             // 
             // txtbPuhelinnumero
             // 
@@ -314,7 +314,7 @@
             this.btnTallennaTiedot.Name = "btnTallennaTiedot";
             this.btnTallennaTiedot.Size = new System.Drawing.Size(200, 46);
             this.btnTallennaTiedot.TabIndex = 24;
-            this.btnTallennaTiedot.Text = "Tallenna tiedot";
+            this.btnTallennaTiedot.Text = "Muokkaa tietoja";
             this.btnTallennaTiedot.UseVisualStyleBackColor = true;
             this.btnTallennaTiedot.Click += new System.EventHandler(this.btnTallennaTiedot_Click);
             // 

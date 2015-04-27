@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblAsiakasnumero = new System.Windows.Forms.Label();
-            this.txbxAsiakasnumero = new System.Windows.Forms.TextBox();
             this.lblNimitys = new System.Windows.Forms.Label();
             this.cbbxNimitys = new System.Windows.Forms.ComboBox();
             this.lblEtunimi = new System.Windows.Forms.Label();
@@ -60,34 +58,17 @@
             this.btntallenna = new System.Windows.Forms.Button();
             this.btnperuuta = new System.Windows.Forms.Button();
             this.grbxlisatiedot = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.grbxhlotiedot.SuspendLayout();
             this.grbxyhteystiedot.SuspendLayout();
             this.grbxlisatiedot.SuspendLayout();
             this.SuspendLayout();
             // 
-            // lblAsiakasnumero
-            // 
-            this.lblAsiakasnumero.AutoSize = true;
-            this.lblAsiakasnumero.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAsiakasnumero.Location = new System.Drawing.Point(33, 49);
-            this.lblAsiakasnumero.Name = "lblAsiakasnumero";
-            this.lblAsiakasnumero.Size = new System.Drawing.Size(123, 20);
-            this.lblAsiakasnumero.TabIndex = 27;
-            this.lblAsiakasnumero.Text = "Asiakasnumero:";
-            // 
-            // txbxAsiakasnumero
-            // 
-            this.txbxAsiakasnumero.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbxAsiakasnumero.Location = new System.Drawing.Point(37, 90);
-            this.txbxAsiakasnumero.Name = "txbxAsiakasnumero";
-            this.txbxAsiakasnumero.Size = new System.Drawing.Size(123, 26);
-            this.txbxAsiakasnumero.TabIndex = 28;
-            // 
             // lblNimitys
             // 
             this.lblNimitys.AutoSize = true;
             this.lblNimitys.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNimitys.Location = new System.Drawing.Point(265, 49);
+            this.lblNimitys.Location = new System.Drawing.Point(33, 37);
             this.lblNimitys.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNimitys.Name = "lblNimitys";
             this.lblNimitys.Size = new System.Drawing.Size(50, 20);
@@ -98,7 +79,7 @@
             // 
             this.cbbxNimitys.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbxNimitys.FormattingEnabled = true;
-            this.cbbxNimitys.Location = new System.Drawing.Point(269, 88);
+            this.cbbxNimitys.Location = new System.Drawing.Point(37, 80);
             this.cbbxNimitys.Margin = new System.Windows.Forms.Padding(4);
             this.cbbxNimitys.Name = "cbbxNimitys";
             this.cbbxNimitys.Size = new System.Drawing.Size(102, 28);
@@ -298,8 +279,6 @@
             this.grbxhlotiedot.Controls.Add(this.label1);
             this.grbxhlotiedot.Controls.Add(this.lblNimitys);
             this.grbxhlotiedot.Controls.Add(this.cbbxNimitys);
-            this.grbxhlotiedot.Controls.Add(this.lblAsiakasnumero);
-            this.grbxhlotiedot.Controls.Add(this.txbxAsiakasnumero);
             this.grbxhlotiedot.Controls.Add(this.lblEtunimi);
             this.grbxhlotiedot.Controls.Add(this.txtbEtunimi);
             this.grbxhlotiedot.Controls.Add(this.lblSukunimi);
@@ -404,12 +383,22 @@
             this.grbxlisatiedot.TabStop = false;
             this.grbxlisatiedot.Text = "Lisätiedot:";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(841, 633);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(96, 23);
+            this.button1.TabIndex = 57;
+            this.button1.Text = "Lisää asiakas";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // Asiakkaat_lisaa_muokkaa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1184, 750);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.grbxlisatiedot);
             this.Controls.Add(this.grbxyhteystiedot);
             this.Controls.Add(this.grbxhlotiedot);
@@ -430,8 +419,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lblAsiakasnumero;
-        private System.Windows.Forms.TextBox txbxAsiakasnumero;
         private System.Windows.Forms.Label lblNimitys;
         private System.Windows.Forms.ComboBox cbbxNimitys;
         private System.Windows.Forms.Label lblEtunimi;
@@ -462,5 +449,6 @@
         private System.Windows.Forms.Button btntallenna;
         private System.Windows.Forms.Button btnperuuta;
         private System.Windows.Forms.GroupBox grbxlisatiedot;
+        private System.Windows.Forms.Button button1;
     }
 }

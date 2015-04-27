@@ -12,8 +12,8 @@ namespace Mokkivarausjarjestelma
     public partial class Varaus
     {
         private string varausid;
-        private Toimipiste toimipiste; //olio-kun luokka on valmis
-        private Mokki mokki; //olio kun luokka on valmis
+        private Toimipiste toimipiste; 
+        private Mokki mokki; 
         private string saapumispvm;
         private string lahtopvm;
         private int paivat;

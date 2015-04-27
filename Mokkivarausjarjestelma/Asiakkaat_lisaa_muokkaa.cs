@@ -18,6 +18,20 @@ namespace Mokkivarausjarjestelma
             InitializeComponent();
         }
 
+        public Asiakkaat_lisaa_muokkaa(Asiakas a)
+        {
+            InitializeComponent();
+            txtbEtunimi.Text = a.Etunimi;
+            txtbSukunimi.Text = a.Sukunimi;
+            dtpSyntymaaika.Value = Convert.ToDateTime(a.Syntymaaika);
+            txtbKatuosoite.Text = a.Postiosoite;
+            txtbPostinumero.Text = a.Postinumero;
+            txtbPostitoimipaikka.Text = a.Postitoimipaikka;
+            txtbMaa.Text = a.Maa;
+            txtbPuhelinnumero.Text = a.Puhelinnumero;
+            txtbSahkopostiosoite.Text = a.Sahkoposti;
+        }
+
         //Tapahtuu kun painetaan tallenna painiketta
         private void btntallenna_Click(object sender, EventArgs e)
         {
@@ -30,7 +44,6 @@ namespace Mokkivarausjarjestelma
                 try
                 { 
                     //Lisätään formin tiedot asiakasolion tiedoiksi
-                    a.Asiakasnumero = Convert.ToString(txbxAsiakasnumero.Text);
                     a.Etunimi = Convert.ToString(txtbEtunimi.Text);
                     a.Sukunimi = Convert.ToString(txtbSukunimi.Text);
                     a.Syntymaaika = Convert.ToString(dtpSyntymaaika.Value);
@@ -38,7 +51,7 @@ namespace Mokkivarausjarjestelma
                     a.Postinumero = Convert.ToString(txtbPostinumero.Text);
                     a.Postitoimipaikka = Convert.ToString(txtbPostitoimipaikka.Text);
                     a.Maa = Convert.ToString(txtbMaa.Text);
-                    a.Puhelinnumero = Convert.ToString(txtbPostinumero.Text);
+                    a.Puhelinnumero = Convert.ToString(txtbPuhelinnumero.Text);
                     a.Sahkoposti = Convert.ToString(txtbSahkopostiosoite.Text);
                 }
                 catch(Exception ex)

@@ -102,9 +102,12 @@ namespace Mokkivarausjarjestelma
         {
             this.asiakas = lstbxAsiakaslista.SelectedItem as Asiakas;
             MessageBox.Show("Haluatko varmasti tallettaa muokatut tiedot asiakkaalle?","Vahvistus",MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
+            new Asiakkaat_lisaa_muokkaa(this.asiakas).Show();
+            /*
             PaivitaAsiakasTiedot(this.asiakas);
             Asiakas b=new Asiakas();
-            b.PaivitaAsiakasTietokantaan(this.asiakas);            
+            b.PaivitaAsiakasTietokantaan(this.asiakas);
+            */
         }
 
         //Lisää uusi asiakas painikkeesta avataan Asiakkaan lisäys ja muokkausform
