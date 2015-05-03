@@ -129,6 +129,7 @@
       <DependentUpon>Mokit.cs</DependentUpon>
     </Compile>
     <Compile Include="Mokki.cs" />
+    <Compile Include="MokkiGetSet.cs" />
     <Compile Include="Mokkivaraus.cs">
       <SubType>Form</SubType>
     </Compile>
