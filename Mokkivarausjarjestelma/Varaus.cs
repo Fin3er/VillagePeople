@@ -8,9 +8,10 @@ using MySql.Data.MySqlClient;
 using System.Windows.Forms;
 
 /* Ei testattu, tehty Asiakas mallista, ei lupauksia minkäänlaisesta toiminnasta */
-
+/*
 namespace Mokkivarausjarjestelma
 {
+    
     public partial class Varaus
     {
         // Varauksen muuttujat
@@ -187,3 +188,4 @@ namespace Mokkivarausjarjestelma
 
     }
 }
+     * */

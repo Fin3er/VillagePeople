@@ -7,12 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 
 namespace Mokkivarausjarjestelma
 {
     public partial class UusiVaraus : Form
     {
+        //Muuttujat tietokantakyselyjä varten
+        protected MySqlConnection yhteys;
+        protected MySqlCommand kasky;
+        protected MySqlDataReader lukija;
+
         public UusiVaraus()
         {
             InitializeComponent();
@@ -56,7 +62,69 @@ namespace Mokkivarausjarjestelma
             }
         }
 
+        // Metodi Toimipiste comboboxin täyttämiselle, en tiedä toimiiko
+        public void ToimipisteCombobox()
+        {
+            Tietokanta t = new Tietokanta();
+            yhteys = t.YhdistaTietokantaan();
+            kasky = yhteys.CreateCommand();
+            kasky.CommandText = "Select toimipisteid from toimipiste";
+            lukija = kasky.ExecuteReader();
+            try
+            {
+                while (lukija.Read())
+                {
+                    cmbxtoimipiste.Items.Add(lukija.GetValue(0));
+                }
+            }
+                  catch (Exception ex)
+            {
+                MessageBox.Show("Comboboxia täyttäessä tapahtui virhe:" + ex.ToString());
+            }
+            try
+            {
+                //Suljetaan reader
+                lukija.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lukijaa sulkiessa tapahtui virhe:" + ex.ToString());
+            }
+            t.SuljeYhteysTietokantaan(yhteys);
+        }
+        // Metodi Mökkityypin comboboxin täyttämiselle, en tiedä toimiiko
+        public void MokkityyppiCombobox()
+        {
+            Tietokanta t = new Tietokanta();
+            yhteys = t.YhdistaTietokantaan();
+            kasky = yhteys.CreateCommand();
+            kasky.CommandText = "Select mokkityyppi from mokki";
+            lukija = kasky.ExecuteReader();
+            try
+            {
+                while (lukija.Read())
+                {
+                    cmbxmokkityyppi.Items.Add(lukija.GetValue(0));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Comboboxia täyttäessä tapahtui virhe:" + ex.ToString());
+            }
+            try
+            {
+                //Suljetaan reader
+                lukija.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lukijaa sulkiessa tapahtui virhe:" + ex.ToString());
+            }
+            t.SuljeYhteysTietokantaan(yhteys);
 
         }
-    }
+        }
+
+        }
+  
 
