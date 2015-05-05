@@ -170,6 +170,9 @@
     <EmbeddedResource Include="Asiakkaanhallinta.resx">
       <DependentUpon>Asiakkaanhallinta.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Asiakkaat.resx">
+      <DependentUpon>Asiakkaat.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Asiakkaat_lisaa_muokkaa.resx">
       <DependentUpon>Asiakkaat_lisaa_muokkaa.cs</DependentUpon>
     </EmbeddedResource>
