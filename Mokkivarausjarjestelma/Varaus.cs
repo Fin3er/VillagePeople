@@ -42,7 +42,53 @@ namespace Mokkivarausjarjestelma
         ~Varaus() { }
 
         // Varauksen hakeminen
-
+        public void HaeKaikkiVarauksetTietokannasta()
+        {
+            Tietokanta t = new Tietokanta();
+            yhteys = t.YhdistaTietokantaan();
+            kasky = yhteys.CreateCommand();
+            kasky.CommandText = "Select * from Varaus";
+            lukija = kasky.ExecuteReader();
+            try
+            {
+                while (lukija.Read())
+                {
+                    //Luodaan, jokaista taulun riviä varten varausolioita 
+                    Varaus v = new Varaus();
+                    v.Varausid = lukija.GetString("varausid");
+                    v.Toimipisteid = lukija.GetString("toimipisteid");
+                    v.Asiakasnumero = lukija.GetString("asiakasnumero");
+                    v.Mokkinumero = lukija.GetString("mokkinumero");
+                    v.Saapumispvm = lukija.GetString("saapumispvm");
+                    v.Lahtopvm = lukija.GetString("lahtopvm");
+                    v.Paivat = lukija.GetString("paivat");
+                    v.Vahvistettu = lukija.GetString("vahvistettu");
+                    v.Alennuskoodi = lukija.GetString("alennuskoodi");
+                    v.Yopyjat = lukija.GetString("yopyjat");
+                    v.Lisatietoja = lukija.GetString("lisatietoja");
+                    v.Hinta = lukija.GetString("hinta");
+                    v.Laskutus = lukija.GetString("laskutus");
+                    //Lisätään luotu olio listaan
+                    asiakaslista.Add(v);
+                    //Alustetaan t nollaksi
+                    v = null;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Tietoja haettaessa tapahtui virhe:" + ex.ToString());
+            }
+            try
+            {
+                //Suljetaan reader
+                lukija.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lukijaa sulkiessa tapahtui virhe:" + ex.ToString());
+            }
+            t.SuljeYhteysTietokantaan(yhteys);
+        }
 
         // Varauksen päivittäminen
 
