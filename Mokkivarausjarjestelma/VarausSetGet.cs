@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/*
 namespace Mokkivarausjarjestelma
 {
-    //Tämä luokka sisältää setterit ja getterit Varaus-luokan attribuuteille
+    /Tämä luokka sisältää setterit ja getterit Varaus-luokan attribuuteille
     public partial class Varaus
     {
         public string Varausid
@@ -166,3 +167,4 @@ namespace Mokkivarausjarjestelma
         }
     }
 }
+    */
