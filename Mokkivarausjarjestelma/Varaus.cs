@@ -91,7 +91,42 @@ namespace Mokkivarausjarjestelma
         }
 
         // Varauksen päivittäminen
+        public void PaivitaAsiakasTietokantaan(Asiakas a)
+        {
+            Tietokanta t = new Tietokanta();
+            yhteys = t.YhdistaTietokantaan();
+            kasky = yhteys.CreateCommand();
+            //Update Query @merkityt muuttujat? korvataan parametreillä
+            kasky.CommandText = @"INSERT INTO varaus (varausid, toimipisteid, asiakasnumero, mokkinumero, saapumispvm, lahtopvm, paivat, vahvistettu, alennuskoodi, yopyjat, lisatietoja, hinta, laskutus)
+                                VALUES (@varausid, @toimipisteid, @asiakasnumero, @mokkinumero, @saapumispvm, @lahtopvm, @paivat, @vahvistettu, @alennuskoodi, @yopyjat, @lisatietoja, @hinta, @laskutus)";
+            //Lisätään updatequeryyn parametrina annetun asiakkaan tiedot
+            kasky.Parameters.AddWithValue("@varausid", v.Varausid);
+            kasky.Parameters.AddWithValue("@toimipisteid", v.ToimipisteId);
+            kasky.Parameters.AddWithValue("@asiakasnumero", v.Asiakasnumero);
+            kasky.Parameters.AddWithValue("@mokkinumero", v.Mokkinumero);
+            kasky.Parameters.AddWithValue("@saapumispvm", v.Saapumispvm);
+            kasky.Parameters.AddWithValue("@lahtopvm", v.Lahtopvm);
+            kasky.Parameters.AddWithValue("@paivat", v.Paivat);
+            kasky.Parameters.AddWithValue("@vahvistettu", v.Vahvistettu);
+            kasky.Parameters.AddWithValue("@alennuskoodi", v.Alennuskoodi);
+            kasky.Parameters.AddWithValue("@yopyjat", v.yopyjat);
+            kasky.Parameters.AddWithValue("@lisatietoja", v.Lisatietoja);
+            kasky.Parameters.AddWithValue("@hinta", v.Hinta);
+            kasky.Parameters.AddWithValue("@laskutus", v.Laskutus);
+            try
+            {
+                kasky.ExecuteNonQuery();
+                //Viesti, joka ilmoittaa tietojen päivityksen onnistuneen
+                MessageBox.Show("Varaustiedot päivitetty", "Vahvistus", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Päivitettäessä tietoja tapahtui virhe: " + ex.ToString());
+            }
 
+            //Suljetaan yhteys
+            t.SuljeYhteysTietokantaan(yhteys);
+        }
 
         // Varauksen lisääminen
         public void LisaaAsiakasTietokantaan(Asiakas a)
@@ -130,7 +165,24 @@ namespace Mokkivarausjarjestelma
         }
 
         // Varauksen poistaminen
-
+        public void PoistaAsiakasTietokannasta(Asiakas a)
+        {
+            Tietokanta t = new Tietokanta();
+            yhteys = t.YhdistaTietokantaan();
+            kasky = yhteys.CreateCommand();
+            kasky.CommandText = "DELETE FROM varaus WHERE varausid=@varausid";
+            kasky.Parameters.AddWithValue("@varausid", v.varausid);
+            try
+            {
+                kasky.ExecuteNonQuery();
+                MessageBox.Show("Varaus poistettu", "Vahvistus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Tapahtui virhe varausta poistettaessa:" + ex.ToString());
+            }
+            t.SuljeYhteysTietokantaan(yhteys);
+        }
 
     }
 }
