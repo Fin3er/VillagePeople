@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Windows.Forms;
 
-/* Ei testattu, tehty Asiakas mallista */
+/* Ei testattu, tehty Asiakas mallista, ei lupauksia minkäänlaisesta toiminnasta */
 
 namespace Mokkivarausjarjestelma
 {
@@ -69,7 +69,7 @@ namespace Mokkivarausjarjestelma
                     v.Hinta = lukija.GetString("hinta");
                     v.Laskutus = lukija.GetString("laskutus");
                     //Lisätään luotu olio listaan
-                    asiakaslista.Add(v);
+                    varauslista.Add(v);
                     //Alustetaan t nollaksi
                     v = null;
                 }
