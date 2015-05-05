@@ -16,7 +16,8 @@ namespace Mokkivarausjarjestelma
         private string mokkitunnus;
 	    private string m_osoite;
 	    private string m_postinumero;
-	    private string m_toimipaikka;
+	    private string m_toimipiste;
+        private string m_postitoimipaikka;
 	    private string m_maa;
 	    private string vuorokausihinta;
 	    private string huoneita;
@@ -58,7 +59,8 @@ namespace Mokkivarausjarjestelma
                 m.Mokkitunnus = lukija.GetString("mokkitunnus");
                 m.M_osoite = lukija.GetString("katuosoite");
                 m.M_postinumero = lukija.GetString("postinumero");
-                m.M_toimipaikka = lukija.GetString("toimipaikka");
+                m.M_toimipiste = lukija.GetString("toimipiste");
+                m.M_postitoimipaikka = lukija.GetString("postitoimipaikka");
                 m.M_maa = lukija.GetString("maa");
                 m.Vuorokausihinta = lukija.GetString("vuorokausihinta");
                 m.Huoneita = lukija.GetString("huoneita");
@@ -96,13 +98,14 @@ namespace Mokkivarausjarjestelma
         kasky = yhteys.CreateCommand();
         //Update Query @merkityt muuttujat? korvataan parametreillä
         kasky.CommandText = @"UPDATE mokki SET katuosoite=@katuosoite, postinumero=@postinumero,
-            toimipaikka=@toimipaikka, maa=@maa, vuorokausihinta=@vuorokaushinta, huoneita=@huoneita, makuuhuoneita=@makuuhuoneita, 
+            toimipiste=@toimipiste, postitoimipaikka=@postitoimipaikka maa=@maa, vuorokausihinta=@vuorokaushinta, huoneita=@huoneita, makuuhuoneita=@makuuhuoneita, 
             pintaala=@pintaala, vuodepaikat=@vuodepaikat, lisatietoa=@lisatietoa, verkkoyhteys=@verkkoyhteys WHERE mokkitunnus=@mokkitunnus";
         //Lisätään updatequeryyn parametrina annetun asiakkaan tiedot
         kasky.Parameters.AddWithValue("@mokkitunnus", m.Mokkitunnus);
         kasky.Parameters.AddWithValue("@katuosoite", m.M_osoite);
         kasky.Parameters.AddWithValue("@postinumero", m.M_postinumero);
-        kasky.Parameters.AddWithValue("@toimipaikka", m.M_toimipaikka);
+        kasky.Parameters.AddWithValue("@toimipiste", m.M_toimipiste);
+        kasky.Parameters.AddWithValue("@postitoimipaikka", m.M_postitoimipaikka);
         kasky.Parameters.AddWithValue("@maa", m.M_maa);
         kasky.Parameters.AddWithValue("@vuorokausihinta", m.Vuorokausihinta);
         kasky.Parameters.AddWithValue("@huoneita", m.Huoneita);
@@ -132,11 +135,12 @@ namespace Mokkivarausjarjestelma
         Tietokanta t = new Tietokanta();
         yhteys = t.YhdistaTietokantaan();
         kasky = yhteys.CreateCommand();
-        kasky.CommandText = @"INSERT INTO mokki (katuosoite, postinumero, toimipaikka, maa, vuorokausihinta, huoneita, makuuhuoneita, pintaala, vuodepaikat, lisatietoa, verkkoyhteys)
+        kasky.CommandText = @"INSERT INTO mokki (katuosoite, postinumero, toimipiste, postitoimipaikka, maa, vuorokausihinta, huoneita, makuuhuoneita, pintaala, vuodepaikat, lisatietoa, verkkoyhteys)
                                 VALUES (@katuosoite, @postinumero, @toimipaikka, @maa, @vuorokaushinta, @huoneita, @makuuhuoneita, @pintaala, @vuodepaikat, @lisatietoa, @verkkoyhteys)";
         kasky.Parameters.AddWithValue("@katuosoite", m.M_osoite);
         kasky.Parameters.AddWithValue("@postinumero", m.M_postinumero);
-        kasky.Parameters.AddWithValue("@toimipaikka", m.M_toimipaikka);
+        kasky.Parameters.AddWithValue("@toimipiste", m.M_toimipiste);
+        kasky.Parameters.AddWithValue("@postitoimipaikka", m.M_postitoimipaikka);
         kasky.Parameters.AddWithValue("@maa", m.M_maa);
         kasky.Parameters.AddWithValue("@vuorokausihinta", m.Vuorokausihinta);
         kasky.Parameters.AddWithValue("@huoneita", m.Huoneita);

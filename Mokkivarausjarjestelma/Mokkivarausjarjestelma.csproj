@@ -125,6 +125,12 @@
     <Compile Include="Lisapalvelut_lisaa_muokkaa.Designer.cs">
       <DependentUpon>Lisapalvelut_lisaa_muokkaa.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mokinhallinta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mokinhallinta.Designer.cs">
+      <DependentUpon>Mokinhallinta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Mokit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +158,12 @@
     </Compile>
     <Compile Include="Raportit.Designer.cs">
       <DependentUpon>Raportit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tabit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tabit.Designer.cs">
+      <DependentUpon>Tabit.cs</DependentUpon>
     </Compile>
     <Compile Include="Tietokanta.cs" />
     <Compile Include="Toimipiste.cs" />
@@ -194,6 +206,9 @@
     <EmbeddedResource Include="Kirjautuminen.resx">
       <DependentUpon>Kirjautuminen.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Mokinhallinta.resx">
+      <DependentUpon>Mokinhallinta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Mokkivaraus.resx">
       <DependentUpon>Mokkivaraus.cs</DependentUpon>
     </EmbeddedResource>
@@ -208,6 +223,9 @@
     </Compile>
     <EmbeddedResource Include="Raportit.resx">
       <DependentUpon>Raportit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tabit.resx">
+      <DependentUpon>Tabit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Toimipisteenhallinta.resx">
       <DependentUpon>Toimipisteenhallinta.cs</DependentUpon>
