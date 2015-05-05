@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F1DAA89D-4C8F-4D66-A1D9-A0A2AF88A77B}"
 	ProjectSection(SolutionItems) = preProject
-		Tietokanta_Village_People.sql = Tietokanta_Village_People.sql
+		TietokantaVillagePeople.sql = TietokantaVillagePeople.sql
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mokkivarausjarjestelma", "Mokkivarausjarjestelma\Mokkivarausjarjestelma.csproj", "{39B82365-6BDF-4EDE-A835-074C9192AA17}"
