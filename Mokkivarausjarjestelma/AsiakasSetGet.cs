@@ -32,15 +32,15 @@ namespace Mokkivarausjarjestelma
             }
         }
 
-        public string Etunimi
+        public string Etunimet
         {
             get
             {
-                return etunimi;
+                return etunimet;
             }
             set
             {
-                etunimi = value;
+                etunimet = value;
             }
         }
 
@@ -116,6 +116,17 @@ namespace Mokkivarausjarjestelma
             }
         }
 
+        public string Tunnus
+        {
+            get
+            {
+                return tunnus;
+            }
+            set
+            {
+                tunnus = value;
+            }
+        }
         public string Puhelinnumero
         {
             get
@@ -137,6 +148,18 @@ namespace Mokkivarausjarjestelma
             set
             {
                 sahkoposti = value;
+            }
+        }
+
+        public string Lisatietoja
+        {
+            get
+            {
+                return lisatietoja;
+            }
+            set
+            {
+                lisatietoja = value;
             }
         }
     }

@@ -57,7 +57,7 @@ namespace Mokkivarausjarjestelma
             //Yritetään avata yhteys
             try
             {
-                yhteys.ConnectionString = "server = localhost; user id = newuser; password = uusi1234; database = asiakkaat";
+                yhteys.ConnectionString = "server = localhost; user id = newuser; password = uusi1234; database = villagepeople";
                 yhteys.Open();
                 MessageBox.Show("Yhdistetty MySql-tietokantaan");
                 return yhteys;

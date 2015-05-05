@@ -58,7 +58,7 @@ namespace Mokkivarausjarjestelma
             if(a!=null)
             {
                 a.Asiakasnumero = Convert.ToString(txbxAsiakasnumero.Text);
-                a.Etunimi = Convert.ToString(txtbEtunimi.Text);
+                a.Etunimet = Convert.ToString(txtbEtunimi.Text);
                 a.Sukunimi = Convert.ToString(txtbSukunimi.Text);
                 a.Syntymaaika = Convert.ToString(txtbSyntymaaika.Text);
                 a.Postiosoite = Convert.ToString(txtbPostiosoite.Text);
@@ -76,7 +76,7 @@ namespace Mokkivarausjarjestelma
         {
             //Jos olio on olemassa näytetään tiedot txtboxeissa
             txbxAsiakasnumero.Text = asiakas != null ? Convert.ToString(asiakas.Asiakasnumero) : "";
-            txtbEtunimi.Text = asiakas != null ? Convert.ToString(asiakas.Etunimi) : "";
+            txtbEtunimi.Text = asiakas != null ? Convert.ToString(asiakas.Etunimet) : "";
             txtbSukunimi.Text = asiakas != null ? Convert.ToString(asiakas.Sukunimi) : "";
             txtbPostiosoite.Text = asiakas != null ? Convert.ToString(asiakas.Postiosoite) : "";
             txtbPostinumero.Text = asiakas != null ? Convert.ToString(asiakas.Postinumero) : "";
