@@ -52,6 +52,7 @@
             this.btnetsiasiakas = new System.Windows.Forms.Button();
             this.cmbxasiakas = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.btnperuutavaraus = new System.Windows.Forms.Button();
             this.btnteevaraus = new System.Windows.Forms.Button();
             this.txbxhinta = new System.Windows.Forms.TextBox();
@@ -62,7 +63,6 @@
             this.llblkartta = new System.Windows.Forms.LinkLabel();
             this.lblyhteenveto = new System.Windows.Forms.Label();
             this.txbxyhteenveto = new System.Windows.Forms.TextBox();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -75,6 +75,7 @@
             this.cmbxtoimipiste.Name = "cmbxtoimipiste";
             this.cmbxtoimipiste.Size = new System.Drawing.Size(121, 21);
             this.cmbxtoimipiste.TabIndex = 0;
+            this.cmbxtoimipiste.SelectedIndexChanged += new System.EventHandler(this.cmbxtoimipiste_SelectedIndexChanged);
             // 
             // lbltoimipiste
             // 
@@ -101,6 +102,7 @@
             this.cmbxmokkityyppi.Name = "cmbxmokkityyppi";
             this.cmbxmokkityyppi.Size = new System.Drawing.Size(121, 21);
             this.cmbxmokkityyppi.TabIndex = 3;
+            this.cmbxmokkityyppi.SelectedIndexChanged += new System.EventHandler(this.cmbxmokkityyppi_SelectedIndexChanged);
             // 
             // lblsaapumispvm
             // 
@@ -301,6 +303,13 @@
             this.groupBox3.TabIndex = 12;
             this.groupBox3.TabStop = false;
             // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Location = new System.Drawing.Point(77, 92);
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(100, 20);
+            this.maskedTextBox1.TabIndex = 10;
+            // 
             // btnperuutavaraus
             // 
             this.btnperuutavaraus.Location = new System.Drawing.Point(132, 446);
@@ -388,13 +397,6 @@
             this.txbxyhteenveto.Name = "txbxyhteenveto";
             this.txbxyhteenveto.Size = new System.Drawing.Size(245, 157);
             this.txbxyhteenveto.TabIndex = 0;
-            // 
-            // maskedTextBox1
-            // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(77, 92);
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(100, 20);
-            this.maskedTextBox1.TabIndex = 10;
             // 
             // UusiVaraus
             // 
