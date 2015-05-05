@@ -14,19 +14,19 @@ namespace Mokkivarausjarjestelma
     public partial class Varaus
     {
         // Varauksen muuttujat
-        private string varausid;
-        private Toimipiste toimipiste; 
-        private Mokki mokki; 
+        private int varausid;
+        private Toimipiste toimipisteid;
+        private Asiakas asiakasnumero;
+        private Mokki mokkinumero;
         private string saapumispvm;
         private string lahtopvm;
         private int paivat;
+        private string vahvistettu;
         private string alennuskoodi;
-        private Asiakas asiakas;
         private int yopyjat;
         private string lisatietoja;
-        private string yhteenveto;
+        private Decimal hinta;
         private string laskutus;
-        private double hinta;
 
         //Lista löytyneitä varauksia varten
         public List<Varaus> varauslista = new List<Varaus>();
@@ -48,7 +48,40 @@ namespace Mokkivarausjarjestelma
 
 
         // Varauksen lisääminen
+        public void LisaaAsiakasTietokantaan(Asiakas a)
+        {
+            Tietokanta t = new Tietokanta();
+            yhteys = t.YhdistaTietokantaan();
+            kasky = yhteys.CreateCommand();
+            kasky.CommandText = @"INSERT INTO varaus (varausid, toimipisteid, asiakasnumero, mokkinumero, saapumispvm, lahtopvm, paivat, vahvistettu, alennuskoodi, yopyjat, lisatietoja, hinta, laskutus)
+                                VALUES (@varausid, @toimipisteid, @asiakasnumero, @mokkinumero, @saapumispvm, @lahtopvm, @paivat, @vahvistettu, @alennuskoodi, @yopyjat, @lisatietoja, @hinta, @laskutus)";
+            kasky.Parameters.AddWithValue("@varausid", v.VarausId);
+            kasky.Parameters.AddWithValue("@toimipisteid", v.toimipisteId);
+            kasky.Parameters.AddWithValue("@asiakasnumero", v.Asiakasnumero);
+            kasky.Parameters.AddWithValue("@mokkinumero", v.Mokkinumero);
+            kasky.Parameters.AddWithValue("@saapumispvm", v.Saapumispvm);
+            kasky.Parameters.AddWithValue("@lahtopvm", v.Lahtopvm);
+            kasky.Parameters.AddWithValue("@paivat", v.Paivat);
+            kasky.Parameters.AddWithValue("@vahvistettu", v.Vahvistettu);
+            kasky.Parameters.AddWithValue("@alennuskoodi", v.Alennuskoodi);
+            kasky.Parameters.AddWithValue("@yopyjat", v.yopyjat);
+            kasky.Parameters.AddWithValue("@lisatietoja", v.Lisatietoja);
+            kasky.Parameters.AddWithValue("@hinta", v.Hinta);
+            kasky.Parameters.AddWithValue("@laskutus", v.Laskutus);
 
+            try
+            {
+                kasky.ExecuteNonQuery();
+                //Viesti, joka ilmoittaa tietojen päivityksen onnistuneen
+                MessageBox.Show("Uusi varaus lisätty", "Vahvistus", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Tapahtui virhe lisättäessä varausta:" + ex.ToString());
+            }
+            //Suljetaan yhteys
+            t.SuljeYhteysTietokantaan(yhteys);
+        }
 
         // Varauksen poistaminen
 
