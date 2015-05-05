@@ -31,7 +31,7 @@
             this.cmbxtoimipiste = new System.Windows.Forms.ComboBox();
             this.lbltoimipiste = new System.Windows.Forms.Label();
             this.lblmokkityyppi = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbxmokkityyppi = new System.Windows.Forms.ComboBox();
             this.lblsaapumispvm = new System.Windows.Forms.Label();
             this.dtpsaapuminen = new System.Windows.Forms.DateTimePicker();
             this.dtplahtopvm = new System.Windows.Forms.DateTimePicker();
@@ -42,26 +42,27 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblvalitseasiakas = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.cmbxasiakas = new System.Windows.Forms.ComboBox();
-            this.btnetsiasiakas = new System.Windows.Forms.Button();
-            this.btnuusiasiakas = new System.Windows.Forms.Button();
-            this.lblyopyjat = new System.Windows.Forms.Label();
-            this.cmbxyopyjat = new System.Windows.Forms.ComboBox();
-            this.lbllisaplavelut = new System.Windows.Forms.Label();
-            this.clblisapalvelut = new System.Windows.Forms.CheckedListBox();
-            this.txbxlisatietoja = new System.Windows.Forms.TextBox();
             this.lbllisatietoja = new System.Windows.Forms.Label();
+            this.txbxlisatietoja = new System.Windows.Forms.TextBox();
+            this.clblisapalvelut = new System.Windows.Forms.CheckedListBox();
+            this.lbllisaplavelut = new System.Windows.Forms.Label();
+            this.cmbxyopyjat = new System.Windows.Forms.ComboBox();
+            this.lblyopyjat = new System.Windows.Forms.Label();
+            this.btnuusiasiakas = new System.Windows.Forms.Button();
+            this.btnetsiasiakas = new System.Windows.Forms.Button();
+            this.cmbxasiakas = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.txbxyhteenveto = new System.Windows.Forms.TextBox();
-            this.lblyhteenveto = new System.Windows.Forms.Label();
-            this.llblkartta = new System.Windows.Forms.LinkLabel();
-            this.llblkuvat = new System.Windows.Forms.LinkLabel();
-            this.lbllaskutus = new System.Windows.Forms.Label();
-            this.cmbxlaskutus = new System.Windows.Forms.ComboBox();
-            this.lblhinta = new System.Windows.Forms.Label();
-            this.txbxhinta = new System.Windows.Forms.TextBox();
-            this.btnteevaraus = new System.Windows.Forms.Button();
             this.btnperuutavaraus = new System.Windows.Forms.Button();
+            this.btnteevaraus = new System.Windows.Forms.Button();
+            this.txbxhinta = new System.Windows.Forms.TextBox();
+            this.lblhinta = new System.Windows.Forms.Label();
+            this.cmbxlaskutus = new System.Windows.Forms.ComboBox();
+            this.lbllaskutus = new System.Windows.Forms.Label();
+            this.llblkuvat = new System.Windows.Forms.LinkLabel();
+            this.llblkartta = new System.Windows.Forms.LinkLabel();
+            this.lblyhteenveto = new System.Windows.Forms.Label();
+            this.txbxyhteenveto = new System.Windows.Forms.TextBox();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -93,13 +94,13 @@
             this.lblmokkityyppi.TabIndex = 2;
             this.lblmokkityyppi.Text = "Valitse mökkityyppi:";
             // 
-            // comboBox1
+            // cmbxmokkityyppi
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(22, 144);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 3;
+            this.cmbxmokkityyppi.FormattingEnabled = true;
+            this.cmbxmokkityyppi.Location = new System.Drawing.Point(22, 144);
+            this.cmbxmokkityyppi.Name = "cmbxmokkityyppi";
+            this.cmbxmokkityyppi.Size = new System.Drawing.Size(121, 21);
+            this.cmbxmokkityyppi.TabIndex = 3;
             // 
             // lblsaapumispvm
             // 
@@ -143,7 +144,7 @@
             this.groupBox1.Controls.Add(this.dtplahtopvm);
             this.groupBox1.Controls.Add(this.lblmokkityyppi);
             this.groupBox1.Controls.Add(this.dtpsaapuminen);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.cmbxmokkityyppi);
             this.groupBox1.Controls.Add(this.lblsaapumispvm);
             this.groupBox1.Location = new System.Drawing.Point(28, 66);
             this.groupBox1.Name = "groupBox1";
@@ -204,48 +205,30 @@
             this.groupBox2.TabIndex = 11;
             this.groupBox2.TabStop = false;
             // 
-            // cmbxasiakas
+            // lbllisatietoja
             // 
-            this.cmbxasiakas.FormattingEnabled = true;
-            this.cmbxasiakas.Location = new System.Drawing.Point(22, 57);
-            this.cmbxasiakas.Name = "cmbxasiakas";
-            this.cmbxasiakas.Size = new System.Drawing.Size(167, 21);
-            this.cmbxasiakas.TabIndex = 11;
+            this.lbllisatietoja.AutoSize = true;
+            this.lbllisatietoja.Location = new System.Drawing.Point(22, 333);
+            this.lbllisatietoja.Name = "lbllisatietoja";
+            this.lbllisatietoja.Size = new System.Drawing.Size(57, 13);
+            this.lbllisatietoja.TabIndex = 20;
+            this.lbllisatietoja.Text = "Lisätietoja:";
             // 
-            // btnetsiasiakas
+            // txbxlisatietoja
             // 
-            this.btnetsiasiakas.Location = new System.Drawing.Point(22, 94);
-            this.btnetsiasiakas.Name = "btnetsiasiakas";
-            this.btnetsiasiakas.Size = new System.Drawing.Size(75, 23);
-            this.btnetsiasiakas.TabIndex = 12;
-            this.btnetsiasiakas.Text = "Etsi asiakas";
-            this.btnetsiasiakas.UseVisualStyleBackColor = true;
+            this.txbxlisatietoja.Location = new System.Drawing.Point(25, 363);
+            this.txbxlisatietoja.Multiline = true;
+            this.txbxlisatietoja.Name = "txbxlisatietoja";
+            this.txbxlisatietoja.Size = new System.Drawing.Size(179, 81);
+            this.txbxlisatietoja.TabIndex = 19;
             // 
-            // btnuusiasiakas
+            // clblisapalvelut
             // 
-            this.btnuusiasiakas.Location = new System.Drawing.Point(114, 94);
-            this.btnuusiasiakas.Name = "btnuusiasiakas";
-            this.btnuusiasiakas.Size = new System.Drawing.Size(75, 23);
-            this.btnuusiasiakas.TabIndex = 13;
-            this.btnuusiasiakas.Text = "Uusi asiakas";
-            this.btnuusiasiakas.UseVisualStyleBackColor = true;
-            // 
-            // lblyopyjat
-            // 
-            this.lblyopyjat.AutoSize = true;
-            this.lblyopyjat.Location = new System.Drawing.Point(19, 144);
-            this.lblyopyjat.Name = "lblyopyjat";
-            this.lblyopyjat.Size = new System.Drawing.Size(82, 13);
-            this.lblyopyjat.TabIndex = 15;
-            this.lblyopyjat.Text = "Yöpyjien määrä:";
-            // 
-            // cmbxyopyjat
-            // 
-            this.cmbxyopyjat.FormattingEnabled = true;
-            this.cmbxyopyjat.Location = new System.Drawing.Point(22, 177);
-            this.cmbxyopyjat.Name = "cmbxyopyjat";
-            this.cmbxyopyjat.Size = new System.Drawing.Size(121, 21);
-            this.cmbxyopyjat.TabIndex = 16;
+            this.clblisapalvelut.FormattingEnabled = true;
+            this.clblisapalvelut.Location = new System.Drawing.Point(25, 267);
+            this.clblisapalvelut.Name = "clblisapalvelut";
+            this.clblisapalvelut.Size = new System.Drawing.Size(120, 49);
+            this.clblisapalvelut.TabIndex = 18;
             // 
             // lbllisaplavelut
             // 
@@ -256,33 +239,52 @@
             this.lbllisaplavelut.TabIndex = 17;
             this.lbllisaplavelut.Text = "Valitse lisäpalvelut:";
             // 
-            // clblisapalvelut
+            // cmbxyopyjat
             // 
-            this.clblisapalvelut.FormattingEnabled = true;
-            this.clblisapalvelut.Location = new System.Drawing.Point(25, 267);
-            this.clblisapalvelut.Name = "clblisapalvelut";
-            this.clblisapalvelut.Size = new System.Drawing.Size(120, 49);
-            this.clblisapalvelut.TabIndex = 18;
+            this.cmbxyopyjat.FormattingEnabled = true;
+            this.cmbxyopyjat.Location = new System.Drawing.Point(22, 177);
+            this.cmbxyopyjat.Name = "cmbxyopyjat";
+            this.cmbxyopyjat.Size = new System.Drawing.Size(121, 21);
+            this.cmbxyopyjat.TabIndex = 16;
             // 
-            // txbxlisatietoja
+            // lblyopyjat
             // 
-            this.txbxlisatietoja.Location = new System.Drawing.Point(25, 363);
-            this.txbxlisatietoja.Multiline = true;
-            this.txbxlisatietoja.Name = "txbxlisatietoja";
-            this.txbxlisatietoja.Size = new System.Drawing.Size(179, 81);
-            this.txbxlisatietoja.TabIndex = 19;
+            this.lblyopyjat.AutoSize = true;
+            this.lblyopyjat.Location = new System.Drawing.Point(19, 144);
+            this.lblyopyjat.Name = "lblyopyjat";
+            this.lblyopyjat.Size = new System.Drawing.Size(82, 13);
+            this.lblyopyjat.TabIndex = 15;
+            this.lblyopyjat.Text = "Yöpyjien määrä:";
             // 
-            // lbllisatietoja
+            // btnuusiasiakas
             // 
-            this.lbllisatietoja.AutoSize = true;
-            this.lbllisatietoja.Location = new System.Drawing.Point(22, 333);
-            this.lbllisatietoja.Name = "lbllisatietoja";
-            this.lbllisatietoja.Size = new System.Drawing.Size(57, 13);
-            this.lbllisatietoja.TabIndex = 20;
-            this.lbllisatietoja.Text = "Lisätietoja:";
+            this.btnuusiasiakas.Location = new System.Drawing.Point(114, 94);
+            this.btnuusiasiakas.Name = "btnuusiasiakas";
+            this.btnuusiasiakas.Size = new System.Drawing.Size(75, 23);
+            this.btnuusiasiakas.TabIndex = 13;
+            this.btnuusiasiakas.Text = "Uusi asiakas";
+            this.btnuusiasiakas.UseVisualStyleBackColor = true;
+            // 
+            // btnetsiasiakas
+            // 
+            this.btnetsiasiakas.Location = new System.Drawing.Point(22, 94);
+            this.btnetsiasiakas.Name = "btnetsiasiakas";
+            this.btnetsiasiakas.Size = new System.Drawing.Size(75, 23);
+            this.btnetsiasiakas.TabIndex = 12;
+            this.btnetsiasiakas.Text = "Etsi asiakas";
+            this.btnetsiasiakas.UseVisualStyleBackColor = true;
+            // 
+            // cmbxasiakas
+            // 
+            this.cmbxasiakas.FormattingEnabled = true;
+            this.cmbxasiakas.Location = new System.Drawing.Point(22, 57);
+            this.cmbxasiakas.Name = "cmbxasiakas";
+            this.cmbxasiakas.Size = new System.Drawing.Size(167, 21);
+            this.cmbxasiakas.TabIndex = 11;
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.maskedTextBox1);
             this.groupBox3.Controls.Add(this.btnperuutavaraus);
             this.groupBox3.Controls.Add(this.btnteevaraus);
             this.groupBox3.Controls.Add(this.txbxhinta);
@@ -299,32 +301,56 @@
             this.groupBox3.TabIndex = 12;
             this.groupBox3.TabStop = false;
             // 
-            // txbxyhteenveto
+            // btnperuutavaraus
             // 
-            this.txbxyhteenveto.Location = new System.Drawing.Point(23, 57);
-            this.txbxyhteenveto.Multiline = true;
-            this.txbxyhteenveto.Name = "txbxyhteenveto";
-            this.txbxyhteenveto.Size = new System.Drawing.Size(245, 157);
-            this.txbxyhteenveto.TabIndex = 0;
+            this.btnperuutavaraus.Location = new System.Drawing.Point(132, 446);
+            this.btnperuutavaraus.Name = "btnperuutavaraus";
+            this.btnperuutavaraus.Size = new System.Drawing.Size(75, 23);
+            this.btnperuutavaraus.TabIndex = 9;
+            this.btnperuutavaraus.Text = "Peruuta";
+            this.btnperuutavaraus.UseVisualStyleBackColor = true;
             // 
-            // lblyhteenveto
+            // btnteevaraus
             // 
-            this.lblyhteenveto.AutoSize = true;
-            this.lblyhteenveto.Location = new System.Drawing.Point(23, 31);
-            this.lblyhteenveto.Name = "lblyhteenveto";
-            this.lblyhteenveto.Size = new System.Drawing.Size(65, 13);
-            this.lblyhteenveto.TabIndex = 1;
-            this.lblyhteenveto.Text = "Yhteenveto:";
+            this.btnteevaraus.Location = new System.Drawing.Point(26, 446);
+            this.btnteevaraus.Name = "btnteevaraus";
+            this.btnteevaraus.Size = new System.Drawing.Size(75, 23);
+            this.btnteevaraus.TabIndex = 8;
+            this.btnteevaraus.Text = "Tee varaus";
+            this.btnteevaraus.UseVisualStyleBackColor = true;
             // 
-            // llblkartta
+            // txbxhinta
             // 
-            this.llblkartta.AutoSize = true;
-            this.llblkartta.Location = new System.Drawing.Point(20, 234);
-            this.llblkartta.Name = "llblkartta";
-            this.llblkartta.Size = new System.Drawing.Size(35, 13);
-            this.llblkartta.TabIndex = 2;
-            this.llblkartta.TabStop = true;
-            this.llblkartta.Text = "Kartta";
+            this.txbxhinta.Location = new System.Drawing.Point(26, 396);
+            this.txbxhinta.Name = "txbxhinta";
+            this.txbxhinta.Size = new System.Drawing.Size(121, 20);
+            this.txbxhinta.TabIndex = 7;
+            // 
+            // lblhinta
+            // 
+            this.lblhinta.AutoSize = true;
+            this.lblhinta.Location = new System.Drawing.Point(23, 366);
+            this.lblhinta.Name = "lblhinta";
+            this.lblhinta.Size = new System.Drawing.Size(81, 13);
+            this.lblhinta.TabIndex = 6;
+            this.lblhinta.Text = "Hinta yhteensä:";
+            // 
+            // cmbxlaskutus
+            // 
+            this.cmbxlaskutus.FormattingEnabled = true;
+            this.cmbxlaskutus.Location = new System.Drawing.Point(26, 316);
+            this.cmbxlaskutus.Name = "cmbxlaskutus";
+            this.cmbxlaskutus.Size = new System.Drawing.Size(121, 21);
+            this.cmbxlaskutus.TabIndex = 5;
+            // 
+            // lbllaskutus
+            // 
+            this.lbllaskutus.AutoSize = true;
+            this.lbllaskutus.Location = new System.Drawing.Point(23, 277);
+            this.lbllaskutus.Name = "lbllaskutus";
+            this.lbllaskutus.Size = new System.Drawing.Size(53, 13);
+            this.lbllaskutus.TabIndex = 4;
+            this.lbllaskutus.Text = "Laskutus:";
             // 
             // llblkuvat
             // 
@@ -336,56 +362,39 @@
             this.llblkuvat.TabStop = true;
             this.llblkuvat.Text = "Kuvat";
             // 
-            // lbllaskutus
+            // llblkartta
             // 
-            this.lbllaskutus.AutoSize = true;
-            this.lbllaskutus.Location = new System.Drawing.Point(23, 277);
-            this.lbllaskutus.Name = "lbllaskutus";
-            this.lbllaskutus.Size = new System.Drawing.Size(53, 13);
-            this.lbllaskutus.TabIndex = 4;
-            this.lbllaskutus.Text = "Laskutus:";
+            this.llblkartta.AutoSize = true;
+            this.llblkartta.Location = new System.Drawing.Point(20, 234);
+            this.llblkartta.Name = "llblkartta";
+            this.llblkartta.Size = new System.Drawing.Size(35, 13);
+            this.llblkartta.TabIndex = 2;
+            this.llblkartta.TabStop = true;
+            this.llblkartta.Text = "Kartta";
             // 
-            // cmbxlaskutus
+            // lblyhteenveto
             // 
-            this.cmbxlaskutus.FormattingEnabled = true;
-            this.cmbxlaskutus.Location = new System.Drawing.Point(26, 316);
-            this.cmbxlaskutus.Name = "cmbxlaskutus";
-            this.cmbxlaskutus.Size = new System.Drawing.Size(121, 21);
-            this.cmbxlaskutus.TabIndex = 5;
+            this.lblyhteenveto.AutoSize = true;
+            this.lblyhteenveto.Location = new System.Drawing.Point(23, 31);
+            this.lblyhteenveto.Name = "lblyhteenveto";
+            this.lblyhteenveto.Size = new System.Drawing.Size(65, 13);
+            this.lblyhteenveto.TabIndex = 1;
+            this.lblyhteenveto.Text = "Yhteenveto:";
             // 
-            // lblhinta
+            // txbxyhteenveto
             // 
-            this.lblhinta.AutoSize = true;
-            this.lblhinta.Location = new System.Drawing.Point(23, 366);
-            this.lblhinta.Name = "lblhinta";
-            this.lblhinta.Size = new System.Drawing.Size(81, 13);
-            this.lblhinta.TabIndex = 6;
-            this.lblhinta.Text = "Hinta yhteensä:";
+            this.txbxyhteenveto.Location = new System.Drawing.Point(23, 57);
+            this.txbxyhteenveto.Multiline = true;
+            this.txbxyhteenveto.Name = "txbxyhteenveto";
+            this.txbxyhteenveto.Size = new System.Drawing.Size(245, 157);
+            this.txbxyhteenveto.TabIndex = 0;
             // 
-            // txbxhinta
+            // maskedTextBox1
             // 
-            this.txbxhinta.Location = new System.Drawing.Point(26, 396);
-            this.txbxhinta.Name = "txbxhinta";
-            this.txbxhinta.Size = new System.Drawing.Size(121, 20);
-            this.txbxhinta.TabIndex = 7;
-            // 
-            // btnteevaraus
-            // 
-            this.btnteevaraus.Location = new System.Drawing.Point(26, 446);
-            this.btnteevaraus.Name = "btnteevaraus";
-            this.btnteevaraus.Size = new System.Drawing.Size(75, 23);
-            this.btnteevaraus.TabIndex = 8;
-            this.btnteevaraus.Text = "Tee varaus";
-            this.btnteevaraus.UseVisualStyleBackColor = true;
-            // 
-            // btnperuutavaraus
-            // 
-            this.btnperuutavaraus.Location = new System.Drawing.Point(132, 446);
-            this.btnperuutavaraus.Name = "btnperuutavaraus";
-            this.btnperuutavaraus.Size = new System.Drawing.Size(75, 23);
-            this.btnperuutavaraus.TabIndex = 9;
-            this.btnperuutavaraus.Text = "Peruuta";
-            this.btnperuutavaraus.UseVisualStyleBackColor = true;
+            this.maskedTextBox1.Location = new System.Drawing.Point(77, 92);
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(100, 20);
+            this.maskedTextBox1.TabIndex = 10;
             // 
             // UusiVaraus
             // 
@@ -415,7 +424,7 @@
         private System.Windows.Forms.ComboBox cmbxtoimipiste;
         private System.Windows.Forms.Label lbltoimipiste;
         private System.Windows.Forms.Label lblmokkityyppi;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbxmokkityyppi;
         private System.Windows.Forms.Label lblsaapumispvm;
         private System.Windows.Forms.DateTimePicker dtpsaapuminen;
         private System.Windows.Forms.DateTimePicker dtplahtopvm;
@@ -446,5 +455,6 @@
         private System.Windows.Forms.LinkLabel llblkartta;
         private System.Windows.Forms.Label lblyhteenveto;
         private System.Windows.Forms.TextBox txbxyhteenveto;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
     }
 }
