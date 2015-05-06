@@ -12,15 +12,15 @@ namespace Mokkivarausjarjestelma
     //Osittainen luokka Toimipiste, joka sisältää aksessorit ja mutaattorit
     public partial class Toimipiste
     {
-        public string Toimipistetunnus
+        public string Toimipisteid
         {
             get
             {
-                return toimipistetunnus;
+                return toimipisteid;
             }
             set
             {
-                Toimipistetunnus = value;
+                Toimipisteid = value;
             }
         }
         public string Toimipistepuhelinnumero
