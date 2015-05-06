@@ -27,8 +27,9 @@ namespace Mokkivarausjarjestelma
         private void UusiVaraus_Load(object sender, EventArgs e)
         {
             // Asetetaan dtpsaapuminen ja dtplahtopvm arvot
-            DateTime tulopaivamaara = DateTime.Today; // Tulopäiväksi tulee tämä päivä
-            DateTime lahtopaivamaara = DateTime.Today.AddDays(+1); // Lähtopäiväksi tulee nyt seuraava päivä
+            //Jouduin hieman muuttamaan noita default Datetimejä, jotta saadaan myös kellonajoille default-arvot
+            DateTime tulopaivamaara = new DateTime(DateTime.Now.Year,DateTime.Now.Month,DateTime.Now.Day,15,0,0); // Tulopäiväksi tulee tämä päivä
+            DateTime lahtopaivamaara = new DateTime(DateTime.Now.Year,DateTime.Now.Month,DateTime.Now.Day+1,12,0,0); // Lähtopäiväksi tulee nyt seuraava päivä
             dtpsaapuminen.Value = tulopaivamaara;
             dtplahtopvm.Value = lahtopaivamaara;
             ToimipisteCombobox(); //Täytetään toimipistecombobox heti kun form ladataan
