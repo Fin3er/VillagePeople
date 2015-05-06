@@ -129,13 +129,15 @@ namespace Mokkivarausjarjestelma
             t.SuljeYhteysTietokantaan(yhteys);
 
         }
-        // Metodi Asiakas comboboxin täyttämiselle, en tiedä toimiiko
+        // Metodi Asiakas comboboxin täyttämiselle
+        //Muutin tuohon select lauseeseen from asiakkaat. Hieman muutin tietokantaa niin eri nimet.
+        //Muuten kyllä toimii ja saan nyt omasta testitietokannasta listattua asiakasnumerot. 
         public void AsiakasCombobox()
         {
             Tietokanta t = new Tietokanta();
             yhteys = t.YhdistaTietokantaan();
             kasky = yhteys.CreateCommand();
-            kasky.CommandText = "Select asiakasnumero from asiakas";
+            kasky.CommandText = "Select asiakasnumero from asiakkaat";
             lukija = kasky.ExecuteReader();
             try
             {
