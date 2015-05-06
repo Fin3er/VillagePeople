@@ -30,11 +30,17 @@ namespace Mokkivarausjarjestelma
 	}
 
 	
-	public string M_toimipaikka
+	public string M_toimipiste
 	{
-		get {return m_toimipaikka; }
-		set {m_toimipaikka = value; }
+		get {return m_toimipiste; }
+		set {m_toimipiste = value; }
 	}
+
+    public string M_postitoimipaikka
+    {
+        get { return m_postitoimipaikka; }
+        set { m_postitoimipaikka = value; }
+    }
 	
 	
 	public string M_maa
