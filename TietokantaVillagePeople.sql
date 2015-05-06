@@ -1,11 +1,12 @@
 ﻿/* MYSQL: IDENTITY => AUTO_INCREMENT ? */
 
 CREATE TABLE Asiakas (
-	Asiakasnumero INTEGER(15) NOT NULL IDENTITY PRIMARY KEY UNIQUE,
+	Asiakasnumero INTEGER NOT NULL IDENTITY PRIMARY KEY UNIQUE,
 	Titteli VARCHAR(5) NOT NULL,
 	Etunimi VARCHAR(30) NOT NULL, 
 	Sukunimi VARCHAR(40) NOT NULL,
 	SyntymaAika VARCHAR(10) NOT NULL, /* pp-kk-vvvv */
+	Henkilotunnus VARCHAR(50) NOT NULL, /* passi, hetu*/
 	Katuosoite VARCHAR(45) NOT NULL,  
 	Postinumero VARCHAR(20) NOT NULL,
 	Postitoimipaikka VARCHAR(20) NOT NULL,
@@ -13,20 +14,28 @@ CREATE TABLE Asiakas (
 	Kansalaisuus VARCHAR(40) NOT NULL,
 	Puhelinumero VARCHAR(40) NOT NULL,
 	Sahkopostiosoite VARCHAR(60),
+	Lisatietoja VARCHAR(256),
 );
 CREATE TABLE Mokki (
-	Mokkinumero INTEGER(15) NOT NULL IDENTITY PRIMARY KEY UNIQUE,
+	Mokkinumero INTEGER NOT NULL IDENTITY PRIMARY KEY UNIQUE,
 	Nimi VARCHAR(15) NOT NULL,
 	Hinta INTEGER(8) NOT NULL,
-	HenkiloMaara INTEGER(3) NOT NULL,
-	PintaAla INTEGER(4),
-	Lemmikit TINYINT(1),
+	HenkiloMaara INTEGER NOT NULL,
+	PintaAla INTEGER,
+	Lemmikit TINYINT,
 	/* Palvelut VARCHAR(256),
 	Kuvaus VARCHAR(256),
 	Kuvat VARCHAR(30)*/
 );
+CREATE TABLE Toimipistemokit (
+	Id INTEGER NOT NULL IDENTITY PRIMARY KEY UNIQUE,
+	Toimipiste INTEGER NOT NULL,
+	Mokki INTEGER NOT NULL,
+	FOREIGN KEY (Toimipiste) REFERENCES Toimipiste(ToimipisteId),
+	FOREIGN KEY (Mokki) REFERENCES Mokki(Mokkinumero),
+);
 CREATE TABLE Toimipiste (
-	ToimipisteId INTEGER(15) NOT NULL IDENTITY PRIMARY KEY UNIQUE,
+	ToimipisteId INTEGER NOT NULL IDENTITY PRIMARY KEY UNIQUE,
 	Nimi VARCHAR(30) NOT NULL,
 	Katuosoite VARCHAR(30),
 	Postinumero VARCHAR(10),
@@ -34,16 +43,16 @@ CREATE TABLE Toimipiste (
 	Puhelinumero VARCHAR(15),
 	Sahkopostiosoite VARCHAR(50),
 	Yhteyshenkilo VARCHAR(30) NOT NULL,
-	AukioloAika VARCHAR(30)
+	AukioloAika VARCHAR(30),
 );
 CREATE TABLE Lisapalvelu (
-	Hinta INTEGER(8) NOT NULL,
+	Hinta INTEGER NOT NULL,
 	Kuvaus VARCHAR(256),
 	Aika VARCHAR(30),
 	/* Ajankohta */
 );
 CREATE TABLE Kayttaja (
-	Kayttajanumero INTEGER(15) NOT NULL IDENTITY PRIMARY KEY UNIQUE,
+	Kayttajanumero INTEGER NOT NULL IDENTITY PRIMARY KEY UNIQUE,
 	Etunimi VARCHAR(30) NOT NULL, 
 	Sukunimi VARCHAR(40) NOT NULL,	
 	SyntymaAika VARCHAR(10) NOT NULL, /* pp-kk-vvvv */
@@ -59,32 +68,32 @@ CREATE TABLE Kayttaja (
 	FOREIGN KEY (Tyopiste) REFERENCES Toimipiste(Nimi)
 );
 CREATE TABLE Lasku (
-	LaskuId INTEGER(15) NOT NULL IDENTITY PRIMARY KEY UNIQUE,
-	Asiakasnumero INTEGER(15) NOT NULL,
-	Mokkinumero INTEGER(15) NOT NULL,
-	Hinta INTEGER(10),
-	HintaErittely INTEGER(10),
-	Tilitiedot INTEGER(10),
-	Viitenumero INTEGER(12),
+	LaskuId INTEGER NOT NULL IDENTITY PRIMARY KEY UNIQUE,
+	Asiakasnumero INTEGER NOT NULL,
+	Mokkinumero INTEGER NOT NULL,
+	Hinta INTEGER,
+	HintaErittely INTEGER,
+	Tilitiedot INTEGER,
+	Viitenumero INTEGER,
 	Vastaanottaja VARCHAR(40),
 	EraPaiva VARCHAR(15),
 	LaskutusPaiva VARCHAR(15),	
 	FOREIGN KEY (Asiakasnumero) REFERENCES Asiakas(Asiakasnumero),
-	FOREIGN KEY (Mokkinumero) REFERENCES Mokki(Mokkinumero)
+	FOREIGN KEY (Mokkinumero) REFERENCES Mokki(Mokkinumero),
 );
 
 CREATE TABLE varaus (
-	VarausId INTEGER(6) PRIMARY KEY IDENTITY NOT NULL UNIQUE,
-	ToimipisteId INTEGER(3) NOT NULL,
-	Asiakasnumero INTEGER(15) NOT NULL,
-	Mokkinumero INTEGER(15) NOT NULL,
+	VarausId INTEGER PRIMARY KEY IDENTITY NOT NULL UNIQUE,
+	ToimipisteId INTEGER NOT NULL,
+	Asiakasnumero INTEGER NOT NULL,
+	Mokkinumero INTEGER NOT NULL,
 	Saapumispvm DATETIME NOT NULL,
 	Lahtopvm DATETIME NOT NULL,
 	Vahvistuspvm DATETIME NOT NULL,
-	Paivat INTEGER(3) NOT NULL,
+	Paivat INTEGER NOT NULL,
 	Vahvistettu  VARCHAR(5) NOT NULL,
 	Alennuskoodi VARCHAR(10),
-	Yopyjat INTEGER(3),
+	Yopyjat INTEGER,
 	Lisatietoja VARCHAR(250) NOT NULL,
 	Hinta DECIMAL(4) NOT NULL,
 	Laskutus VARCHAR(10) NOT NULL,
@@ -96,7 +105,7 @@ CREATE TABLE varaus (
 
 
 CREATE TABLE Salasanat (
-	Id INTEGER(50),
+	Id INTEGER,
 	Salasana VARCHAR(100),
-	FOREIGN KEY (Id) REFERENCES Kayttaja(Kayttajanumero)
+	FOREIGN KEY (Id) REFERENCES Kayttaja(Kayttajanumero),
 );
