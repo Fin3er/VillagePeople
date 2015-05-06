@@ -30,6 +30,7 @@ namespace Mokkivarausjarjestelma
             DateTime paivamaara = DateTime.Today;
             dtpsaapuminen.Value = paivamaara;
             dtplahtopvm.Value = paivamaara;
+            ToimipisteCombobox(); //Täytetään toimipistecombobox heti kun form ladataan
         }
 
         private void dtpsaapuminen_ValueChanged(object sender, EventArgs e)
@@ -68,7 +69,7 @@ namespace Mokkivarausjarjestelma
             Tietokanta t = new Tietokanta();
             yhteys = t.YhdistaTietokantaan();
             kasky = yhteys.CreateCommand();
-            kasky.CommandText = "Select toimipisteid from toimipiste";
+            kasky.CommandText = "Select nimi from toimipisteet";
             lukija = kasky.ExecuteReader();
             try
             {
@@ -95,10 +96,13 @@ namespace Mokkivarausjarjestelma
         // Metodi Mökkityypin comboboxin täyttämiselle, en tiedä toimiiko
         public void MokkityyppiCombobox()
         {
+            cmbxmokkityyppi.Items.Clear();
             Tietokanta t = new Tietokanta();
             yhteys = t.YhdistaTietokantaan();
             kasky = yhteys.CreateCommand();
-            kasky.CommandText = "Select mokkityyppi from mokki";
+            kasky.CommandText = @"Select nimi from mokki where mokkiid in (select mokki from toimipisteenmokit where toimipiste in(select toimipisteid from toimipisteet where nimi=@nimi))";
+            string nimi = cmbxtoimipiste.SelectedText;
+            kasky.Parameters.AddWithValue("@nimi", nimi);
             lukija = kasky.ExecuteReader();
             try
             {
@@ -123,7 +127,28 @@ namespace Mokkivarausjarjestelma
             t.SuljeYhteysTietokantaan(yhteys);
 
         }
+
+        private void cmbxmokkityyppi_SelectedIndexChanged(object sender, EventArgs e)
+        {
         }
+
+        private void cmbxtoimipiste_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            MokkityyppiCombobox();
+        }
+
+        private void btntarkista_Click(object sender, EventArgs e)
+        {
+            /*Ei vielä valmis
+            Tietokanta t = new Tietokanta();
+            yhteys = t.YhdistaTietokantaan();
+            kasky = yhteys.CreateCommand();
+            kasky.CommandText = @"Select varausid from varaukset where mokkiid=@id and saapumispvm<=@saapuminen and lahtopvm>=@lahteminen";
+            kasky.Parameters.AddWithValue("@nimi", id);
+            lukija = kasky.ExecuteReader();
+             */
+        }
+       }
 
         }
   

@@ -52,6 +52,7 @@
             this.btnetsiasiakas = new System.Windows.Forms.Button();
             this.cmbxasiakas = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.btnperuutavaraus = new System.Windows.Forms.Button();
             this.btnteevaraus = new System.Windows.Forms.Button();
             this.txbxhinta = new System.Windows.Forms.TextBox();
@@ -62,7 +63,7 @@
             this.llblkartta = new System.Windows.Forms.LinkLabel();
             this.lblyhteenveto = new System.Windows.Forms.Label();
             this.txbxyhteenveto = new System.Windows.Forms.TextBox();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.btntarkista = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -75,6 +76,7 @@
             this.cmbxtoimipiste.Name = "cmbxtoimipiste";
             this.cmbxtoimipiste.Size = new System.Drawing.Size(121, 21);
             this.cmbxtoimipiste.TabIndex = 0;
+            this.cmbxtoimipiste.SelectedIndexChanged += new System.EventHandler(this.cmbxtoimipiste_SelectedIndexChanged);
             // 
             // lbltoimipiste
             // 
@@ -101,6 +103,7 @@
             this.cmbxmokkityyppi.Name = "cmbxmokkityyppi";
             this.cmbxmokkityyppi.Size = new System.Drawing.Size(121, 21);
             this.cmbxmokkityyppi.TabIndex = 3;
+            this.cmbxmokkityyppi.SelectedIndexChanged += new System.EventHandler(this.cmbxmokkityyppi_SelectedIndexChanged);
             // 
             // lblsaapumispvm
             // 
@@ -136,6 +139,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btntarkista);
             this.groupBox1.Controls.Add(this.txbxalennus);
             this.groupBox1.Controls.Add(this.lblalennus);
             this.groupBox1.Controls.Add(this.lbltoimipiste);
@@ -301,6 +305,13 @@
             this.groupBox3.TabIndex = 12;
             this.groupBox3.TabStop = false;
             // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Location = new System.Drawing.Point(77, 92);
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(100, 20);
+            this.maskedTextBox1.TabIndex = 10;
+            // 
             // btnperuutavaraus
             // 
             this.btnperuutavaraus.Location = new System.Drawing.Point(132, 446);
@@ -389,12 +400,15 @@
             this.txbxyhteenveto.Size = new System.Drawing.Size(245, 157);
             this.txbxyhteenveto.TabIndex = 0;
             // 
-            // maskedTextBox1
+            // btntarkista
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(77, 92);
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(100, 20);
-            this.maskedTextBox1.TabIndex = 10;
+            this.btntarkista.Location = new System.Drawing.Point(22, 417);
+            this.btntarkista.Name = "btntarkista";
+            this.btntarkista.Size = new System.Drawing.Size(75, 23);
+            this.btntarkista.TabIndex = 10;
+            this.btntarkista.Text = "Tarkista varaus";
+            this.btntarkista.UseVisualStyleBackColor = true;
+            this.btntarkista.Click += new System.EventHandler(this.btntarkista_Click);
             // 
             // UusiVaraus
             // 
@@ -456,5 +470,6 @@
         private System.Windows.Forms.Label lblyhteenveto;
         private System.Windows.Forms.TextBox txbxyhteenveto;
         private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.Button btntarkista;
     }
 }

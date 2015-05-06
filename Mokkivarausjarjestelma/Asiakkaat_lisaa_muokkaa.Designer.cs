@@ -50,10 +50,10 @@
             this.txtbSahkopostiosoite = new System.Windows.Forms.TextBox();
             this.lblasiakaslisää = new System.Windows.Forms.Label();
             this.grbxhlotiedot = new System.Windows.Forms.GroupBox();
-            this.txbxhlotunnus = new System.Windows.Forms.TextBox();
+            this.txtbHlotunnus = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.grbxyhteystiedot = new System.Windows.Forms.GroupBox();
-            this.txtblisatietoja = new System.Windows.Forms.TextBox();
+            this.txtbLisatietoja = new System.Windows.Forms.TextBox();
             this.lbllisatietoja = new System.Windows.Forms.Label();
             this.btntallenna = new System.Windows.Forms.Button();
             this.btnperuuta = new System.Windows.Forms.Button();
@@ -275,7 +275,7 @@
             // 
             // grbxhlotiedot
             // 
-            this.grbxhlotiedot.Controls.Add(this.txbxhlotunnus);
+            this.grbxhlotiedot.Controls.Add(this.txtbHlotunnus);
             this.grbxhlotiedot.Controls.Add(this.label1);
             this.grbxhlotiedot.Controls.Add(this.lblNimitys);
             this.grbxhlotiedot.Controls.Add(this.cbbxNimitys);
@@ -292,14 +292,14 @@
             this.grbxhlotiedot.TabStop = false;
             this.grbxhlotiedot.Text = "Henkilötiedot:";
             // 
-            // txbxhlotunnus
+            // txtbHlotunnus
             // 
-            this.txbxhlotunnus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbxhlotunnus.Location = new System.Drawing.Point(269, 250);
-            this.txbxhlotunnus.Margin = new System.Windows.Forms.Padding(4);
-            this.txbxhlotunnus.Name = "txbxhlotunnus";
-            this.txbxhlotunnus.Size = new System.Drawing.Size(197, 26);
-            this.txbxhlotunnus.TabIndex = 39;
+            this.txtbHlotunnus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtbHlotunnus.Location = new System.Drawing.Point(269, 250);
+            this.txtbHlotunnus.Margin = new System.Windows.Forms.Padding(4);
+            this.txtbHlotunnus.Name = "txtbHlotunnus";
+            this.txtbHlotunnus.Size = new System.Drawing.Size(197, 26);
+            this.txtbHlotunnus.TabIndex = 39;
             // 
             // label1
             // 
@@ -332,13 +332,13 @@
             this.grbxyhteystiedot.TabStop = false;
             this.grbxyhteystiedot.Text = "Yhteystiedot:";
             // 
-            // txtblisatietoja
+            // txtbLisatietoja
             // 
-            this.txtblisatietoja.Location = new System.Drawing.Point(23, 67);
-            this.txtblisatietoja.Multiline = true;
-            this.txtblisatietoja.Name = "txtblisatietoja";
-            this.txtblisatietoja.Size = new System.Drawing.Size(149, 89);
-            this.txtblisatietoja.TabIndex = 53;
+            this.txtbLisatietoja.Location = new System.Drawing.Point(23, 67);
+            this.txtbLisatietoja.Multiline = true;
+            this.txtbLisatietoja.Name = "txtbLisatietoja";
+            this.txtbLisatietoja.Size = new System.Drawing.Size(149, 89);
+            this.txtbLisatietoja.TabIndex = 53;
             // 
             // lbllisatietoja
             // 
@@ -374,7 +374,7 @@
             // 
             this.grbxlisatiedot.Controls.Add(this.lbllisatietoja);
             this.grbxlisatiedot.Controls.Add(this.btnperuuta);
-            this.grbxlisatiedot.Controls.Add(this.txtblisatietoja);
+            this.grbxlisatiedot.Controls.Add(this.txtbLisatietoja);
             this.grbxlisatiedot.Controls.Add(this.btntallenna);
             this.grbxlisatiedot.Location = new System.Drawing.Point(839, 407);
             this.grbxlisatiedot.Name = "grbxlisatiedot";
@@ -397,7 +397,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1184, 750);
+            this.ClientSize = new System.Drawing.Size(1184, 741);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.grbxlisatiedot);
             this.Controls.Add(this.grbxyhteystiedot);
@@ -441,10 +441,10 @@
         private System.Windows.Forms.TextBox txtbSahkopostiosoite;
         private System.Windows.Forms.Label lblasiakaslisää;
         private System.Windows.Forms.GroupBox grbxhlotiedot;
-        private System.Windows.Forms.TextBox txbxhlotunnus;
+        private System.Windows.Forms.TextBox txtbHlotunnus;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox grbxyhteystiedot;
-        private System.Windows.Forms.TextBox txtblisatietoja;
+        private System.Windows.Forms.TextBox txtbLisatietoja;
         private System.Windows.Forms.Label lbllisatietoja;
         private System.Windows.Forms.Button btntallenna;
         private System.Windows.Forms.Button btnperuuta;

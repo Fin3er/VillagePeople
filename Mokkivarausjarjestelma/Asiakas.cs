@@ -16,15 +16,17 @@ namespace Mokkivarausjarjestelma
         //Asiakkaan muuttujat, pitää miettiä vielä tyypit. Nyt kaikki stringeinä, mikä tässä vaiheessa tuntuu toimivimmalta
         private string asiakasnumero;
         private string nimitys;
-        private string etunimi;
+        private string etunimet;
         private string sukunimi;
         private string syntymaaika;
         private string postiosoite;
         private string postinumero;
         private string postitoimipaikka;
         private string maa;
+        private string tunnus;
         private string puhelinnumero;
         private string sahkoposti;
+        private string lisatietoja;
 
         //Lista löytyneitä asiakkaita varten
         public List<Asiakas> asiakaslista = new List<Asiakas>();
@@ -42,7 +44,7 @@ namespace Mokkivarausjarjestelma
         //Ylikirjoitetaan metodi toString, jotta listboxissa näkyisi etu- ja sukunimi
         public override string ToString()
         {
-            return this.Etunimi + " " + this.Sukunimi;
+            return this.Etunimet + " " + this.Sukunimi;
         }
 
 
@@ -53,7 +55,7 @@ namespace Mokkivarausjarjestelma
             Tietokanta t=new Tietokanta();
             yhteys=t.YhdistaTietokantaan();
             kasky = yhteys.CreateCommand();
-            kasky.CommandText = "Select * from asiakas";
+            kasky.CommandText = "Select * from asiakkaat";
             lukija = kasky.ExecuteReader();
             try
             {
@@ -62,15 +64,17 @@ namespace Mokkivarausjarjestelma
                     //Luodaan, jokaista taulun riviä varten asiakasolioita 
                     Asiakas a = new Asiakas();
                     a.Asiakasnumero = lukija.GetString("asiakasnumero");
-                    a.Etunimi = lukija.GetString("etunimi");
+                    a.Etunimet = lukija.GetString("etunimet");
                     a.Sukunimi = lukija.GetString("sukunimi");
                     a.Syntymaaika = lukija.GetString("syntymaaika");
-                    a.Postiosoite = lukija.GetString("katuosoite");
+                    a.Postiosoite = lukija.GetString("postiosoite");
                     a.Postinumero = lukija.GetString("postinumero");
                     a.Postitoimipaikka = lukija.GetString("postitoimipaikka");
                     a.Maa = lukija.GetString("maa");
+                    a.Tunnus = lukija.GetString("tunnus");
                     a.Puhelinnumero = lukija.GetString("puhelinnumero");
-                    a.Sahkoposti = lukija.GetString("sahkopostiosoite");
+                    a.Sahkoposti = lukija.GetString("sahkoposti");
+                    a.Lisatietoja = lukija.GetString("lisatietoja");
                     //Lisätään luotu olio listaan
                     asiakaslista.Add(a);
                     //Alustetaan t nollaksi
@@ -99,19 +103,21 @@ namespace Mokkivarausjarjestelma
             yhteys = t.YhdistaTietokantaan();
             kasky = yhteys.CreateCommand(); 
             //Update Query @merkityt muuttujat? korvataan parametreillä
-            kasky.CommandText = @"UPDATE asiakas SET etunimi=@etunimi, sukunimi=@sukunimi, syntymaaika=@syntymaaika,
-            katuosoite=@katuosoite, postinumero=@postinumero, postitoimipaikka=@postitoimipaikka, maa=@maa, puhelinnumero=@puhelinnumero,sahkopostiosoite=@sahkopostiosoite WHERE asiakasnumero=@asiakasnumero";
+            kasky.CommandText = @"UPDATE asiakkaat SET etunimet=@etunimet, sukunimi=@sukunimi, syntymaaika=@syntymaaika,
+            postiosoite=@postiosoite, postinumero=@postinumero, postitoimipaikka=@postitoimipaikka, maa=@maa,tunnus=@tunnus, puhelinnumero=@puhelinnumero,sahkoposti=@sahkoposti,lisatietoja=@lisatietoja WHERE asiakasnumero=@asiakasnumero";
             //Lisätään updatequeryyn parametrina annetun asiakkaan tiedot
             kasky.Parameters.AddWithValue("@asiakasnumero", a.Asiakasnumero);
-            kasky.Parameters.AddWithValue("@etunimi", a.Etunimi);
+            kasky.Parameters.AddWithValue("@etunimet", a.Etunimet);
             kasky.Parameters.AddWithValue("@sukunimi", a.Sukunimi);
             kasky.Parameters.AddWithValue("@syntymaaika", a.Syntymaaika);
             kasky.Parameters.AddWithValue("@katuosoite", a.Postiosoite);
             kasky.Parameters.AddWithValue("@postinumero", a.Postinumero);
             kasky.Parameters.AddWithValue("@postitoimipaikka", a.Postitoimipaikka);
             kasky.Parameters.AddWithValue("@maa", a.Maa);
+            kasky.Parameters.AddWithValue("@tunnus", a.Tunnus);
             kasky.Parameters.AddWithValue("@puhelinnumero", a.Puhelinnumero);
-            kasky.Parameters.AddWithValue("@sahkopostiosoite", a.Sahkoposti);
+            kasky.Parameters.AddWithValue("@sahkoposti", a.Sahkoposti);
+            kasky.Parameters.AddWithValue("@lisatietoja", a.Lisatietoja);
             try
             {
                 kasky.ExecuteNonQuery();
@@ -133,17 +139,19 @@ namespace Mokkivarausjarjestelma
             Tietokanta t = new Tietokanta();
             yhteys = t.YhdistaTietokantaan();
             kasky = yhteys.CreateCommand();
-            kasky.CommandText = @"INSERT INTO asiakas (etunimi,sukunimi,syntymaaika,katuosoite,postinumero,postitoimipaikka,maa,puhelinnumero,sahkopostiosoite)
-                                VALUES (@etunimi, @sukunimi, @syntymaaika, @katuosoite, @postinumero, @postitoimipaikka, @maa, @puhelinnumero, @sahkopostiosoite)";
-            kasky.Parameters.AddWithValue("@etunimi", a.Etunimi);
+            kasky.CommandText = @"INSERT INTO asiakkaat (etunimet,sukunimi,syntymaaika,postiosoite,postinumero,postitoimipaikka,maa,tunnus,puhelinnumero,sahkoposti,lisatietoja)
+                                VALUES (@etunimet, @sukunimi, @syntymaaika, @postiosoite, @postinumero, @postitoimipaikka,@tunnus, @maa, @puhelinnumero, @sahkoposti, @lisatietoja)";
+            kasky.Parameters.AddWithValue("@etunimet", a.Etunimet);
             kasky.Parameters.AddWithValue("@sukunimi", a.Sukunimi);
             kasky.Parameters.AddWithValue("@syntymaaika", a.Syntymaaika);
-            kasky.Parameters.AddWithValue("@katuosoite", a.Postiosoite);
+            kasky.Parameters.AddWithValue("@postiosoite", a.Postiosoite);
             kasky.Parameters.AddWithValue("@postinumero", a.Postinumero);
             kasky.Parameters.AddWithValue("@postitoimipaikka", a.Postitoimipaikka);
             kasky.Parameters.AddWithValue("@maa", a.Maa);
+            kasky.Parameters.AddWithValue("@tunnus", a.Tunnus);
             kasky.Parameters.AddWithValue("@puhelinnumero", a.Puhelinnumero);
-            kasky.Parameters.AddWithValue("@sahkopostiosoite", a.Sahkoposti);
+            kasky.Parameters.AddWithValue("@sahkoposti", a.Sahkoposti);
+            kasky.Parameters.AddWithValue("@lisatietoja", a.Lisatietoja);
             try
             {
                 kasky.ExecuteNonQuery();
@@ -164,7 +172,7 @@ namespace Mokkivarausjarjestelma
             Tietokanta t = new Tietokanta();
             yhteys = t.YhdistaTietokantaan();
             kasky = yhteys.CreateCommand();
-            kasky.CommandText = "DELETE FROM asiakas WHERE asiakasnumero=@asiakasnumero";
+            kasky.CommandText = "DELETE FROM asiakkaat WHERE asiakasnumero=@asiakasnumero";
             kasky.Parameters.AddWithValue("@asiakasnumero", a.Asiakasnumero);
             try
             {
