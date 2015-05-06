@@ -18,6 +18,7 @@ namespace Mokkivarausjarjestelma
         protected MySqlConnection yhteys;
         protected MySqlCommand kasky;
         protected MySqlDataReader lukija;
+        protected string mokkityyppi;
 
         public UusiVaraus()
         {
@@ -196,6 +197,7 @@ namespace Mokkivarausjarjestelma
 
         private void cmbxmokkityyppi_SelectedIndexChanged(object sender, EventArgs e)
         {
+            mokkityyppi = cmbxmokkityyppi.SelectedItem.ToString();
         }
 
         private void cmbxtoimipiste_SelectedIndexChanged(object sender, EventArgs e)
@@ -203,20 +205,29 @@ namespace Mokkivarausjarjestelma
             MokkityyppiCombobox();
         }
 
+
+        //Toiminnon pitäisi tarkastaa onko valitulle mökille jo aiempaa varausta olemassa
+        //Vertailussa vielä jokin ontuu, jos joku keksii oikean kaavan niin hyvä
+        //J tosiaan tuloste alennuskoodin tekstiboksiin on vain testausta varten
         private void btntarkista_Click(object sender, EventArgs e)
         {
-           
+            txbxalennus.Text = "";
             Tietokanta t = new Tietokanta();
             yhteys = t.YhdistaTietokantaan();
             kasky = yhteys.CreateCommand();
-            kasky.CommandText = @"Select varausid from varaukset where mokkiid=@id and saapumispvm<=@saapuminen and lahtopvm>=@lahteminen";
-            string id=cmbxmokkityyppi.SelectedText;
-            DateTime saapuminen = dtpsaapuminen.Value;
-            DateTime lahto = dtplahtopvm.Value;
-            kasky.Parameters.AddWithValue("@nimi", id);
+            //kasky.CommandText = @"Select varausid from varaukset where mokkiid in(select mokkiid from mokki where nimi=@id)";
+            kasky.CommandText = @"Select varausid from varaukset where saapumispvm>=@saapuminen and lahtopvm<=@saapuminen and saapumispvm>=@lahto and lahtopvm<=@lahto and mokkiid in(select mokkiid from mokki where nimi=@id)";
+            string saapuminen = dtpsaapuminen.Value.ToString("yyyy-MM-dd HH:mm:ss");
+            string lahto = dtplahtopvm.Value.ToString("yyyy-MM-dd HH:mm:ss");
+            kasky.Parameters.AddWithValue("@id", mokkityyppi);
             kasky.Parameters.AddWithValue("@saapuminen", saapuminen);
             kasky.Parameters.AddWithValue("@lahto", lahto);
             lukija = kasky.ExecuteReader();
+            while(lukija.Read())
+            {
+                txbxalennus.Text = lukija.GetString("varausid");
+            }
+            t.SuljeYhteysTietokantaan(yhteys);
              
         }
        }
