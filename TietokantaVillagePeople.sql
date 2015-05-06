@@ -1,5 +1,4 @@
 ﻿/* MYSQL: IDENTITY => AUTO_INCREMENT ? */
-/* mahdollisia muutoksia voi tulla, ilmoittakaa myös tarvittavat muutokset */
 
 CREATE TABLE Asiakas (
 	Asiakasnumero INTEGER NOT NULL IDENTITY PRIMARY KEY UNIQUE,
@@ -15,7 +14,7 @@ CREATE TABLE Asiakas (
 	Kansalaisuus VARCHAR(40) NOT NULL,
 	Puhelinumero VARCHAR(40) NOT NULL,
 	Sahkopostiosoite VARCHAR(60),
-	Lisatietoja VARCHAR(256)
+	Lisatietoja VARCHAR(256),
 );
 CREATE TABLE Mokki (
 	Mokkinumero INTEGER NOT NULL IDENTITY PRIMARY KEY UNIQUE,
