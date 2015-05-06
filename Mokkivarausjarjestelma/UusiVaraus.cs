@@ -139,14 +139,19 @@ namespace Mokkivarausjarjestelma
 
         private void btntarkista_Click(object sender, EventArgs e)
         {
-            /*Ei vielä valmis
+           
             Tietokanta t = new Tietokanta();
             yhteys = t.YhdistaTietokantaan();
             kasky = yhteys.CreateCommand();
             kasky.CommandText = @"Select varausid from varaukset where mokkiid=@id and saapumispvm<=@saapuminen and lahtopvm>=@lahteminen";
+            string id=cmbxmokkityyppi.SelectedText;
+            DateTime saapuminen = dtpsaapuminen.Value;
+            DateTime lahto = dtplahtopvm.Value;
             kasky.Parameters.AddWithValue("@nimi", id);
+            kasky.Parameters.AddWithValue("@saapuminen", saapuminen);
+            kasky.Parameters.AddWithValue("@lahto", lahto);
             lukija = kasky.ExecuteReader();
-             */
+             
         }
        }
 
