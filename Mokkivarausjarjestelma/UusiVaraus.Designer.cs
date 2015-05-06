@@ -123,6 +123,7 @@
             // 
             // dtplahtopvm
             // 
+            this.dtplahtopvm.CustomFormat = "";
             this.dtplahtopvm.Location = new System.Drawing.Point(25, 277);
             this.dtplahtopvm.Name = "dtplahtopvm";
             this.dtplahtopvm.Size = new System.Drawing.Size(200, 20);
