@@ -184,6 +184,12 @@
       <DependentUpon>TietokantaDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Toimipiste.cs" />
+    <Compile Include="Toimipisteenhallinta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Toimipisteenhallinta.Designer.cs">
+      <DependentUpon>Toimipisteenhallinta.cs</DependentUpon>
+    </Compile>
     <Compile Include="ToimipisteGetSet.cs" />
     <Compile Include="Toimipiste_lisaa_muokkaa.cs">
       <SubType>Form</SubType>

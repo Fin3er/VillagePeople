@@ -37,6 +37,7 @@
             this.dtplahtopvm = new System.Windows.Forms.DateTimePicker();
             this.lbllahtopvm = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btntarkista = new System.Windows.Forms.Button();
             this.txbxalennus = new System.Windows.Forms.TextBox();
             this.lblalennus = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -63,7 +64,6 @@
             this.llblkartta = new System.Windows.Forms.LinkLabel();
             this.lblyhteenveto = new System.Windows.Forms.Label();
             this.txbxyhteenveto = new System.Windows.Forms.TextBox();
-            this.btntarkista = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -155,6 +155,16 @@
             this.groupBox1.Size = new System.Drawing.Size(285, 493);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
+            // 
+            // btntarkista
+            // 
+            this.btntarkista.Location = new System.Drawing.Point(22, 417);
+            this.btntarkista.Name = "btntarkista";
+            this.btntarkista.Size = new System.Drawing.Size(75, 23);
+            this.btntarkista.TabIndex = 10;
+            this.btntarkista.Text = "Tarkista varaus";
+            this.btntarkista.UseVisualStyleBackColor = true;
+            this.btntarkista.Click += new System.EventHandler(this.btntarkista_Click);
             // 
             // txbxalennus
             // 
@@ -399,16 +409,6 @@
             this.txbxyhteenveto.Name = "txbxyhteenveto";
             this.txbxyhteenveto.Size = new System.Drawing.Size(245, 157);
             this.txbxyhteenveto.TabIndex = 0;
-            // 
-            // btntarkista
-            // 
-            this.btntarkista.Location = new System.Drawing.Point(22, 417);
-            this.btntarkista.Name = "btntarkista";
-            this.btntarkista.Size = new System.Drawing.Size(75, 23);
-            this.btntarkista.TabIndex = 10;
-            this.btntarkista.Text = "Tarkista varaus";
-            this.btntarkista.UseVisualStyleBackColor = true;
-            this.btntarkista.Click += new System.EventHandler(this.btntarkista_Click);
             // 
             // UusiVaraus
             // 

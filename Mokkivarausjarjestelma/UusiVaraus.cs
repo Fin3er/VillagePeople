@@ -26,11 +26,13 @@ namespace Mokkivarausjarjestelma
 
         private void UusiVaraus_Load(object sender, EventArgs e)
         {
-            // Asetetaan dtpsaapuminen ja dtplahtopvm arvoksi tämä päivä
-            DateTime paivamaara = DateTime.Today;
-            dtpsaapuminen.Value = paivamaara;
-            dtplahtopvm.Value = paivamaara;
+            // Asetetaan dtpsaapuminen ja dtplahtopvm arvot
+            DateTime tulopaivamaara = DateTime.Today; // Tulopäiväksi tulee tämä päivä
+            DateTime lahtopaivamaara = DateTime.Today.AddDays(+1); // Lähtopäiväksi tulee nyt seuraava päivä
+            dtpsaapuminen.Value = tulopaivamaara;
+            dtplahtopvm.Value = lahtopaivamaara;
             ToimipisteCombobox(); //Täytetään toimipistecombobox heti kun form ladataan
+            AsiakasCombobox(); //Täytetään asiakascombobox heti kun form ladataan
         }
 
         private void dtpsaapuminen_ValueChanged(object sender, EventArgs e)
@@ -127,6 +129,67 @@ namespace Mokkivarausjarjestelma
             t.SuljeYhteysTietokantaan(yhteys);
 
         }
+        // Metodi Asiakas comboboxin täyttämiselle, en tiedä toimiiko
+        public void AsiakasCombobox()
+        {
+            Tietokanta t = new Tietokanta();
+            yhteys = t.YhdistaTietokantaan();
+            kasky = yhteys.CreateCommand();
+            kasky.CommandText = "Select asiakasnumero from asiakas";
+            lukija = kasky.ExecuteReader();
+            try
+            {
+                while (lukija.Read())
+                {
+                    cmbxasiakas.Items.Add(lukija.GetValue(0));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Comboboxia täyttäessä tapahtui virhe:" + ex.ToString());
+            }
+            try
+            {
+                //Suljetaan reader
+                lukija.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lukijaa sulkiessa tapahtui virhe:" + ex.ToString());
+            }
+            t.SuljeYhteysTietokantaan(yhteys);
+        }
+        // Metodi LisapalvelutCheckedListBoxin täyttämiselle
+        public void LisapalvelutCheckedListBox()
+        {
+            Tietokanta t = new Tietokanta();
+            yhteys = t.YhdistaTietokantaan();
+            kasky = yhteys.CreateCommand();
+            kasky.CommandText = "Select lisapalveluid from lisapalvelu";
+            lukija = kasky.ExecuteReader();
+            try
+            {
+                while (lukija.Read())
+                {
+                    clblisapalvelut.Items.Add(lukija["lisapalveluid"]);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Comboboxia täyttäessä tapahtui virhe:" + ex.ToString());
+            }
+            try
+            {
+                //Suljetaan reader
+                lukija.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lukijaa sulkiessa tapahtui virhe:" + ex.ToString());
+            }
+            t.SuljeYhteysTietokantaan(yhteys);
+        }
+
 
         private void cmbxmokkityyppi_SelectedIndexChanged(object sender, EventArgs e)
         {
