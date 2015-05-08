@@ -19,6 +19,7 @@ namespace Mokkivarausjarjestelma
         protected MySqlCommand kasky;
         protected MySqlDataReader lukija;
         protected string mokkityyppi;
+        protected string toimipisteennimi;
 
         public UusiVaraus()
         {
@@ -200,13 +201,14 @@ namespace Mokkivarausjarjestelma
             Tietokanta t = new Tietokanta();
             yhteys = t.YhdistaTietokantaan();
             kasky = yhteys.CreateCommand();
-            kasky.CommandText = "Select lisapalveluid from lisapalvelu";
+            kasky.CommandText = "Select lisapalvelunimi from lisapalvelu where lisapalveluid in(select palvelu from toimipisteenpalvelut where toimipiste in (select toimipisteid from toimipisteet where nimi=@toimipisteennimi))";
+            kasky.Parameters.AddWithValue("@toimipisteennimi", toimipisteennimi);
             lukija = kasky.ExecuteReader();
             try
             {
                 while (lukija.Read())
                 {
-                    clblisapalvelut.Items.Add(lukija["lisapalveluid"]);
+                    clblisapalvelut.Items.Add(lukija.GetString("lisapalvelunimi"));
                 }
             }
             catch (Exception ex)
@@ -242,6 +244,8 @@ namespace Mokkivarausjarjestelma
         private void cmbxtoimipiste_SelectedIndexChanged(object sender, EventArgs e)
         {
             MokkityyppiCombobox();
+            toimipisteennimi = cmbxtoimipiste.SelectedItem.ToString();
+            LisapalvelutCheckedListBox();
         }
 
 

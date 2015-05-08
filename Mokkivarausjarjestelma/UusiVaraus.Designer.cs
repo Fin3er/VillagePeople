@@ -53,7 +53,6 @@
             this.btnetsiasiakas = new System.Windows.Forms.Button();
             this.cmbxasiakas = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.btnperuutavaraus = new System.Windows.Forms.Button();
             this.btnteevaraus = new System.Windows.Forms.Button();
             this.txbxhinta = new System.Windows.Forms.TextBox();
@@ -299,7 +298,6 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.maskedTextBox1);
             this.groupBox3.Controls.Add(this.btnperuutavaraus);
             this.groupBox3.Controls.Add(this.btnteevaraus);
             this.groupBox3.Controls.Add(this.txbxhinta);
@@ -315,13 +313,6 @@
             this.groupBox3.Size = new System.Drawing.Size(308, 493);
             this.groupBox3.TabIndex = 12;
             this.groupBox3.TabStop = false;
-            // 
-            // maskedTextBox1
-            // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(77, 92);
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(100, 20);
-            this.maskedTextBox1.TabIndex = 10;
             // 
             // btnperuutavaraus
             // 
@@ -470,7 +461,6 @@
         private System.Windows.Forms.LinkLabel llblkartta;
         private System.Windows.Forms.Label lblyhteenveto;
         private System.Windows.Forms.TextBox txbxyhteenveto;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
         private System.Windows.Forms.Button btntarkista;
     }
 }
