@@ -35,6 +35,7 @@ namespace Mokkivarausjarjestelma
             dtplahtopvm.Value = lahtopaivamaara;
             ToimipisteCombobox(); //Täytetään toimipistecombobox heti kun form ladataan
             AsiakasCombobox(); //Täytetään asiakascombobox heti kun form ladataan
+            LaskutusCombobox();
         }
 
         private void dtpsaapuminen_ValueChanged(object sender, EventArgs e)
@@ -70,6 +71,7 @@ namespace Mokkivarausjarjestelma
         // Metodi Toimipiste comboboxin täyttämiselle, en tiedä toimiiko
         public void ToimipisteCombobox()
         {
+            cmbxtoimipiste.Text = "Valitse:";
             Tietokanta t = new Tietokanta();
             yhteys = t.YhdistaTietokantaan();
             kasky = yhteys.CreateCommand();
@@ -100,6 +102,7 @@ namespace Mokkivarausjarjestelma
         // Metodi Mökkityypin comboboxin täyttämiselle, en tiedä toimiiko
         public void MokkityyppiCombobox()
         {
+            cmbxmokkityyppi.Text = "Valitse:";
             cmbxmokkityyppi.Items.Clear();
             Tietokanta t = new Tietokanta();
             yhteys = t.YhdistaTietokantaan();
@@ -163,6 +166,29 @@ namespace Mokkivarausjarjestelma
             }
             t.SuljeYhteysTietokantaan(yhteys);
         }
+
+        public void YopyjatCombobox()
+        {
+            cmbxyopyjat.Items.Clear();
+            cmbxyopyjat.Text = "";
+            int hlomaara = 0;
+            Tietokanta t = new Tietokanta();
+            yhteys = t.YhdistaTietokantaan();
+            kasky = yhteys.CreateCommand();
+            kasky.CommandText = "Select hlomaara from mokki where nimi=@mokinnimi";
+            kasky.Parameters.AddWithValue("@mokinnimi", mokkityyppi);
+            lukija = kasky.ExecuteReader();
+            if(lukija.Read())
+            {
+                hlomaara = Convert.ToInt16(lukija.GetString("hlomaara"));
+            }
+            lukija.Close();
+            t.SuljeYhteysTietokantaan(yhteys);
+            for (int i = 1; i <= hlomaara; i++)
+            {
+                cmbxyopyjat.Items.Add(i.ToString());
+            }
+        }
         // Metodi LisapalvelutCheckedListBoxin täyttämiselle
         public void LisapalvelutCheckedListBox()
         {
@@ -194,10 +220,18 @@ namespace Mokkivarausjarjestelma
             t.SuljeYhteysTietokantaan(yhteys);
         }
 
+        public void LaskutusCombobox()
+        {
+            cmbxlaskutus.Text = "Valitse:";
+            cmbxlaskutus.Items.Add("Sähköpostilasku");
+            cmbxlaskutus.Items.Add("Paperilasku");
+        }
+
 
         private void cmbxmokkityyppi_SelectedIndexChanged(object sender, EventArgs e)
         {
             mokkityyppi = cmbxmokkityyppi.SelectedItem.ToString();
+            YopyjatCombobox();
         }
 
         private void cmbxtoimipiste_SelectedIndexChanged(object sender, EventArgs e)
@@ -206,9 +240,9 @@ namespace Mokkivarausjarjestelma
         }
 
 
-        //Toiminnon pitäisi tarkastaa onko valitulle mökille jo aiempaa varausta olemassa
-        //Vertailussa vielä jokin ontuu, jos joku keksii oikean kaavan niin hyvä
-        //J tosiaan tuloste alennuskoodin tekstiboksiin on vain testausta varten
+        //Toiminto tarkastaa onko valitulle mökille olemassa jo varaus valittuina päivinä
+        //Tällä hetkellü toimii tarkista-nappia painamalla, joka ilmoittaa MessageBoxilla, jos varaus on olemassa tai jos mökin voi varata.
+        //Toteutus on hieman kömpelö. Tätä voi  yrittää soveltaa kalenteritoimintoon. 
         private void btntarkista_Click(object sender, EventArgs e)
         {
             txbxalennus.Text = "";
@@ -216,16 +250,22 @@ namespace Mokkivarausjarjestelma
             yhteys = t.YhdistaTietokantaan();
             kasky = yhteys.CreateCommand();
             //kasky.CommandText = @"Select varausid from varaukset where mokkiid in(select mokkiid from mokki where nimi=@id)";
-            kasky.CommandText = @"Select varausid from varaukset where (saapumispvm<=@saapuminen and lahtopvm>=@saapuminen) or (saapumispvm<=@lahto and lahtopvm>=@lahto and mokkiid in(select mokkiid from mokki where nimi=@id)";
+            kasky.CommandText = @"Select * from varaukset where mokkiid in(select mokkiid from mokki where nimi=@id) 
+            and (@saapuminen between saapumispvm and lahtopvm or @lahto between saapumispvm and lahtopvm or saapumispvm between @saapuminen and 
+            @lahto or lahtopvm between @saapuminen and @lahto)";
             string saapuminen = dtpsaapuminen.Value.ToString("yyyy-MM-dd HH:mm:ss");
             string lahto = dtplahtopvm.Value.ToString("yyyy-MM-dd HH:mm:ss");
             kasky.Parameters.AddWithValue("@id", mokkityyppi);
             kasky.Parameters.AddWithValue("@saapuminen", saapuminen);
             kasky.Parameters.AddWithValue("@lahto", lahto);
             lukija = kasky.ExecuteReader();
-            while(lukija.Read())
+            if(lukija.Read())
             {
-                txbxalennus.Text = lukija.GetString("varausid");
+                MessageBox.Show("Mökille on jo olemassa varaus valittuina päivinä!\nVarausid: " + lukija.GetString("varausid") + "\nSaapumispvm: " + lukija.GetString("saapumispvm") + "\nLähtöpvm: " + lukija.GetString("lahtopvm"));
+            }
+            else
+            {
+                MessageBox.Show("Mökin voi varata valituille päiville!");
             }
             t.SuljeYhteysTietokantaan(yhteys);
              
