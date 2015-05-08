@@ -135,10 +135,14 @@ namespace Mokkivarausjarjestelma
 
         }
         // Metodi Asiakas comboboxin täyttämiselle
-        //Muutin tuohon select lauseeseen from asiakkaat. Hieman muutin tietokantaa niin eri nimet.
-        //Muuten kyllä toimii ja saan nyt omasta testitietokannasta listattua asiakasnumerot. 
+        //Muutin vielä yksinkertaisemmaksi koodia. Asiakas-luokassa oli jo valmiina tuo metodi asiakkaiden listaamiselle. 
+        //Muuten kyllä toimii ja saan nyt omasta testitietokannasta listattua asiakasnumerot ja nimet. 
         public void AsiakasCombobox()
         {
+            Asiakas a = new Asiakas();
+            a.HaeKaikkiAsiakkaatTietokannasta();
+            cmbxasiakas.Items.AddRange(a.asiakaslista.ToArray());
+            /*
             Tietokanta t = new Tietokanta();
             yhteys = t.YhdistaTietokantaan();
             kasky = yhteys.CreateCommand();
@@ -165,6 +169,7 @@ namespace Mokkivarausjarjestelma
                 MessageBox.Show("Lukijaa sulkiessa tapahtui virhe:" + ex.ToString());
             }
             t.SuljeYhteysTietokantaan(yhteys);
+             * */
         }
 
         public void YopyjatCombobox()

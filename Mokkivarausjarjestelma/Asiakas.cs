@@ -44,7 +44,7 @@ namespace Mokkivarausjarjestelma
         //Ylikirjoitetaan metodi toString, jotta listboxissa näkyisi etu- ja sukunimi
         public override string ToString()
         {
-            return this.Etunimet + " " + this.Sukunimi;
+            return this.Asiakasnumero + " " + this.Etunimet + " " + this.Sukunimi;
         }
 
 
