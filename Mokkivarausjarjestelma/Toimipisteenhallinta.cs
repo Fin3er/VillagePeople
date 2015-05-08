@@ -46,7 +46,7 @@ namespace Mokkivarausjarjestelma
         public void NaytaToimipiste()
         {
             //Jos olio on olemassa näytetään tiedot txtboxeissa
-            txbxToimipistetunnus.Text = toimipiste != null ? Convert.ToString(toimipiste.Toimipistetunnus) : "";
+            txbxToimipistetunnus.Text = toimipiste != null ? Convert.ToString(toimipiste.Toimipisteid) : "";
             txbxToimipistePuhelinnumero.Text = toimipiste != null ? Convert.ToString(toimipiste.Toimipistepuhelinnumero) : "";
             txbxToimipisteSahkoposti.Text = toimipiste != null ? Convert.ToString(toimipiste.Toimipistesahkoposti) : "";
             txbxToimipisteKatuosoite.Text = toimipiste != null ? Convert.ToString(toimipiste.Toimipistekatuosoite) : "";

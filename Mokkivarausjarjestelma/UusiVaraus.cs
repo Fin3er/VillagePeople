@@ -216,7 +216,7 @@ namespace Mokkivarausjarjestelma
             yhteys = t.YhdistaTietokantaan();
             kasky = yhteys.CreateCommand();
             //kasky.CommandText = @"Select varausid from varaukset where mokkiid in(select mokkiid from mokki where nimi=@id)";
-            kasky.CommandText = @"Select varausid from varaukset where saapumispvm>=@saapuminen and lahtopvm<=@saapuminen and saapumispvm>=@lahto and lahtopvm<=@lahto and mokkiid in(select mokkiid from mokki where nimi=@id)";
+            kasky.CommandText = @"Select varausid from varaukset where (saapumispvm<=@saapuminen and lahtopvm>=@saapuminen) or (saapumispvm<=@lahto and lahtopvm>=@lahto and mokkiid in(select mokkiid from mokki where nimi=@id)";
             string saapuminen = dtpsaapuminen.Value.ToString("yyyy-MM-dd HH:mm:ss");
             string lahto = dtplahtopvm.Value.ToString("yyyy-MM-dd HH:mm:ss");
             kasky.Parameters.AddWithValue("@id", mokkityyppi);
