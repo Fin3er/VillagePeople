@@ -56,7 +56,7 @@
             this.txtbxMokkiPostitoimipaikka = new System.Windows.Forms.TextBox();
             this.richtxtbxMokkiLisatietoa = new System.Windows.Forms.RichTextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnTallennaTiedot = new System.Windows.Forms.Button();
+            this.btnTallennaMokkiTiedot = new System.Windows.Forms.Button();
             this.btnPoistaMokki = new System.Windows.Forms.Button();
             this.btnLisaaUusiMokki = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -339,16 +339,17 @@
             this.label4.TabIndex = 55;
             this.label4.Text = "Lisätietoa:";
             // 
-            // btnTallennaTiedot
+            // btnTallennaMokkiTiedot
             // 
-            this.btnTallennaTiedot.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTallennaTiedot.Location = new System.Drawing.Point(41, 513);
-            this.btnTallennaTiedot.Margin = new System.Windows.Forms.Padding(4);
-            this.btnTallennaTiedot.Name = "btnTallennaTiedot";
-            this.btnTallennaTiedot.Size = new System.Drawing.Size(200, 46);
-            this.btnTallennaTiedot.TabIndex = 58;
-            this.btnTallennaTiedot.Text = "Muokkaa tietoja";
-            this.btnTallennaTiedot.UseVisualStyleBackColor = true;
+            this.btnTallennaMokkiTiedot.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTallennaMokkiTiedot.Location = new System.Drawing.Point(41, 513);
+            this.btnTallennaMokkiTiedot.Margin = new System.Windows.Forms.Padding(4);
+            this.btnTallennaMokkiTiedot.Name = "btnTallennaMokkiTiedot";
+            this.btnTallennaMokkiTiedot.Size = new System.Drawing.Size(200, 46);
+            this.btnTallennaMokkiTiedot.TabIndex = 58;
+            this.btnTallennaMokkiTiedot.Text = "Muokkaa tietoja";
+            this.btnTallennaMokkiTiedot.UseVisualStyleBackColor = true;
+            this.btnTallennaMokkiTiedot.Click += new System.EventHandler(this.btnTallennaMokkiTiedot_Click);
             // 
             // btnPoistaMokki
             // 
@@ -361,6 +362,7 @@
             this.btnPoistaMokki.TabIndex = 57;
             this.btnPoistaMokki.Text = "Poista mokki";
             this.btnPoistaMokki.UseVisualStyleBackColor = false;
+            this.btnPoistaMokki.Click += new System.EventHandler(this.btnPoistaMokki_Click);
             // 
             // btnLisaaUusiMokki
             // 
@@ -372,13 +374,14 @@
             this.btnLisaaUusiMokki.TabIndex = 56;
             this.btnLisaaUusiMokki.Text = "Lisää uusi mökki";
             this.btnLisaaUusiMokki.UseVisualStyleBackColor = true;
+            this.btnLisaaUusiMokki.Click += new System.EventHandler(this.btnLisaaUusiMokki_Click);
             // 
             // Mokinhallinta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 761);
-            this.Controls.Add(this.btnTallennaTiedot);
+            this.Controls.Add(this.btnTallennaMokkiTiedot);
             this.Controls.Add(this.btnPoistaMokki);
             this.Controls.Add(this.btnLisaaUusiMokki);
             this.Controls.Add(this.label4);
@@ -447,7 +450,7 @@
         private System.Windows.Forms.TextBox txtbxMokkiPostitoimipaikka;
         private System.Windows.Forms.RichTextBox richtxtbxMokkiLisatietoa;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button btnTallennaTiedot;
+        private System.Windows.Forms.Button btnTallennaMokkiTiedot;
         private System.Windows.Forms.Button btnPoistaMokki;
         private System.Windows.Forms.Button btnLisaaUusiMokki;
     }

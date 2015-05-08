@@ -51,18 +51,18 @@ namespace Mokkivarausjarjestelma
         {
             //Jos olio on olemassa näytetään tiedot txtboxeissa
             txbxMokkiNumero.Text = mokki != null ? Convert.ToString(mokki.Mokkitunnus) : "";
-            txtbxMokkiToimipiste.Text = mokki != null ? Convert.ToString(mokki.M_toimipiste) : "";
-            txtbxMokkiPostiosoite.Text = mokki != null ? Convert.ToString(mokki.M_osoite) : "";
-            txtbxMokkiMaa.Text = mokki != null ? Convert.ToString(mokki.M_maa) : "";
-            txtbxMokkiPostinumero.Text = mokki != null ? Convert.ToString(mokki.M_postinumero) : "";
-            txtbxMokkiPostitoimipaikka.Text = mokki != null ? Convert.ToString(mokki.M_postitoimipaikka) : "";
-            txtbxMokkiHuoneita.Text = mokki != null ? Convert.ToString(mokki.Huoneita) : "";
-            txtbxMokkiMakuuhuoneita.Text = mokki != null ? Convert.ToString(mokki.Makuuhuoneita) : "";
-            txtbxMokkiVuodepaikat.Text = mokki != null ? Convert.ToString(mokki.Vuodepaikat) : "";
-            txtbxMokkiVuorokausihinta.Text = mokki != null ? Convert.ToString(mokki.Vuorokausihinta) : "";
-            txtbxMokkiPintaala.Text = mokki != null ? Convert.ToString(mokki.Pintaala) : "";
-            txtbxMokkiVerkkoyhteys.Text = mokki != null ? Convert.ToString(mokki.Verkkoyhteys) : "";
-            richtxtbxMokkiLisatietoa.Text = mokki != null ? Convert.ToString(mokki.M_lisatietoa) : "";
+            txtbxMokkiToimipiste.Text = mokki != null ? Convert.ToString(mokki.Mokkitoimipiste) : "";
+            txtbxMokkiPostiosoite.Text = mokki != null ? Convert.ToString(mokki.Mokkiosoite) : "";
+            txtbxMokkiMaa.Text = mokki != null ? Convert.ToString(mokki.Mokkimaa) : "";
+            txtbxMokkiPostinumero.Text = mokki != null ? Convert.ToString(mokki.Mokkipostinumero) : "";
+            txtbxMokkiPostitoimipaikka.Text = mokki != null ? Convert.ToString(mokki.Mokkipostitoimipaikka) : "";
+            txtbxMokkiHuoneita.Text = mokki != null ? Convert.ToString(mokki.Mokkihuoneita) : "";
+            txtbxMokkiMakuuhuoneita.Text = mokki != null ? Convert.ToString(mokki.Mokkimakuuhuoneita) : "";
+            txtbxMokkiVuodepaikat.Text = mokki != null ? Convert.ToString(mokki.Mokkivuodepaikat) : "";
+            txtbxMokkiVuorokausihinta.Text = mokki != null ? Convert.ToString(mokki.Mokkivuorokausihinta) : "";
+            txtbxMokkiPintaala.Text = mokki != null ? Convert.ToString(mokki.Mokkipintaala) : "";
+            txtbxMokkiVerkkoyhteys.Text = mokki != null ? Convert.ToString(mokki.Mokkiverkkoyhteys) : "";
+            richtxtbxMokkiLisatietoa.Text = mokki != null ? Convert.ToString(mokki.Mokkilisatietoa) : "";
         }
 
         //Tässä toiminto, joka suoritetaan kun klikataan nimiä listboxissa
@@ -72,6 +72,25 @@ namespace Mokkivarausjarjestelma
             this.mokki = lstbxMokkilista.SelectedItem as Mokki;
             //Kutsutaan show-metodi valitulle asiakkaalle
             NaytaMokki();
+        }
+        //"Lisää uusi mökki" -painikkeesta avataan Mökin lisäys ja muokkausform, joka on vielä toistaiseksi tyhjä.
+        private void btnLisaaUusiMokki_Click(object sender, EventArgs e)
+        {
+            new Mokki_lisaa_muokkaa().Show();
+        }
+        //"Muokkaa tietoja" -napin toiminto. Vielä tarvitsee vähän koodia.
+        private void btnTallennaMokkiTiedot_Click(object sender, EventArgs e)
+        {
+            new Mokki_lisaa_muokkaa().Show();
+        }
+        //"Poista mökki" -napin toiminto.
+        private void btnPoistaMokki_Click(object sender, EventArgs e)
+        {
+            this.mokki = lstbxMokkilista.SelectedItem as Mokki;
+            MessageBox.Show("Haluatko varmasti poistaa valitun asiakkaan?", "Vahvistus", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            Mokki n = new Mokki();
+            n.PoistaMokkiTietokannasta(this.mokki);
+            PaivitaMokkiLista();
         }
 
 
