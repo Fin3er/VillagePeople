@@ -8,7 +8,7 @@ using MySql.Data.MySqlClient;
 using System.Windows.Forms;
 
 /* Ei testattu, tehty Asiakas mallista, ei lupauksia minkäänlaisesta toiminnasta */
-/*
+
 namespace Mokkivarausjarjestelma
 {
     
@@ -16,18 +16,25 @@ namespace Mokkivarausjarjestelma
     {
         // Varauksen muuttujat
         private int varausid;
-        private Toimipiste toimipisteid;
-        private Asiakas asiakasnumero;
-        private Mokki mokkinumero;
+        private string toimipisteid;
+        private Toimipiste toimipiste;
+        private int asiakasnumero;
+        private Asiakas asiakas;
+        private int mokkiid;
+        private Mokki mokki;
+        //private List<Lisapalvelu> lisapalvelut;
         private string saapumispvm;
         private string lahtopvm;
         private int paivat;
         private string vahvistettu;
+        private string vahvistuspvm;
         private string alennuskoodi;
         private int yopyjat;
         private string lisatietoja;
-        private Decimal hinta;
+        private float hinta;
         private string laskutus;
+        private string yhteenveto;
+        private string lisayspvm;
 
         //Lista löytyneitä varauksia varten
         public List<Varaus> varauslista = new List<Varaus>();
@@ -56,18 +63,19 @@ namespace Mokkivarausjarjestelma
                 {
                     //Luodaan, jokaista taulun riviä varten varausolioita 
                     Varaus v = new Varaus();
-                    v.Varausid = lukija.GetString("varausid");
+                    v.Varausid = Convert.ToInt32(lukija.GetString("varausid"));
                     v.Toimipisteid = lukija.GetString("toimipisteid");
-                    v.Asiakasnumero = lukija.GetString("asiakasnumero");
-                    v.Mokkinumero = lukija.GetString("mokkinumero");
+                    v.Asiakasnumero = Convert.ToInt32(lukija.GetString("asiakasnumero"));
+                    v.Mokkiid = Convert.ToInt32(lukija.GetString("mokkiid"));
                     v.Saapumispvm = lukija.GetString("saapumispvm");
                     v.Lahtopvm = lukija.GetString("lahtopvm");
-                    v.Paivat = lukija.GetString("paivat");
+                    v.Vahvistuspvm = lukija.GetString("vahvistuspvm");
+                    v.Paivat = Convert.ToInt32(lukija.GetString("paivat"));
                     v.Vahvistettu = lukija.GetString("vahvistettu");
                     v.Alennuskoodi = lukija.GetString("alennuskoodi");
-                    v.Yopyjat = lukija.GetString("yopyjat");
+                    v.Yopyjat = Convert.ToInt32(lukija.GetString("yopyjat"));
                     v.Lisatietoja = lukija.GetString("lisatietoja");
-                    v.Hinta = lukija.GetString("hinta");
+                    v.Hinta = Convert.ToInt32(lukija.GetString("hinta"));
                     v.Laskutus = lukija.GetString("laskutus");
                     //Lisätään luotu olio listaan
                     varauslista.Add(v);
@@ -92,21 +100,22 @@ namespace Mokkivarausjarjestelma
         }
 
         // Varauksen päivittäminen
-        public void PaivitaAsiakasTietokantaan(Asiakas a)
+        public void PaivitaVarausTietokantaan(Varaus v)
         {
             Tietokanta t = new Tietokanta();
             yhteys = t.YhdistaTietokantaan();
             kasky = yhteys.CreateCommand();
             //Update Query @merkityt muuttujat? korvataan parametreillä
-            kasky.CommandText = @"INSERT INTO varaus (varausid, toimipisteid, asiakasnumero, mokkinumero, saapumispvm, lahtopvm, paivat, vahvistettu, alennuskoodi, yopyjat, lisatietoja, hinta, laskutus)
-                                VALUES (@varausid, @toimipisteid, @asiakasnumero, @mokkinumero, @saapumispvm, @lahtopvm, @paivat, @vahvistettu, @alennuskoodi, @yopyjat, @lisatietoja, @hinta, @laskutus)";
+            kasky.CommandText = @"INSERT INTO varaus (varausid, toimipisteid, asiakasnumero, mokkiid, saapumispvm, lahtopvm,vahvistuspvm, paivat, vahvistettu, alennuskoodi, yopyjat, lisatietoja, hinta, laskutus)
+                                VALUES (@varausid, @toimipisteid, @asiakasnumero, @mokkinumero, @saapumispvm, @lahtopvm, @vahvistuspvm, @paivat, @vahvistettu, @alennuskoodi, @yopyjat, @lisatietoja, @hinta, @laskutus)";
             //Lisätään updatequeryyn parametrina annetun asiakkaan tiedot
             kasky.Parameters.AddWithValue("@varausid", v.Varausid);
-            kasky.Parameters.AddWithValue("@toimipisteid", v.ToimipisteId);
+            kasky.Parameters.AddWithValue("@toimipisteid", v.Toimipisteid);
             kasky.Parameters.AddWithValue("@asiakasnumero", v.Asiakasnumero);
-            kasky.Parameters.AddWithValue("@mokkinumero", v.Mokkinumero);
+            kasky.Parameters.AddWithValue("@mokkiid", v.Mokkiid);
             kasky.Parameters.AddWithValue("@saapumispvm", v.Saapumispvm);
             kasky.Parameters.AddWithValue("@lahtopvm", v.Lahtopvm);
+            kasky.Parameters.AddWithValue("@vahvistuspvm", v.Vahvistuspvm);
             kasky.Parameters.AddWithValue("@paivat", v.Paivat);
             kasky.Parameters.AddWithValue("@vahvistettu", v.Vahvistettu);
             kasky.Parameters.AddWithValue("@alennuskoodi", v.Alennuskoodi);
@@ -130,19 +139,20 @@ namespace Mokkivarausjarjestelma
         }
 
         // Varauksen lisääminen
-        public void LisaaAsiakasTietokantaan(Asiakas a)
+        public void LisaaVarausTietokantaan(Varaus v)
         {
             Tietokanta t = new Tietokanta();
             yhteys = t.YhdistaTietokantaan();
             kasky = yhteys.CreateCommand();
-            kasky.CommandText = @"INSERT INTO varaus (varausid, toimipisteid, asiakasnumero, mokkinumero, saapumispvm, lahtopvm, paivat, vahvistettu, alennuskoodi, yopyjat, lisatietoja, hinta, laskutus)
+            kasky.CommandText = @"INSERT INTO varaus (varausid, toimipisteid, asiakasnumero, mokkinumero, saapumispvm, lahtopvm,vahvistuspvm, paivat, vahvistettu, alennuskoodi, yopyjat, lisatietoja, hinta, laskutus)
                                 VALUES (@varausid, @toimipisteid, @asiakasnumero, @mokkinumero, @saapumispvm, @lahtopvm, @paivat, @vahvistettu, @alennuskoodi, @yopyjat, @lisatietoja, @hinta, @laskutus)";
-            kasky.Parameters.AddWithValue("@varausid", v.VarausId);
-            kasky.Parameters.AddWithValue("@toimipisteid", v.toimipisteId);
+            kasky.Parameters.AddWithValue("@varausid", v.Varausid);
+            kasky.Parameters.AddWithValue("@toimipisteid", v.Toimipisteid);
             kasky.Parameters.AddWithValue("@asiakasnumero", v.Asiakasnumero);
-            kasky.Parameters.AddWithValue("@mokkinumero", v.Mokkinumero);
+            kasky.Parameters.AddWithValue("@mokkinumero", v.Mokkiid);
             kasky.Parameters.AddWithValue("@saapumispvm", v.Saapumispvm);
             kasky.Parameters.AddWithValue("@lahtopvm", v.Lahtopvm);
+            kasky.Parameters.AddWithValue("vahvistuspvm", v.Vahvistuspvm);
             kasky.Parameters.AddWithValue("@paivat", v.Paivat);
             kasky.Parameters.AddWithValue("@vahvistettu", v.Vahvistettu);
             kasky.Parameters.AddWithValue("@alennuskoodi", v.Alennuskoodi);
@@ -166,7 +176,7 @@ namespace Mokkivarausjarjestelma
         }
 
         // Varauksen poistaminen
-        public void PoistaAsiakasTietokannasta(Asiakas a)
+        public void PoistaVarausTietokannasta(Varaus v)
         {
             Tietokanta t = new Tietokanta();
             yhteys = t.YhdistaTietokantaan();
@@ -185,7 +195,8 @@ namespace Mokkivarausjarjestelma
             t.SuljeYhteysTietokantaan(yhteys);
         }
 
+       
 
     }
 }
-     */
+     

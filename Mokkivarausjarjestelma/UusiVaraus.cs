@@ -18,12 +18,24 @@ namespace Mokkivarausjarjestelma
         protected MySqlConnection yhteys;
         protected MySqlCommand kasky;
         protected MySqlDataReader lukija;
-        protected string mokkityyppi;
-        protected string toimipisteennimi;
+        protected string mokkityyppi="";
+        protected string toimipisteennimi="";
+        protected string alennuskoodi="";
+        protected string asiakas="";
+        protected string yopyjat="";
+        public List<string> Lisapalvelut;
+        protected string lisatietoja="";
+        protected string laskutus="";
+        protected string hinta="";
 
         public UusiVaraus()
         {
             InitializeComponent();
+        }
+
+        public UusiVaraus(Varaus v)
+        {
+            
         }
 
         private void UusiVaraus_Load(object sender, EventArgs e)
@@ -239,6 +251,7 @@ namespace Mokkivarausjarjestelma
         {
             mokkityyppi = cmbxmokkityyppi.SelectedItem.ToString();
             YopyjatCombobox();
+            PaivitaYhteenveto();
         }
 
         private void cmbxtoimipiste_SelectedIndexChanged(object sender, EventArgs e)
@@ -246,6 +259,7 @@ namespace Mokkivarausjarjestelma
             MokkityyppiCombobox();
             toimipisteennimi = cmbxtoimipiste.SelectedItem.ToString();
             LisapalvelutCheckedListBox();
+            PaivitaYhteenveto();
         }
 
 
@@ -277,8 +291,67 @@ namespace Mokkivarausjarjestelma
                 MessageBox.Show("Mökin voi varata valituille päiville!");
             }
             t.SuljeYhteysTietokantaan(yhteys);
-             
         }
+
+        public void PaivitaYhteenveto()
+        {
+            txbxyhteenveto.Text = "Toimipiste: " + toimipisteennimi + "\r\nMökkityyppi: " + mokkityyppi + "\r\nSaapumisaika: " + dtpsaapuminen.Value.ToString()
+                + "\r\nLähtöaika: "  + dtplahtopvm.Value.ToString() + "\r\nAlennuskoodi: " + alennuskoodi + "\r\nAsiakas: " + asiakas + "\r\nYöpyjiä:" + yopyjat + "\r\nLisätietoja: " + lisatietoja + "\r\nLaskutus: " + laskutus; 
+        }
+
+        private void btnteevaraus_Click(object sender, EventArgs e)
+        {
+            Varaus v = new Varaus();
+        }
+
+        private void dtpsaapuminen_ValueChanged_1(object sender, EventArgs e)
+        {
+            PaivitaYhteenveto();
+        }
+
+        private void dtplahtopvm_ValueChanged_1(object sender, EventArgs e)
+        {
+            PaivitaYhteenveto();
+        }
+
+        private void txbxalennus_TextChanged(object sender, EventArgs e)
+        {
+            alennuskoodi = txbxalennus.Text;
+            PaivitaYhteenveto();
+        }
+
+        private void cmbxasiakas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            asiakas = cmbxasiakas.SelectedItem.ToString();
+            PaivitaYhteenveto();
+        }
+
+        private void cmbxyopyjat_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            yopyjat = cmbxyopyjat.SelectedItem.ToString();
+            PaivitaYhteenveto();
+        }
+
+        /*
+        private void clblisapalvelut_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Lisapalvelut.Add(clblisapalvelut.SelectedItems.ToString());
+            PaivitaYhteenveto();
+        }
+        */
+
+        private void txbxlisatietoja_TextChanged(object sender, EventArgs e)
+        {
+            lisatietoja = txbxlisatietoja.Text;
+            PaivitaYhteenveto();
+        }
+
+        private void cmbxlaskutus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            laskutus = cmbxlaskutus.SelectedItem.ToString();
+            PaivitaYhteenveto();
+        }
+
        }
 
         }

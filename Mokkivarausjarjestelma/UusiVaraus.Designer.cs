@@ -119,6 +119,7 @@
             this.dtpsaapuminen.Name = "dtpsaapuminen";
             this.dtpsaapuminen.Size = new System.Drawing.Size(200, 20);
             this.dtpsaapuminen.TabIndex = 5;
+            this.dtpsaapuminen.ValueChanged += new System.EventHandler(this.dtpsaapuminen_ValueChanged_1);
             // 
             // dtplahtopvm
             // 
@@ -127,6 +128,7 @@
             this.dtplahtopvm.Name = "dtplahtopvm";
             this.dtplahtopvm.Size = new System.Drawing.Size(200, 20);
             this.dtplahtopvm.TabIndex = 6;
+            this.dtplahtopvm.ValueChanged += new System.EventHandler(this.dtplahtopvm_ValueChanged_1);
             // 
             // lbllahtopvm
             // 
@@ -172,6 +174,7 @@
             this.txbxalennus.Name = "txbxalennus";
             this.txbxalennus.Size = new System.Drawing.Size(100, 20);
             this.txbxalennus.TabIndex = 9;
+            this.txbxalennus.TextChanged += new System.EventHandler(this.txbxalennus_TextChanged);
             // 
             // lblalennus
             // 
@@ -235,6 +238,7 @@
             this.txbxlisatietoja.Name = "txbxlisatietoja";
             this.txbxlisatietoja.Size = new System.Drawing.Size(179, 81);
             this.txbxlisatietoja.TabIndex = 19;
+            this.txbxlisatietoja.TextChanged += new System.EventHandler(this.txbxlisatietoja_TextChanged);
             // 
             // clblisapalvelut
             // 
@@ -260,6 +264,7 @@
             this.cmbxyopyjat.Name = "cmbxyopyjat";
             this.cmbxyopyjat.Size = new System.Drawing.Size(121, 21);
             this.cmbxyopyjat.TabIndex = 16;
+            this.cmbxyopyjat.SelectedIndexChanged += new System.EventHandler(this.cmbxyopyjat_SelectedIndexChanged);
             // 
             // lblyopyjat
             // 
@@ -295,6 +300,7 @@
             this.cmbxasiakas.Name = "cmbxasiakas";
             this.cmbxasiakas.Size = new System.Drawing.Size(167, 21);
             this.cmbxasiakas.TabIndex = 11;
+            this.cmbxasiakas.SelectedIndexChanged += new System.EventHandler(this.cmbxasiakas_SelectedIndexChanged);
             // 
             // groupBox3
             // 
@@ -331,6 +337,7 @@
             this.btnteevaraus.TabIndex = 8;
             this.btnteevaraus.Text = "Tee varaus";
             this.btnteevaraus.UseVisualStyleBackColor = true;
+            this.btnteevaraus.Click += new System.EventHandler(this.btnteevaraus_Click);
             // 
             // txbxhinta
             // 
@@ -355,6 +362,7 @@
             this.cmbxlaskutus.Name = "cmbxlaskutus";
             this.cmbxlaskutus.Size = new System.Drawing.Size(121, 21);
             this.cmbxlaskutus.TabIndex = 5;
+            this.cmbxlaskutus.SelectedIndexChanged += new System.EventHandler(this.cmbxlaskutus_SelectedIndexChanged);
             // 
             // lbllaskutus
             // 

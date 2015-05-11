@@ -208,6 +208,12 @@
     </Compile>
     <Compile Include="Varaus.cs" />
     <Compile Include="VarausSetGet.cs" />
+    <Compile Include="Varaustenhallinta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Varaustenhallinta.Designer.cs">
+      <DependentUpon>Varaustenhallinta.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Asiakkaanhallinta.resx">
       <DependentUpon>Asiakkaanhallinta.cs</DependentUpon>
     </EmbeddedResource>
@@ -252,6 +258,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UusiVaraus.resx">
       <DependentUpon>UusiVaraus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Varaustenhallinta.resx">
+      <DependentUpon>Varaustenhallinta.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="asiakkaatDataSet.xsc">
       <DependentUpon>asiakkaatDataSet.xsd</DependentUpon>

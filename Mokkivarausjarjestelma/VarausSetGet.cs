@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-/*
+
 namespace Mokkivarausjarjestelma
 {
-    /Tämä luokka sisältää setterit ja getterit Varaus-luokan attribuuteille
+    //Tämä luokka sisältää setterit ja getterit Varaus-luokan attribuuteille
     public partial class Varaus
     {
-        public string Varausid
+        public int Varausid
         {
             get
             {
@@ -19,6 +19,18 @@ namespace Mokkivarausjarjestelma
             set
             {
                 value = varausid;
+            }
+        }
+
+        public string Toimipisteid
+        {
+            get
+            {
+                return toimipisteid;
+            }
+            set
+            {
+                value=toimipisteid;
             }
         }
 
@@ -33,6 +45,19 @@ namespace Mokkivarausjarjestelma
                 value = toimipiste;
             }
         }
+
+        public int Mokkiid
+        {
+            get 
+            {
+                return mokkiid;
+            }
+            set 
+            {
+                mokkiid=value;
+            }
+        }
+
 
         public Mokki Mokki
         {
@@ -82,6 +107,30 @@ namespace Mokkivarausjarjestelma
             }
         }
 
+        public string Vahvistettu
+        {
+            get
+            {
+                return vahvistettu;
+            }
+            set
+            {
+                value=vahvistettu;
+            }
+        }
+
+        public string Vahvistuspvm
+        {
+            get
+            {
+                return vahvistuspvm;
+            }
+            set 
+            {
+                value=vahvistuspvm;
+            }
+        }
+
         public string Alennuskoodi
         {
             get
@@ -94,6 +143,17 @@ namespace Mokkivarausjarjestelma
             }
         }
 
+        public int Asiakasnumero
+        {
+            get 
+            {
+                return asiakasnumero;
+            }
+            set 
+            {
+                value=asiakasnumero;
+            }
+        }
         public Asiakas Asiakas
         {
             get
@@ -165,6 +225,18 @@ namespace Mokkivarausjarjestelma
                 value = hinta;
             }
         }
+
+        public string Lisayspvm
+        {
+            get 
+            {
+                return lisayspvm;
+            }
+            set
+            {
+                value=lisayspvm;
+            }
+        }
     }
 }
-    */
+    
