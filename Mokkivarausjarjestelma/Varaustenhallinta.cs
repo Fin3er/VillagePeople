@@ -11,7 +11,7 @@ using MySql.Data.MySqlClient;
 
 namespace Mokkivarausjarjestelma
 {
-    public partial class Varaustenhallinta : Form
+    public partial class Varaustenhallinta : UserControl
     {
         public Varaustenhallinta()
         {

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Mokkivarausjarjestelma
 {
-    public partial class Toimipisteenhallinta : Form
+    public partial class Toimipisteenhallinta : UserControl
     {
         public Toimipisteenhallinta()
         {

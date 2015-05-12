@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Mokkivarausjarjestelma
 {
-    public partial class Mokinhallinta : Form
+    public partial class Mokinhallinta : UserControl 
     {
         public Mokinhallinta()
         {

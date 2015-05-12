@@ -11,7 +11,7 @@ using System.Windows.Forms;
 namespace Mokkivarausjarjestelma
 {
     //Tämä luokka sisältää Asiakas-pääikkunan käyttöliittymän toiminnot 
-    public partial class FormAsiakkaanHallinta : Form
+    public partial class FormAsiakkaanHallinta : UserControl
     {
         public FormAsiakkaanHallinta()
         {
