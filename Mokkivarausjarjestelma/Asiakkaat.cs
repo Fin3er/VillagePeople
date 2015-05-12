@@ -17,11 +17,6 @@ namespace Mokkivarausjarjestelma
             InitializeComponent();
         }
 
-        public Asiakkaat()
-        {
-            InitializeComponent();
-        }
-
         //Luodaan lista asiakasolioita varten
         private List<Asiakas> asiakaslista = new List<Asiakas>();
         
