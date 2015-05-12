@@ -63,7 +63,6 @@
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.btn_ulos_kirjautuminen = new System.Windows.Forms.Button();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnperuutavaraus = new System.Windows.Forms.Button();
@@ -99,6 +98,7 @@
             this.dtpsaapuminen = new System.Windows.Forms.DateTimePicker();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.lblsaapumispvm = new System.Windows.Forms.Label();
+            this.btn_ulos_kirjautuminen = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage8.SuspendLayout();
@@ -437,6 +437,7 @@
             this.lstbxAsiakaslista.Name = "lstbxAsiakaslista";
             this.lstbxAsiakaslista.Size = new System.Drawing.Size(200, 444);
             this.lstbxAsiakaslista.TabIndex = 27;
+            this.lstbxAsiakaslista.SelectedIndexChanged += new System.EventHandler(this.lstbxAsiakaslista_SelectedIndexChanged);
             // 
             // tabPage3
             // 
@@ -503,17 +504,6 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Koti";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // btn_ulos_kirjautuminen
-            // 
-            this.btn_ulos_kirjautuminen.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_ulos_kirjautuminen.Location = new System.Drawing.Point(1037, 0);
-            this.btn_ulos_kirjautuminen.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btn_ulos_kirjautuminen.Name = "btn_ulos_kirjautuminen";
-            this.btn_ulos_kirjautuminen.Size = new System.Drawing.Size(147, 34);
-            this.btn_ulos_kirjautuminen.TabIndex = 1;
-            this.btn_ulos_kirjautuminen.Text = "Kirjaudu ulos";
-            this.btn_ulos_kirjautuminen.UseVisualStyleBackColor = true;
             // 
             // tabPage8
             // 
@@ -848,6 +838,17 @@
             this.lblsaapumispvm.Size = new System.Drawing.Size(199, 24);
             this.lblsaapumispvm.TabIndex = 4;
             this.lblsaapumispvm.Text = "Valitse saapumispäivä:";
+            // 
+            // btn_ulos_kirjautuminen
+            // 
+            this.btn_ulos_kirjautuminen.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ulos_kirjautuminen.Location = new System.Drawing.Point(1037, 0);
+            this.btn_ulos_kirjautuminen.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn_ulos_kirjautuminen.Name = "btn_ulos_kirjautuminen";
+            this.btn_ulos_kirjautuminen.Size = new System.Drawing.Size(147, 34);
+            this.btn_ulos_kirjautuminen.TabIndex = 1;
+            this.btn_ulos_kirjautuminen.Text = "Kirjaudu ulos";
+            this.btn_ulos_kirjautuminen.UseVisualStyleBackColor = true;
             // 
             // Asiakkaat
             // 
