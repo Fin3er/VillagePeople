@@ -23,103 +23,106 @@ namespace Mokkivarausjarjestelma
                 Toimipisteid = value;
             }
         }
-        public string Toimipistepuhelinnumero
+
+        public string Nimi
         {
             get
             {
-                return toimipistepuhelinnumero;
+                return nimi;
             }
             set
             {
-                toimipistepuhelinnumero = value;
+                value = nimi;
             }
         }
-        public string Toimipistesahkoposti
+
+        public string Puhelinnumero
         {
             get
             {
-                return toimipistesahkoposti;
+                return puhelinnumero;
             }
             set
             {
-               Toimipistesahkoposti  = value;
+                puhelinnumero = value;
             }
         }
-        public string Toimipistekatuosoite
+        public string Sahkopostiosoite
         {
             get
             {
-                return toimipistekatuosoite;
+                return sahkopostiosoite;
             }
             set
             {
-                 Toimipistekatuosoite = value;
+               sahkopostiosoite = value;
             }
         }
-        public string Toimipistepostinumero
+        public string Postiosoite
         {
             get
             {
-                return toimipistekatuosoite;
+                return postiosoite;
             }
             set
             {
-              Toimipistekatuosoite = value;
+                 postiosoite = value;
             }
         }
-        public string Toimipistepostitoimipaikka
+        public string Postinumero
         {
             get
             {
-                return toimipistepostitoimipaikka;
+                return postinumero;
             }
             set
             {
-                Toimipistepostitoimipaikka = value;
+              postinumero = value;
             }
         }
-        public string Toimipistemaa
+        public string Postitoimipaikka
         {
             get
             {
-                return toimipistemaa;
+                return postitoimipaikka;
             }
             set
             {
-                Toimipistemaa = value;
+                postitoimipaikka = value;
             }
         }
-        public string Vastuuhenkilo
+        public string Maa
         {
             get
             {
-                return vastuuhenkilo;
+                return maa;
             }
             set
             {
-                Vastuuhenkilo = value;
+                maa = value;
             }
         }
-        public string Vastuupuhelinnumero
+        public string Yhteyshenkilo
         {
             get
             {
-                return vastuupuhelinnumero;
+                return yhteyshenkilo;
             }
             set
             {
-                Vastuupuhelinnumero = value;
+                yhteyshenkilo = value;
             }
         }
-        public string Vastuusahkoposti
+       
+        public string Aukioloaika
         {
             get
             {
-                return vastuusahkoposti;
+                return aukioloaika;
             }
             set
             {
-                Vastuusahkoposti = value;
+                aukioloaika = value;
             }
         }
     }

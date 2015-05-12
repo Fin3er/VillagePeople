@@ -47,15 +47,13 @@ namespace Mokkivarausjarjestelma
         {
             //Jos olio on olemassa näytetään tiedot txtboxeissa
             txbxToimipistetunnus.Text = toimipiste != null ? Convert.ToString(toimipiste.Toimipisteid) : "";
-            txbxToimipistePuhelinnumero.Text = toimipiste != null ? Convert.ToString(toimipiste.Toimipistepuhelinnumero) : "";
-            txbxToimipisteSahkoposti.Text = toimipiste != null ? Convert.ToString(toimipiste.Toimipistesahkoposti) : "";
-            txbxToimipisteKatuosoite.Text = toimipiste != null ? Convert.ToString(toimipiste.Toimipistekatuosoite) : "";
-            txbxToimipistePostinumero.Text = toimipiste != null ? Convert.ToString(toimipiste.Toimipistepostinumero) : "";
-            txbxToimipistePostitoimipaikka.Text = toimipiste != null ? Convert.ToString(toimipiste.Toimipistepostitoimipaikka) : "";
-            txbxToimipisteMaa.Text = toimipiste != null ? Convert.ToString(toimipiste.Toimipistemaa) : "";
-            txbxVastuuhenkilo.Text = toimipiste != null ? Convert.ToString(toimipiste.Vastuuhenkilo) : "";
-            txbxVastuuPuhelinnumero.Text = toimipiste != null ? Convert.ToString(toimipiste.Vastuupuhelinnumero) : "";
-            txbxVastuuSahkoposti.Text = toimipiste != null ? Convert.ToString(toimipiste.Vastuusahkoposti) : "";
+            txbxToimipistePuhelinnumero.Text = toimipiste != null ? Convert.ToString(toimipiste.Puhelinnumero) : "";
+            txbxToimipisteSahkoposti.Text = toimipiste != null ? Convert.ToString(toimipiste.Sahkopostiosoite) : "";
+            txbxToimipisteKatuosoite.Text = toimipiste != null ? Convert.ToString(toimipiste.Postiosoite) : "";
+            txbxToimipistePostinumero.Text = toimipiste != null ? Convert.ToString(toimipiste.Postinumero) : "";
+            txbxToimipistePostitoimipaikka.Text = toimipiste != null ? Convert.ToString(toimipiste.Postitoimipaikka) : "";
+            txbxToimipisteMaa.Text = toimipiste != null ? Convert.ToString(toimipiste.Maa) : "";
+            txbxVastuuhenkilo.Text = toimipiste != null ? Convert.ToString(toimipiste.Yhteyshenkilo) : "";
         }
         //Tässä toiminto, joka suoritetaan kun klikataan nimiä listboxissa
         private void lstbxToimipiste_SelectedIndexChanged(object sender, EventArgs e)
