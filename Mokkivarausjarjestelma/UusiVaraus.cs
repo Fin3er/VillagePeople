@@ -27,6 +27,9 @@ namespace Mokkivarausjarjestelma
         protected string lisatietoja="";
         protected string laskutus="";
         protected string hinta="";
+        protected double mokinhinta;
+        protected double kokonaishinta;
+
 
         public UusiVaraus()
         {
@@ -61,6 +64,7 @@ namespace Mokkivarausjarjestelma
             {
                 MessageBox.Show("Tulopäivä ei voi olla aikaisempi päivämäärä, kuin tämä päivä");
             }
+            LaskeHinta();
         }
 
         private void dtplahtopvm_ValueChanged(object sender, EventArgs e)
@@ -79,6 +83,7 @@ namespace Mokkivarausjarjestelma
             {
                 MessageBox.Show("Lähtöpäivä ei voi olla aikaisempi päivämäärä, kuin tulopäivä.");
             }
+            LaskeHinta();
         }
 
         // Metodi Toimipiste comboboxin täyttämiselle, en tiedä toimiiko
@@ -252,6 +257,7 @@ namespace Mokkivarausjarjestelma
             mokkityyppi = cmbxmokkityyppi.SelectedItem.ToString();
             YopyjatCombobox();
             PaivitaYhteenveto();
+            LaskeHinta();
         }
 
         private void cmbxtoimipiste_SelectedIndexChanged(object sender, EventArgs e)
@@ -350,6 +356,31 @@ namespace Mokkivarausjarjestelma
         {
             laskutus = cmbxlaskutus.SelectedItem.ToString();
             PaivitaYhteenveto();
+            LaskeHinta();
+        }
+
+        public void LaskeHinta()
+        {
+            int paivat = Convert.ToInt32((dtplahtopvm.Value - dtpsaapuminen.Value).TotalDays);
+            Tietokanta t = new Tietokanta();
+            yhteys = t.YhdistaTietokantaan();
+            kasky = yhteys.CreateCommand();
+            kasky.CommandText = @"Select hinta from mokki where mokkiid in(select mokkiid from mokki where nimi=@id)";
+            string saapuminen = dtpsaapuminen.Value.ToString("yyyy-MM-dd HH:mm:ss");
+            string lahto = dtplahtopvm.Value.ToString("yyyy-MM-dd HH:mm:ss");
+            kasky.Parameters.AddWithValue("@id", mokkityyppi);
+            lukija = kasky.ExecuteReader();
+            if (lukija.Read())
+            {
+                mokinhinta = Convert.ToDouble(lukija.GetValue(0));
+            }
+            else
+            {
+                MessageBox.Show("Mökin voi varata valituille päiville!");
+            }
+            kokonaishinta = paivat * mokinhinta;
+            txbxhinta.Text = kokonaishinta.ToString();
+            t.SuljeYhteysTietokantaan(yhteys);
         }
 
        }

@@ -17,10 +17,10 @@ namespace Mokkivarausjarjestelma
             InitializeComponent();
         }
 
-        public FormAsiakkaanHallinta()
+       /* public FormAsiakkaanHallinta()
         {
             InitializeComponent();
-        }
+        }*/
 
         //Luodaan lista asiakasolioita varten
         private List<Asiakas> asiakaslista = new List<Asiakas>();
@@ -29,7 +29,7 @@ namespace Mokkivarausjarjestelma
         private Asiakas asiakas;
         
         //Tehdään kun Asiakkaanhallinta-form ladataan, päivitetään asiakaslista
-        private void Asiakkaanhallinta_Load(object sender, EventArgs e)
+        private void Asiakkaat_Load(object sender, EventArgs e)
         {
             PaivitaAsiakasLista();
             //Comboboxin vaihtoehdot
