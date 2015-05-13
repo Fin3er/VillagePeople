@@ -291,7 +291,7 @@
             this.grbxhlotiedot.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grbxhlotiedot.Location = new System.Drawing.Point(12, 65);
             this.grbxhlotiedot.Name = "grbxhlotiedot";
-            this.grbxhlotiedot.Size = new System.Drawing.Size(639, 336);
+            this.grbxhlotiedot.Size = new System.Drawing.Size(639, 272);
             this.grbxhlotiedot.TabIndex = 51;
             this.grbxhlotiedot.TabStop = false;
             this.grbxhlotiedot.Text = "Henkilötiedot:";
@@ -330,7 +330,7 @@
             this.grbxyhteystiedot.Controls.Add(this.lblMaa);
             this.grbxyhteystiedot.Controls.Add(this.txtbMaa);
             this.grbxyhteystiedot.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grbxyhteystiedot.Location = new System.Drawing.Point(12, 407);
+            this.grbxyhteystiedot.Location = new System.Drawing.Point(12, 343);
             this.grbxyhteystiedot.Name = "grbxyhteystiedot";
             this.grbxyhteystiedot.Size = new System.Drawing.Size(639, 306);
             this.grbxyhteystiedot.TabIndex = 52;
@@ -359,7 +359,7 @@
             // btntallenna
             // 
             this.btntallenna.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btntallenna.Location = new System.Drawing.Point(781, 690);
+            this.btntallenna.Location = new System.Drawing.Point(782, 610);
             this.btntallenna.Name = "btntallenna";
             this.btntallenna.Size = new System.Drawing.Size(110, 39);
             this.btntallenna.TabIndex = 55;
@@ -370,7 +370,7 @@
             // btnperuuta
             // 
             this.btnperuuta.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnperuuta.Location = new System.Drawing.Point(897, 690);
+            this.btnperuuta.Location = new System.Drawing.Point(898, 610);
             this.btnperuuta.Name = "btnperuuta";
             this.btnperuuta.Size = new System.Drawing.Size(100, 39);
             this.btnperuuta.TabIndex = 56;
@@ -383,7 +383,7 @@
             this.grbxlisatiedot.Controls.Add(this.lbllisatietoja);
             this.grbxlisatiedot.Controls.Add(this.txtbLisatietoja);
             this.grbxlisatiedot.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grbxlisatiedot.Location = new System.Drawing.Point(679, 407);
+            this.grbxlisatiedot.Location = new System.Drawing.Point(679, 343);
             this.grbxlisatiedot.Name = "grbxlisatiedot";
             this.grbxlisatiedot.Size = new System.Drawing.Size(493, 247);
             this.grbxlisatiedot.TabIndex = 57;
@@ -393,7 +393,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(1001, 690);
+            this.button1.Location = new System.Drawing.Point(1002, 610);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(171, 39);
             this.button1.TabIndex = 57;
