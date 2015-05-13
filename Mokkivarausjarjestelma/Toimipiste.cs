@@ -36,6 +36,10 @@ namespace Mokkivarausjarjestelma
         //Toimipisteen destruktori
         ~Toimipiste() { }
 
+        public override string ToString()
+        {
+            return this.Toimipisteid + " " + this.Nimi;
+        }
         //SelectQueryn toteutus toimipisteen tietojen hakemiseen
         public void HaeKaikkiToimipisteetTietokannasta()
         {
