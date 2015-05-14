@@ -82,11 +82,11 @@
             // lblAsiakaslista
             // 
             this.lblAsiakaslista.AutoSize = true;
-            this.lblAsiakaslista.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAsiakaslista.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAsiakaslista.Location = new System.Drawing.Point(37, 19);
             this.lblAsiakaslista.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAsiakaslista.Name = "lblAsiakaslista";
-            this.lblAsiakaslista.Size = new System.Drawing.Size(127, 25);
+            this.lblAsiakaslista.Size = new System.Drawing.Size(139, 25);
             this.lblAsiakaslista.TabIndex = 1;
             this.lblAsiakaslista.Text = "Asiakaslista";
             // 
@@ -349,30 +349,30 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(392, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(141, 25);
+            this.label1.Size = new System.Drawing.Size(154, 25);
             this.label1.TabIndex = 27;
             this.label1.Text = "Asiakastiedot";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(397, 358);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(132, 25);
+            this.label2.Size = new System.Drawing.Size(144, 25);
             this.label2.TabIndex = 28;
             this.label2.Text = "Yhteystiedot";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(813, 19);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(127, 25);
+            this.label3.Size = new System.Drawing.Size(139, 25);
             this.label3.TabIndex = 29;
             this.label3.Text = "Osoitetiedot";
             // 
@@ -440,10 +440,10 @@
             // lblmuut
             // 
             this.lblmuut.AutoSize = true;
-            this.lblmuut.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblmuut.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblmuut.Location = new System.Drawing.Point(847, 241);
             this.lblmuut.Name = "lblmuut";
-            this.lblmuut.Size = new System.Drawing.Size(60, 25);
+            this.lblmuut.Size = new System.Drawing.Size(64, 25);
             this.lblmuut.TabIndex = 36;
             this.lblmuut.Text = "Muut";
             // 
