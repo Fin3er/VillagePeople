@@ -43,5 +43,33 @@ namespace Mokkivarausjarjestelma
          {
              new UusiVaraus().Show();
          }
+        // Etsi toiminto, en tiedä toimiiko
+        private void btnEtsi_Click(object sender, EventArgs e)
+         {
+             string EtsittavaArvo = txbxEtsi.Text;
+             int rowIndex = -1;
+
+             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+             try
+             {
+                 foreach (DataGridViewRow row in dataGridView1.Rows)
+                 {
+                     if (row.Cells[1].Value.ToString().Equals(EtsittavaArvo))
+                     {
+                         rowIndex = row.Index;
+                         dataGridView1.CurrentCell = dataGridView1.Rows[rowIndex].Cells[0];
+                         dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Selected = true;
+                         break;
+                     }
+                 }
+             }
+             catch (Exception ex)
+             {
+                 MessageBox.Show("Tietoja haettaessa tapahtui virhe:" + ex.ToString());
+             }
+        }
     }
+
+
 }
+

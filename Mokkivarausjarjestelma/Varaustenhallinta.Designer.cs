@@ -32,6 +32,8 @@
             this.btnUusiVaraus = new System.Windows.Forms.Button();
             this.btnPoistaVaraus = new System.Windows.Forms.Button();
             this.btnMuokkaaVaraus = new System.Windows.Forms.Button();
+            this.txbxEtsi = new System.Windows.Forms.TextBox();
+            this.btnEtsi = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,20 +73,38 @@
             this.btnMuokkaaVaraus.Text = "Muokkaa varausta";
             this.btnMuokkaaVaraus.UseVisualStyleBackColor = true;
             // 
+            // txbxEtsi
+            // 
+            this.txbxEtsi.Location = new System.Drawing.Point(19, 9);
+            this.txbxEtsi.Name = "txbxEtsi";
+            this.txbxEtsi.Size = new System.Drawing.Size(172, 20);
+            this.txbxEtsi.TabIndex = 4;
+            // 
+            // btnEtsi
+            // 
+            this.btnEtsi.Location = new System.Drawing.Point(197, 4);
+            this.btnEtsi.Name = "btnEtsi";
+            this.btnEtsi.Size = new System.Drawing.Size(82, 28);
+            this.btnEtsi.TabIndex = 5;
+            this.btnEtsi.Text = "Etsi";
+            this.btnEtsi.UseVisualStyleBackColor = true;
+            // 
             // Varaustenhallinta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1241, 514);
+            this.Controls.Add(this.btnEtsi);
+            this.Controls.Add(this.txbxEtsi);
             this.Controls.Add(this.btnMuokkaaVaraus);
             this.Controls.Add(this.btnPoistaVaraus);
             this.Controls.Add(this.btnUusiVaraus);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Varaustenhallinta";
-            this.Text = "Varaustenhallinta";
+            this.Size = new System.Drawing.Size(1241, 514);
             this.Load += new System.EventHandler(this.Varaustenhallinta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -94,5 +114,7 @@
         private System.Windows.Forms.Button btnUusiVaraus;
         private System.Windows.Forms.Button btnPoistaVaraus;
         private System.Windows.Forms.Button btnMuokkaaVaraus;
+        private System.Windows.Forms.TextBox txbxEtsi;
+        private System.Windows.Forms.Button btnEtsi;
     }
 }
