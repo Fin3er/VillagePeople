@@ -55,9 +55,9 @@
             this.btnTallennaTiedot = new System.Windows.Forms.Button();
             this.txbxAsiakasnumero = new System.Windows.Forms.TextBox();
             this.lblAsiakasnumero = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblasiakastiedot = new System.Windows.Forms.Label();
+            this.lblyhteystiedot = new System.Windows.Forms.Label();
+            this.lblosoitetiedot = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtbhenktunnus = new System.Windows.Forms.TextBox();
             this.lblkansalaisuus = new System.Windows.Forms.Label();
@@ -75,7 +75,7 @@
             this.lstbxAsiakaslista.Location = new System.Drawing.Point(42, 55);
             this.lstbxAsiakaslista.Margin = new System.Windows.Forms.Padding(4);
             this.lstbxAsiakaslista.Name = "lstbxAsiakaslista";
-            this.lstbxAsiakaslista.Size = new System.Drawing.Size(200, 676);
+            this.lstbxAsiakaslista.Size = new System.Drawing.Size(200, 628);
             this.lstbxAsiakaslista.TabIndex = 0;
             this.lstbxAsiakaslista.SelectedIndexChanged += new System.EventHandler(this.lstbxAsiakaslista_SelectedIndexChanged);
             // 
@@ -294,7 +294,7 @@
             // btnLisaaUusiAsiakas
             // 
             this.btnLisaaUusiAsiakas.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLisaaUusiAsiakas.Location = new System.Drawing.Point(465, 686);
+            this.btnLisaaUusiAsiakas.Location = new System.Drawing.Point(465, 638);
             this.btnLisaaUusiAsiakas.Margin = new System.Windows.Forms.Padding(4);
             this.btnLisaaUusiAsiakas.Name = "btnLisaaUusiAsiakas";
             this.btnLisaaUusiAsiakas.Size = new System.Drawing.Size(200, 46);
@@ -307,7 +307,7 @@
             // 
             this.btnPoistaAsiakas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnPoistaAsiakas.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPoistaAsiakas.Location = new System.Drawing.Point(881, 686);
+            this.btnPoistaAsiakas.Location = new System.Drawing.Point(881, 638);
             this.btnPoistaAsiakas.Margin = new System.Windows.Forms.Padding(4);
             this.btnPoistaAsiakas.Name = "btnPoistaAsiakas";
             this.btnPoistaAsiakas.Size = new System.Drawing.Size(200, 46);
@@ -319,7 +319,7 @@
             // btnTallennaTiedot
             // 
             this.btnTallennaTiedot.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTallennaTiedot.Location = new System.Drawing.Point(673, 686);
+            this.btnTallennaTiedot.Location = new System.Drawing.Point(673, 638);
             this.btnTallennaTiedot.Margin = new System.Windows.Forms.Padding(4);
             this.btnTallennaTiedot.Name = "btnTallennaTiedot";
             this.btnTallennaTiedot.Size = new System.Drawing.Size(200, 46);
@@ -346,35 +346,35 @@
             this.lblAsiakasnumero.TabIndex = 26;
             this.lblAsiakasnumero.Text = "Asiakasnumero:";
             // 
-            // label1
+            // lblasiakastiedot
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(392, 19);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(154, 25);
-            this.label1.TabIndex = 27;
-            this.label1.Text = "Asiakastiedot";
+            this.lblasiakastiedot.AutoSize = true;
+            this.lblasiakastiedot.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblasiakastiedot.Location = new System.Drawing.Point(392, 19);
+            this.lblasiakastiedot.Name = "lblasiakastiedot";
+            this.lblasiakastiedot.Size = new System.Drawing.Size(154, 25);
+            this.lblasiakastiedot.TabIndex = 27;
+            this.lblasiakastiedot.Text = "Asiakastiedot";
             // 
-            // label2
+            // lblyhteystiedot
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(397, 358);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(144, 25);
-            this.label2.TabIndex = 28;
-            this.label2.Text = "Yhteystiedot";
+            this.lblyhteystiedot.AutoSize = true;
+            this.lblyhteystiedot.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblyhteystiedot.Location = new System.Drawing.Point(397, 358);
+            this.lblyhteystiedot.Name = "lblyhteystiedot";
+            this.lblyhteystiedot.Size = new System.Drawing.Size(144, 25);
+            this.lblyhteystiedot.TabIndex = 28;
+            this.lblyhteystiedot.Text = "Yhteystiedot";
             // 
-            // label3
+            // lblosoitetiedot
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(813, 19);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(139, 25);
-            this.label3.TabIndex = 29;
-            this.label3.Text = "Osoitetiedot";
+            this.lblosoitetiedot.AutoSize = true;
+            this.lblosoitetiedot.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblosoitetiedot.Location = new System.Drawing.Point(813, 19);
+            this.lblosoitetiedot.Name = "lblosoitetiedot";
+            this.lblosoitetiedot.Size = new System.Drawing.Size(139, 25);
+            this.lblosoitetiedot.TabIndex = 29;
+            this.lblosoitetiedot.Text = "Osoitetiedot";
             // 
             // label4
             // 
@@ -458,9 +458,9 @@
             this.Controls.Add(this.txtbkansalaisuus);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtbhenktunnus);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblosoitetiedot);
+            this.Controls.Add(this.lblyhteystiedot);
+            this.Controls.Add(this.lblasiakastiedot);
             this.Controls.Add(this.lblAsiakasnumero);
             this.Controls.Add(this.txbxAsiakasnumero);
             this.Controls.Add(this.btnTallennaTiedot);
@@ -491,7 +491,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormAsiakkaanHallinta";
-            this.Size = new System.Drawing.Size(1100, 750);
+            this.Size = new System.Drawing.Size(1176, 725);
             this.Load += new System.EventHandler(this.Asiakkaanhallinta_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -527,9 +527,9 @@
         private System.Windows.Forms.Button btnTallennaTiedot;
         private System.Windows.Forms.TextBox txbxAsiakasnumero;
         private System.Windows.Forms.Label lblAsiakasnumero;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblasiakastiedot;
+        private System.Windows.Forms.Label lblyhteystiedot;
+        private System.Windows.Forms.Label lblosoitetiedot;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtbhenktunnus;
         private System.Windows.Forms.Label lblkansalaisuus;
