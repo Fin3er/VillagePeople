@@ -54,7 +54,7 @@ namespace Mokkivarausjarjestelma
                 {
                     //Luodaan, jokaista taulun riviä varten toimipisteolioita 
                     Toimipiste tp = new Toimipiste();
-                    tp.Toimipisteid = lukija.GetString("toimipisteid");
+                    tp.Toimipisteid = Convert.ToString(lukija.GetString("toimipisteid"));
                     tp.Nimi = lukija.GetString("nimi");
                     tp.Postiosoite = lukija.GetString("postiosoite");
                     tp.Postinumero = lukija.GetString("postinumero");
@@ -92,7 +92,7 @@ namespace Mokkivarausjarjestelma
             kasky = yhteys.CreateCommand();
             //Update Query @merkityt muuttujat? korvataan parametreillä
             kasky.CommandText = @"UPDATE toimipisteet SET nimi=@nimi,postiosoite=@postiosoite,postinumero=@postinumero,postitoimipaikka=@postitoimipaikka, puhelinnumero=@puhelinnumero, sahkopostiosoite=@sahkopostiosoite,
-              maa=@maa, yhteyshenkilo=@yhteyhenkilo,aukioloaika=@aukioloaika WHERE toimipisteid=@toimipisteid";
+              maa=@maa, yhteyshenkilo=@yhteyshenkilo,aukioloaika=@aukioloaika WHERE toimipisteid=@toimipisteid";
             //Lisätään updatequeryyn parametrina annetun toimipisteen tiedot
             kasky.Parameters.AddWithValue("@toimipisteid", tp.Toimipisteid);
             kasky.Parameters.AddWithValue("@nimi", tp.Nimi);
@@ -124,8 +124,8 @@ namespace Mokkivarausjarjestelma
             Tietokanta t = new Tietokanta();
             yhteys = t.YhdistaTietokantaan();
             kasky = yhteys.CreateCommand();
-            kasky.CommandText = @"INSERT INTO toimipisteet (toimipisteid,nimi,postiosoite,postinumero,postitoimipaikka, puhelinnumero, sahkopostiosoite, maa, yhteyhenkilo)
-                                VALUES (@toimipisteid,@nimi,@postiosoite, @postinumero, @postitoimipaikka, @puhelinnumero, @sahkopostiosoite,  @maa, @yhteyshenkilo)";
+            kasky.CommandText = @"INSERT INTO toimipisteet (toimipisteid,nimi,postiosoite,postinumero,postitoimipaikka, puhelinnumero, sahkopostiosoite, maa, yhteyshenkilo,aukioloaika)
+                                VALUES (@toimipisteid,@nimi,@postiosoite, @postinumero, @postitoimipaikka, @puhelinnumero, @sahkopostiosoite,  @maa, @yhteyshenkilo,@aukioloaika)";
             kasky.Parameters.AddWithValue("@toimipisteid", tp.Toimipisteid);
             kasky.Parameters.AddWithValue("@nimi", tp.Nimi);
             kasky.Parameters.AddWithValue("@postiosoite", tp.Postiosoite);
@@ -135,6 +135,7 @@ namespace Mokkivarausjarjestelma
             kasky.Parameters.AddWithValue("@sahkopostiosoite", tp.Sahkopostiosoite);
             kasky.Parameters.AddWithValue("@maa", tp.Maa);
             kasky.Parameters.AddWithValue("@yhteyshenkilo", tp.Yhteyshenkilo);
+            kasky.Parameters.AddWithValue("@aukioloaika", tp.Aukioloaika);
     
             try
             {

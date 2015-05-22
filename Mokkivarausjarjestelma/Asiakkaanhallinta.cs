@@ -113,6 +113,7 @@ namespace Mokkivarausjarjestelma
         private void btnLisaaUusiAsiakas_Click(object sender, EventArgs e)
         {
             new Asiakkaat_lisaa_muokkaa().Show();
+            
         }
 
         private void btnPoistaAsiakas_Click(object sender, EventArgs e)
@@ -122,7 +123,7 @@ namespace Mokkivarausjarjestelma
             Asiakas b = new Asiakas();
             b.PoistaAsiakasTietokannasta(this.asiakas);
             PaivitaAsiakasLista();
-            
+           
         }
 
         

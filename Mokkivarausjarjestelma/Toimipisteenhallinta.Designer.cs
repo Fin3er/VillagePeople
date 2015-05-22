@@ -51,9 +51,8 @@
             this.btnMuokkaaToimipiste = new System.Windows.Forms.Button();
             this.txbxToimipisteenNimi = new System.Windows.Forms.TextBox();
             this.lblToimipisteenNimi = new System.Windows.Forms.Label();
-            this.lbltoimipistetiedot = new System.Windows.Forms.Label();
-            this.lblyhteystiedot = new System.Windows.Forms.Label();
-            this.lblosoitetiedot = new System.Windows.Forms.Label();
+            this.dgvToimipisteet = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvToimipisteet)).BeginInit();
             this.SuspendLayout();
             // 
             // lstbxToimipiste
@@ -269,43 +268,19 @@
             this.lblToimipisteenNimi.TabIndex = 26;
             this.lblToimipisteenNimi.Text = "Toimipisteen nimi:";
             // 
-            // lbltoimipistetiedot
+            // dgvToimipisteet
             // 
-            this.lbltoimipistetiedot.AutoSize = true;
-            this.lbltoimipistetiedot.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbltoimipistetiedot.Location = new System.Drawing.Point(273, 64);
-            this.lbltoimipistetiedot.Name = "lbltoimipistetiedot";
-            this.lbltoimipistetiedot.Size = new System.Drawing.Size(193, 25);
-            this.lbltoimipistetiedot.TabIndex = 27;
-            this.lbltoimipistetiedot.Text = "Toimipisteen tiedot";
-            // 
-            // lblyhteystiedot
-            // 
-            this.lblyhteystiedot.AutoSize = true;
-            this.lblyhteystiedot.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblyhteystiedot.Location = new System.Drawing.Point(334, 199);
-            this.lblyhteystiedot.Name = "lblyhteystiedot";
-            this.lblyhteystiedot.Size = new System.Drawing.Size(132, 25);
-            this.lblyhteystiedot.TabIndex = 28;
-            this.lblyhteystiedot.Text = "Yhteystiedot";
-            // 
-            // lblosoitetiedot
-            // 
-            this.lblosoitetiedot.AutoSize = true;
-            this.lblosoitetiedot.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblosoitetiedot.Location = new System.Drawing.Point(392, 329);
-            this.lblosoitetiedot.Name = "lblosoitetiedot";
-            this.lblosoitetiedot.Size = new System.Drawing.Size(74, 25);
-            this.lblosoitetiedot.TabIndex = 29;
-            this.lblosoitetiedot.Text = "Osoite";
+            this.dgvToimipisteet.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvToimipisteet.Location = new System.Drawing.Point(282, 20);
+            this.dgvToimipisteet.Name = "dgvToimipisteet";
+            this.dgvToimipisteet.Size = new System.Drawing.Size(240, 150);
+            this.dgvToimipisteet.TabIndex = 27;
             // 
             // Toimipisteenhallinta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.lblosoitetiedot);
-            this.Controls.Add(this.lblyhteystiedot);
-            this.Controls.Add(this.lbltoimipistetiedot);
+            this.Controls.Add(this.dgvToimipisteet);
             this.Controls.Add(this.lblToimipisteenNimi);
             this.Controls.Add(this.txbxToimipisteenNimi);
             this.Controls.Add(this.btnMuokkaaToimipiste);
@@ -330,7 +305,8 @@
             this.Controls.Add(this.lblToimipiste);
             this.Controls.Add(this.lstbxToimipiste);
             this.Name = "Toimipisteenhallinta";
-            this.Size = new System.Drawing.Size(1176, 725);
+            this.Size = new System.Drawing.Size(769, 664);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvToimipisteet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -361,8 +337,6 @@
         private System.Windows.Forms.Button btnMuokkaaToimipiste;
         private System.Windows.Forms.TextBox txbxToimipisteenNimi;
         private System.Windows.Forms.Label lblToimipisteenNimi;
-        private System.Windows.Forms.Label lbltoimipistetiedot;
-        private System.Windows.Forms.Label lblyhteystiedot;
-        private System.Windows.Forms.Label lblosoitetiedot;
+        private System.Windows.Forms.DataGridView dgvToimipisteet;
     }
 }

@@ -20,7 +20,7 @@ namespace Mokkivarausjarjestelma
             }
             set
             {
-                Toimipisteid = value;
+                toimipisteid = value;
             }
         }
 
@@ -32,7 +32,7 @@ namespace Mokkivarausjarjestelma
             }
             set
             {
-                value = nimi;
+                nimi = value;
             }
         }
 

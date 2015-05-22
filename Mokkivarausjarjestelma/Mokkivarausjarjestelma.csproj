@@ -194,11 +194,23 @@
       <DependentUpon>Toimipisteenhallinta.cs</DependentUpon>
     </Compile>
     <Compile Include="ToimipisteGetSet.cs" />
-    <Compile Include="Toimipiste_lisaa_muokkaa.cs">
+    <Compile Include="Toimipisteidenhallinta.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Toimipisteidenhallinta.Designer.cs">
+      <DependentUpon>Toimipisteidenhallinta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Toimipiste_lisaa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Toimipiste_lisaa_muokkaa.Designer.cs">
-      <DependentUpon>Toimipiste_lisaa_muokkaa.cs</DependentUpon>
+    <Compile Include="Toimipiste_lisaa.Designer.cs">
+      <DependentUpon>Toimipiste_lisaa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Toimipiste_muokkaa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Toimipiste_muokkaa.Designer.cs">
+      <DependentUpon>Toimipiste_muokkaa.cs</DependentUpon>
     </Compile>
     <Compile Include="UusiVaraus.cs">
       <SubType>Form</SubType>
@@ -255,6 +267,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Toimipisteenhallinta.resx">
       <DependentUpon>Toimipisteenhallinta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Toimipisteidenhallinta.resx">
+      <DependentUpon>Toimipisteidenhallinta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Toimipiste_lisaa.resx">
+      <DependentUpon>Toimipiste_lisaa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Toimipiste_muokkaa.resx">
+      <DependentUpon>Toimipiste_muokkaa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UusiVaraus.resx">
       <DependentUpon>UusiVaraus.cs</DependentUpon>
