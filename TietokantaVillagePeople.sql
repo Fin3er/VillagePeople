@@ -1,110 +1,110 @@
 ﻿/* MYSQL workbench testattu */
 /*
-CREATE TABLE Asiakkaat (
-	Asiakasnumero INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
-	Titteli VARCHAR(5) NOT NULL,
-	Etunimi VARCHAR(30) NOT NULL, 
-	Sukunimi VARCHAR(40) NOT NULL,
-	SyntymaAika VARCHAR(10) NOT NULL, /* pp-kk-vvvv */
-	Henkilotunnus VARCHAR(50) NOT NULL, /* passi, hetu*/
-	Katuosoite VARCHAR(50) NOT NULL,  
-	Postinumero VARCHAR(20) NOT NULL,
-	Postitoimipaikka VARCHAR(30) NOT NULL,
-	Maa VARCHAR(80) NOT NULL,  /* Al Jumahiriyah al Arabiyah al Libiyah ash Shabiyah al Ishtirakiyah al Uzma = libya */
-	Kansalaisuus VARCHAR(40) NOT NULL,
-	Puhelinumero VARCHAR(40) NOT NULL,
-	Sahkopostiosoite VARCHAR(60),
-	Lisatietoja VARCHAR(250)
+CREATE TABLE asiakkaat (
+	asiakasnumero INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
+	titteli VARCHAR(5) NOT NULL,
+	etunimet VARCHAR(30) NOT NULL, 
+	sukunimi VARCHAR(40) NOT NULL,
+	syntymaaika VARCHAR(10) NOT NULL, /* pp-kk-vvvv */
+	tunnus VARCHAR(50) NOT NULL, /* passi, hetu*/
+	postiosoite VARCHAR(50) NOT NULL,  
+	postinumero VARCHAR(20) NOT NULL,
+	postitoimipaikka VARCHAR(30) NOT NULL,
+	maa VARCHAR(80) NOT NULL,  /* Al Jumahiriyah al Arabiyah al Libiyah ash Shabiyah al Ishtirakiyah al Uzma = libya */
+	kansalaisuus VARCHAR(40) NOT NULL,
+	puhelinumero VARCHAR(40) NOT NULL,
+	sahkoposti VARCHAR(60),
+	lisatietoja VARCHAR(250)
 );
-CREATE TABLE Mokki (
-	Mokkinumero INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
-	Nimi VARCHAR(15) NOT NULL UNIQUE,
-	Hinta INTEGER NOT NULL,
-	HenkiloMaara INTEGER NOT NULL,
-	PintaAla INTEGER,
-	Lemmikit TINYINT
-	/* Palvelut VARCHAR(256),
-	Kuvaus VARCHAR(256),
-	Kuvat VARCHAR(30)*/
+CREATE TABLE mokki (
+	mokkinumero INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
+	nimi VARCHAR(15) NOT NULL UNIQUE,
+	hinta INTEGER NOT NULL,
+	henkilomaara INTEGER NOT NULL,
+	pintaala INTEGER,
+	lemmikit TINYINT
+	/* palvelut VARCHAR(250),
+	kuvaus VARCHAR(256),
+	kuvat VARCHAR(30)*/
 );
-CREATE TABLE Toimipiste (
-	ToimipisteId INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
-	Nimi VARCHAR(40) NOT NULL UNIQUE,
-	Katuosoite VARCHAR(40),
-	Postinumero VARCHAR(10),
-	Postitoimipaikka VARCHAR(30),
-	Puhelinumero VARCHAR(15),
-	Sahkopostiosoite VARCHAR(60),
-	Yhteyshenkilo VARCHAR(30) NOT NULL,
-	AukioloAika VARCHAR(30)
+CREATE TABLE toimipiste (
+	toimipisteid INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
+	nimi VARCHAR(40) NOT NULL UNIQUE,
+	katuosoite VARCHAR(40),
+	postinumero VARCHAR(10),
+	postitoimipaikka VARCHAR(30),
+	puhelinumero VARCHAR(15),
+	sahkopostiosoite VARCHAR(60),
+	yhteyshenkilo VARCHAR(30) NOT NULL,
+	aukioloaika VARCHAR(30)
 );
-CREATE TABLE Toimipistemokit (
-	Id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
-	Toimipiste INTEGER NOT NULL,
-	Mokki INTEGER NOT NULL,
-	FOREIGN KEY (Toimipiste) REFERENCES Toimipiste(ToimipisteId),
-	FOREIGN KEY (Mokki) REFERENCES Mokki(Mokkinumero)
+CREATE TABLE toimipistemokit (
+	id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
+	toimipiste INTEGER NOT NULL,
+	mokki INTEGER NOT NULL,
+	FOREIGN KEY (toimipiste) REFERENCES Toimipiste(toimipisteid),
+	FOREIGN KEY (mokki) REFERENCES mokki(mokkinumero)
 );
-CREATE TABLE Lisapalvelu (
-	Id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
-	Nimi VARCHAR(40) NOT NULL,
-	Hinta DOUBLE NOT NULL,
-	Kuvaus VARCHAR(250),
-	Aika VARCHAR(30)
-	/* Ajankohta */
+CREATE TABLE lisapalvelu (
+	lisapalveluid INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
+	lisapalvelunimi VARCHAR(40) NOT NULL,
+	lisapalveluhinta DOUBLE NOT NULL,
+	lisapalvelukuvaus VARCHAR(250),
+	lisapalveluaika VARCHAR(30)
+	/* ajankohta */
 );
-CREATE TABLE Lasku (
-	LaskuId INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
-	Asiakasnumero INTEGER NOT NULL,
-	Mokkinumero INTEGER NOT NULL,
-	Hinta INTEGER,
-	HintaErittely INTEGER,
-	Tilitiedot INTEGER,
-	Viitenumero INTEGER,
-	Vastaanottaja VARCHAR(40),
-	EraPaiva VARCHAR(15),
-	LaskutusPaiva VARCHAR(15),	
-	FOREIGN KEY (Asiakasnumero) REFERENCES Asiakas(Asiakasnumero),
-	FOREIGN KEY (Mokkinumero) REFERENCES Mokki(Mokkinumero)
+CREATE TABLE lasku (
+	laskuid INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
+	asiakasnumero INTEGER NOT NULL,
+	mokkinumero INTEGER NOT NULL,
+	hinta INTEGER,
+	hintaerittely INTEGER,
+	tilitiedot INTEGER,
+	viitenumero INTEGER,
+	vastaanottaja VARCHAR(40),
+	eraPaiva VARCHAR(15),
+	laskutuspaiva VARCHAR(15),	
+	FOREIGN KEY (asiakasnumero) REFERENCES asiakas(asiakasnumero),
+	FOREIGN KEY (mokkinumero) REFERENCES mokki(mokkinumero)
 );
-CREATE TABLE Kayttaja (
-	Kayttajanumero INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
-	Etunimi VARCHAR(30) NOT NULL, 
-	Sukunimi VARCHAR(40) NOT NULL,	
-	SyntymaAika VARCHAR(10) NOT NULL, /* pp-kk-vvvv */
-	Katuosoite VARCHAR(45) NOT NULL,  
-	Postinumero VARCHAR(20) NOT NULL,
-	Postitoimipaikka VARCHAR(30),
-	Maa VARCHAR(80) NOT NULL,  /* Al Jumahiriyah al Arabiyah al Libiyah ash Shabiyah al Ishtirakiyah al Uzma = libya */
-	Kansalaisuus VARCHAR(40) NOT NULL,
-	Puhelinumero VARCHAR(40) NOT NULL,
-	Sahkopostiosoite VARCHAR(60),
-	Tyonimike VARCHAR(40),
-	Tyopiste VARCHAR(40),
-	FOREIGN KEY (Tyopiste) REFERENCES Toimipiste(Nimi)
+CREATE TABLE kayttaja (
+	kayttajanumero INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
+	etunimi VARCHAR(30) NOT NULL, 
+	sukunimi VARCHAR(40) NOT NULL,	
+	syntymaaika VARCHAR(10) NOT NULL, /* pp-kk-vvvv */
+	katuosoite VARCHAR(45) NOT NULL,  
+	postinumero VARCHAR(20) NOT NULL,
+	postitoimipaikka VARCHAR(30),
+	maa VARCHAR(80) NOT NULL,  /* Al Jumahiriyah al Arabiyah al Libiyah ash Shabiyah al Ishtirakiyah al Uzma = libya */
+	kansalaisuus VARCHAR(40) NOT NULL,
+	puhelinumero VARCHAR(40) NOT NULL,
+	sahkopostiosoite VARCHAR(60),
+	tyonimike VARCHAR(40),
+	tyopiste VARCHAR(40),
+	FOREIGN KEY (tyopiste) REFERENCES toimipiste(nimi)
 );
-CREATE TABLE Salasanat (
-	Id INTEGER,
-	Salasana VARCHAR(100),
-	FOREIGN KEY (Id) REFERENCES Kayttaja(Kayttajanumero)
+CREATE TABLE salasanat (
+	id INTEGER,
+	salasana VARCHAR(100),
+	FOREIGN KEY (id) REFERENCES kayttaja(kayttajanumero)
 );
 CREATE TABLE varaukset (
-	VarausId INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL UNIQUE,
-	ToimipisteId INTEGER NOT NULL,
-	Asiakasnumero INTEGER NOT NULL,
-	Mokkinumero INTEGER NOT NULL,
-	Saapumispvm DATETIME NOT NULL,
-	Lahtopvm DATETIME NOT NULL,
-	Vahvistuspvm DATETIME NOT NULL,
-	Paivat INTEGER NOT NULL,
-	Vahvistettu  VARCHAR(5) NOT NULL,
-	Alennuskoodi VARCHAR(10),
-	Yopyjat INTEGER,
-	Lisatietoja VARCHAR(250) NOT NULL,
-	Hinta DECIMAL(4) NOT NULL,
-	Laskutus VARCHAR(10) NOT NULL,
-	Lisatty DATETIME NOT NULL DEFAULT NOW(),
-	FOREIGN KEY (ToimipisteId)  REFERENCES Toimipiste(ToimipisteId),
-	FOREIGN KEY (Asiakasnumero) REFERENCES Asiakas(Asiakasnumero),
-	FOREIGN KEY (Mokkinumero) REFERENCES Mokki(Mokkinumero)
-);  /*Paivat = paattymispvm-alkpvm, hinta=paivat*mökin hinta*/ */
+	varausid INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL UNIQUE,
+	toimipisteid INTEGER NOT NULL,
+	asiakasnumero INTEGER NOT NULL,
+	mokkinumero INTEGER NOT NULL,
+	saapumispvm DATETIME NOT NULL,
+	lahtopvm DATETIME NOT NULL,
+	vahvistuspvm DATETIME NOT NULL,
+	paivat INTEGER NOT NULL,
+	vahvistettu  VARCHAR(5) NOT NULL,
+	alennuskoodi VARCHAR(10),
+	yopyjat INTEGER,
+	lisatietoja VARCHAR(250) NOT NULL,
+	hinta DECIMAL(4) NOT NULL,
+	laskutus VARCHAR(10) NOT NULL,
+	lisatty DATETIME NOT NULL DEFAULT NOW(),
+	FOREIGN KEY (toimipisteid)  REFERENCES toimipiste(toimipisteid),
+	FOREIGN KEY (asiakasnumero) REFERENCES asiakas(asiakasnumero),
+	FOREIGN KEY (mokkinumero) REFERENCES mokki(mokkinumero)
+);  /*paivat = paattymispvm-alkpvm, hinta=paivat*mokin hinta*/ */
