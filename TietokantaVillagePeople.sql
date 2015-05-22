@@ -1,6 +1,6 @@
 ﻿/* MYSQL workbench testattu */
-
-CREATE TABLE Asiakas (
+/*
+CREATE TABLE Asiakkaat (
 	Asiakasnumero INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
 	Titteli VARCHAR(5) NOT NULL,
 	Etunimi VARCHAR(30) NOT NULL, 
@@ -88,7 +88,7 @@ CREATE TABLE Salasanat (
 	Salasana VARCHAR(100),
 	FOREIGN KEY (Id) REFERENCES Kayttaja(Kayttajanumero)
 );
-CREATE TABLE varaus (
+CREATE TABLE varaukset (
 	VarausId INTEGER PRIMARY KEY AUTO_INCREMENT NOT NULL UNIQUE,
 	ToimipisteId INTEGER NOT NULL,
 	Asiakasnumero INTEGER NOT NULL,
@@ -107,4 +107,4 @@ CREATE TABLE varaus (
 	FOREIGN KEY (ToimipisteId)  REFERENCES Toimipiste(ToimipisteId),
 	FOREIGN KEY (Asiakasnumero) REFERENCES Asiakas(Asiakasnumero),
 	FOREIGN KEY (Mokkinumero) REFERENCES Mokki(Mokkinumero)
-);  /*Paivat = paattymispvm-alkpvm, hinta=paivat*mökin hinta*/
+);  /*Paivat = paattymispvm-alkpvm, hinta=paivat*mökin hinta*/ */
