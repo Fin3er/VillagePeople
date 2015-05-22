@@ -27,12 +27,13 @@ CREATE TABLE mokki (
 	kuvaus VARCHAR(256),
 	kuvat VARCHAR(30)*/
 );
-CREATE TABLE toimipiste (
+CREATE TABLE toimipisteet (
 	toimipisteid INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
 	nimi VARCHAR(40) NOT NULL UNIQUE,
-	katuosoite VARCHAR(40),
+	postiosoite VARCHAR(40),
 	postinumero VARCHAR(10),
 	postitoimipaikka VARCHAR(30),
+	maa VARCHAR(80),
 	puhelinumero VARCHAR(15),
 	sahkopostiosoite VARCHAR(60),
 	yhteyshenkilo VARCHAR(30) NOT NULL,
@@ -42,8 +43,15 @@ CREATE TABLE toimipistemokit (
 	id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
 	toimipiste INTEGER NOT NULL,
 	mokki INTEGER NOT NULL,
-	FOREIGN KEY (toimipiste) REFERENCES Toimipiste(toimipisteid),
+	FOREIGN KEY (toimipiste) REFERENCES toimipisteet(toimipisteid),
 	FOREIGN KEY (mokki) REFERENCES mokki(mokkinumero)
+);
+CREATE TABLE toimipisteenpalvelut (
+	toimipisteenpalveluid INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
+	toimipiste INTEGER,
+	palvelu INTEGER,
+	FOREIGN KEY (palvelu) REFERENCES lisapalvelu(lisapalveluid),
+	FOREIGN KEY (toimipiste) REFERENCES toimipisteet(toimipisteid),
 );
 CREATE TABLE lisapalvelu (
 	lisapalveluid INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
@@ -81,7 +89,7 @@ CREATE TABLE kayttaja (
 	sahkopostiosoite VARCHAR(60),
 	tyonimike VARCHAR(40),
 	tyopiste VARCHAR(40),
-	FOREIGN KEY (tyopiste) REFERENCES toimipiste(nimi)
+	FOREIGN KEY (tyopiste) REFERENCES toimipisteet(nimi)
 );
 CREATE TABLE salasanat (
 	id INTEGER,
@@ -104,7 +112,7 @@ CREATE TABLE varaukset (
 	hinta DECIMAL(4) NOT NULL,
 	laskutus VARCHAR(10) NOT NULL,
 	lisatty DATETIME NOT NULL DEFAULT NOW(),
-	FOREIGN KEY (toimipisteid)  REFERENCES toimipiste(toimipisteid),
+	FOREIGN KEY (toimipisteid)  REFERENCES toimipisteet(toimipisteid),
 	FOREIGN KEY (asiakasnumero) REFERENCES asiakas(asiakasnumero),
 	FOREIGN KEY (mokkinumero) REFERENCES mokki(mokkinumero)
 );  /*paivat = paattymispvm-alkpvm, hinta=paivat*mokin hinta*/ */
