@@ -1,5 +1,5 @@
 ﻿/* MYSQL workbench testattu */
-
+/*
 CREATE TABLE Asiakkaat (
 	Asiakasnumero INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
 	Titteli VARCHAR(5) NOT NULL,
