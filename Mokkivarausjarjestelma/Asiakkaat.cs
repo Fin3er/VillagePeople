@@ -15,10 +15,10 @@ namespace Mokkivarausjarjestelma
         public Asiakkaat()
         {
             InitializeComponent();
-            tabControl1.TabPages[0].Controls.Add(new FormAsiakkaanHallinta());
-            tabControl1.TabPages[1].Controls.Add(new Mokinhallinta());
-            tabControl1.TabPages[2].Controls.Add(new Toimipisteenhallinta());
-            tabControl1.TabPages[3].Controls.Add(new Varaustenhallinta());
+            valikko1.TabPages[1].Controls.Add(new FormAsiakkaanHallinta());
+            valikko1.TabPages[2].Controls.Add(new Mokinhallinta());
+            valikko1.TabPages[3].Controls.Add(new Toimipisteenhallinta());
+            valikko1.TabPages[4].Controls.Add(new Varaustenhallinta());
 
         }
         
