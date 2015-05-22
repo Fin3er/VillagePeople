@@ -1,4 +1,8 @@
 ﻿/* MYSQL workbench testattu */
+
+/* lisätty jos tarvetta tehdä puhtaalta pöydältä*/
+/* DROP TABLE IF EXISTS toimipisteenpalvelut, lisapalvelu, lasku, kayttaja, salasanat, varaukset, asiakkaat, mokki, toimipisteet, toimipistemokit; */
+
 /*
 CREATE TABLE asiakkaat (
 	asiakasnumero INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
@@ -44,14 +48,7 @@ CREATE TABLE toimipistemokit (
 	toimipiste INTEGER NOT NULL,
 	mokki INTEGER NOT NULL,
 	FOREIGN KEY (toimipiste) REFERENCES toimipisteet(toimipisteid),
-	FOREIGN KEY (mokki) REFERENCES mokki(mokkinumero)
-);
-CREATE TABLE toimipisteenpalvelut (
-	toimipisteenpalveluid INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
-	toimipiste INTEGER,
-	palvelu INTEGER,
-	FOREIGN KEY (palvelu) REFERENCES lisapalvelu(lisapalveluid),
-	FOREIGN KEY (toimipiste) REFERENCES toimipisteet(toimipisteid),
+	FOREIGN KEY (mokki) REFERENCES mokki(mokkiid)
 );
 CREATE TABLE lisapalvelu (
 	lisapalveluid INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
@@ -60,6 +57,13 @@ CREATE TABLE lisapalvelu (
 	lisapalvelukuvaus VARCHAR(250),
 	lisapalveluaika VARCHAR(30)
 	/* ajankohta */
+);
+CREATE TABLE toimipisteenpalvelut (
+	toimipisteenpalveluid INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
+	toimipiste INTEGER,
+	palvelu INTEGER,
+	FOREIGN KEY (palvelu) REFERENCES lisapalvelu(lisapalveluid),
+	FOREIGN KEY (toimipiste) REFERENCES toimipisteet(toimipisteid)
 );
 CREATE TABLE lasku (
 	laskuid INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
@@ -72,8 +76,8 @@ CREATE TABLE lasku (
 	vastaanottaja VARCHAR(40),
 	eraPaiva VARCHAR(15),
 	laskutuspaiva VARCHAR(15),	
-	FOREIGN KEY (asiakasnumero) REFERENCES asiakas(asiakasnumero),
-	FOREIGN KEY (mokkinumero) REFERENCES mokki(mokkinumero)
+	FOREIGN KEY (asiakasnumero) REFERENCES asiakkaat(asiakasnumero),
+	FOREIGN KEY (mokkinumero) REFERENCES mokki(mokkiid)
 );
 CREATE TABLE kayttaja (
 	kayttajanumero INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
@@ -113,6 +117,6 @@ CREATE TABLE varaukset (
 	laskutus VARCHAR(10) NOT NULL,
 	lisatty DATETIME NOT NULL DEFAULT NOW(),
 	FOREIGN KEY (toimipisteid)  REFERENCES toimipisteet(toimipisteid),
-	FOREIGN KEY (asiakasnumero) REFERENCES asiakas(asiakasnumero),
-	FOREIGN KEY (mokkinumero) REFERENCES mokki(mokkinumero)
+	FOREIGN KEY (asiakasnumero) REFERENCES asiakkaat(asiakasnumero),
+	FOREIGN KEY (mokkinumero) REFERENCES mokki(mokkiid)
 );  /*paivat = paattymispvm-alkpvm, hinta=paivat*mokin hinta*/ */
