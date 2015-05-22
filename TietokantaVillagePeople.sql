@@ -1,5 +1,5 @@
 ﻿/* MYSQL workbench testattu */
-/*
+
 CREATE TABLE Asiakkaat (
 	Asiakasnumero INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
 	Titteli VARCHAR(5) NOT NULL,
@@ -7,19 +7,19 @@ CREATE TABLE Asiakkaat (
 	Sukunimi VARCHAR(40) NOT NULL,
 	SyntymaAika VARCHAR(10) NOT NULL, /* pp-kk-vvvv */
 	Henkilotunnus VARCHAR(50) NOT NULL, /* passi, hetu*/
-	Katuosoite VARCHAR(45) NOT NULL,  
+	Katuosoite VARCHAR(50) NOT NULL,  
 	Postinumero VARCHAR(20) NOT NULL,
-	Postitoimipaikka VARCHAR(20) NOT NULL,
+	Postitoimipaikka VARCHAR(30) NOT NULL,
 	Maa VARCHAR(80) NOT NULL,  /* Al Jumahiriyah al Arabiyah al Libiyah ash Shabiyah al Ishtirakiyah al Uzma = libya */
 	Kansalaisuus VARCHAR(40) NOT NULL,
 	Puhelinumero VARCHAR(40) NOT NULL,
 	Sahkopostiosoite VARCHAR(60),
-	Lisatietoja VARCHAR(256)
+	Lisatietoja VARCHAR(250)
 );
 CREATE TABLE Mokki (
 	Mokkinumero INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
 	Nimi VARCHAR(15) NOT NULL UNIQUE,
-	Hinta INTEGER(8) NOT NULL,
+	Hinta INTEGER NOT NULL,
 	HenkiloMaara INTEGER NOT NULL,
 	PintaAla INTEGER,
 	Lemmikit TINYINT
@@ -29,12 +29,12 @@ CREATE TABLE Mokki (
 );
 CREATE TABLE Toimipiste (
 	ToimipisteId INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
-	Nimi VARCHAR(30) NOT NULL UNIQUE,
-	Katuosoite VARCHAR(30),
+	Nimi VARCHAR(40) NOT NULL UNIQUE,
+	Katuosoite VARCHAR(40),
 	Postinumero VARCHAR(10),
 	Postitoimipaikka VARCHAR(30),
 	Puhelinumero VARCHAR(15),
-	Sahkopostiosoite VARCHAR(50),
+	Sahkopostiosoite VARCHAR(60),
 	Yhteyshenkilo VARCHAR(30) NOT NULL,
 	AukioloAika VARCHAR(30)
 );
@@ -47,9 +47,9 @@ CREATE TABLE Toimipistemokit (
 );
 CREATE TABLE Lisapalvelu (
 	Id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
-	Nimi VARCHAR(30) NOT NULL,
+	Nimi VARCHAR(40) NOT NULL,
 	Hinta DOUBLE NOT NULL,
-	Kuvaus VARCHAR(256),
+	Kuvaus VARCHAR(250),
 	Aika VARCHAR(30)
 	/* Ajankohta */
 );
