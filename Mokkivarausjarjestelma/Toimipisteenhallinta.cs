@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace Mokkivarausjarjestelma
 {
@@ -21,11 +22,27 @@ namespace Mokkivarausjarjestelma
 
         //Saa arvoksi Toimipiste-luokan olion
         private Toimipiste toimipiste;
+        protected MySqlConnection yhteys;
+        protected MySqlCommand kasky;
+        protected MySqlDataReader lukija;
 
         //Tehdään kun Toimipisteenhallinta-form ladataan, päivitetään toimipistelista
         private void Toimipisteenhallinta_Load(object sender, EventArgs e)
         {
-            PaivitaToimipisteLista();
+            dgvToimipisteet.DataSource = TaytaDatatable();
+        }
+        public DataTable TaytaDatatable()
+        {
+            Tietokanta t = new Tietokanta();
+            yhteys = t.YhdistaTietokantaan();
+            kasky = yhteys.CreateCommand();
+            kasky.CommandText = "Select * from toimipisteet";
+            lukija = kasky.ExecuteReader();
+            DataSet dstoimipisteet = new DataSet();
+            DataTable dttoimipisteet = new DataTable();
+            dstoimipisteet.Tables.Add(dttoimipisteet);
+            dttoimipisteet.Load(lukija);
+            return dttoimipisteet;
         }
 
         //Metodi toimipistelistan päivittämiselle

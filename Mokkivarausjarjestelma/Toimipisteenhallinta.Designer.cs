@@ -51,6 +51,8 @@
             this.btnMuokkaaToimipiste = new System.Windows.Forms.Button();
             this.txbxToimipisteenNimi = new System.Windows.Forms.TextBox();
             this.lblToimipisteenNimi = new System.Windows.Forms.Label();
+            this.dgvToimipisteet = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvToimipisteet)).BeginInit();
             this.SuspendLayout();
             // 
             // lstbxToimipiste
@@ -263,10 +265,19 @@
             this.lblToimipisteenNimi.TabIndex = 26;
             this.lblToimipisteenNimi.Text = "Toimipisteen nimi:";
             // 
+            // dgvToimipisteet
+            // 
+            this.dgvToimipisteet.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvToimipisteet.Location = new System.Drawing.Point(127, 108);
+            this.dgvToimipisteet.Name = "dgvToimipisteet";
+            this.dgvToimipisteet.Size = new System.Drawing.Size(240, 150);
+            this.dgvToimipisteet.TabIndex = 27;
+            // 
             // Toimipisteenhallinta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.dgvToimipisteet);
             this.Controls.Add(this.lblToimipisteenNimi);
             this.Controls.Add(this.txbxToimipisteenNimi);
             this.Controls.Add(this.btnMuokkaaToimipiste);
@@ -291,7 +302,8 @@
             this.Controls.Add(this.lblToimipiste);
             this.Controls.Add(this.lstbxToimipiste);
             this.Name = "Toimipisteenhallinta";
-            this.Size = new System.Drawing.Size(769, 664);
+            this.Size = new System.Drawing.Size(997, 664);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvToimipisteet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -322,5 +334,6 @@
         private System.Windows.Forms.Button btnMuokkaaToimipiste;
         private System.Windows.Forms.TextBox txbxToimipisteenNimi;
         private System.Windows.Forms.Label lblToimipisteenNimi;
+        private System.Windows.Forms.DataGridView dgvToimipisteet;
     }
 }

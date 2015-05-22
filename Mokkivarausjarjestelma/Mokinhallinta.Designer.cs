@@ -59,12 +59,14 @@
             this.btnTallennaMokkiTiedot = new System.Windows.Forms.Button();
             this.btnPoistaMokki = new System.Windows.Forms.Button();
             this.btnLisaaUusiMokki = new System.Windows.Forms.Button();
+            this.dgvMokit = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMokit)).BeginInit();
             this.SuspendLayout();
             // 
             // lstbxMokkilista
             // 
             this.lstbxMokkilista.FormattingEnabled = true;
-            this.lstbxMokkilista.Location = new System.Drawing.Point(42, 61);
+            this.lstbxMokkilista.Location = new System.Drawing.Point(948, 113);
             this.lstbxMokkilista.Name = "lstbxMokkilista";
             this.lstbxMokkilista.Size = new System.Drawing.Size(200, 355);
             this.lstbxMokkilista.TabIndex = 0;
@@ -376,11 +378,19 @@
             this.btnLisaaUusiMokki.UseVisualStyleBackColor = true;
             this.btnLisaaUusiMokki.Click += new System.EventHandler(this.btnLisaaUusiMokki_Click);
             // 
+            // dgvMokit
+            // 
+            this.dgvMokit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMokit.Location = new System.Drawing.Point(41, 82);
+            this.dgvMokit.Name = "dgvMokit";
+            this.dgvMokit.Size = new System.Drawing.Size(473, 150);
+            this.dgvMokit.TabIndex = 59;
+            // 
             // Mokinhallinta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1184, 761);
+            this.Controls.Add(this.dgvMokit);
             this.Controls.Add(this.btnTallennaMokkiTiedot);
             this.Controls.Add(this.btnPoistaMokki);
             this.Controls.Add(this.btnLisaaUusiMokki);
@@ -413,8 +423,9 @@
             this.Controls.Add(this.lblAsiakaslista);
             this.Controls.Add(this.lstbxMokkilista);
             this.Name = "Mokinhallinta";
-            this.Text = "Mokinhallinta";
+            this.Size = new System.Drawing.Size(1184, 761);
             this.Load += new System.EventHandler(this.Mokinhallinta_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMokit)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -453,5 +464,6 @@
         private System.Windows.Forms.Button btnTallennaMokkiTiedot;
         private System.Windows.Forms.Button btnPoistaMokki;
         private System.Windows.Forms.Button btnLisaaUusiMokki;
+        private System.Windows.Forms.DataGridView dgvMokit;
     }
 }
