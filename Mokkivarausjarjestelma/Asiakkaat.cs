@@ -21,6 +21,16 @@ namespace Mokkivarausjarjestelma
             valikko1.TabPages[4].Controls.Add(new Varaustenhallinta());
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            new UusiVaraus().Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            valikko1.SelectedTab = tabPage5;
+        }
         
        
     }

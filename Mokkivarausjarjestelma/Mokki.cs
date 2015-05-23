@@ -98,7 +98,7 @@ namespace Mokkivarausjarjestelma
         kasky = yhteys.CreateCommand();
         //Update Query @merkityt muuttujat? korvataan parametreillä
         kasky.CommandText = @"UPDATE mokki SET nimi=@nimi,postiosoite=@postiosoite, postinumero=@postinumero,
-            postitoimipaikka=@postitoimipaikka maa=@maa, hinta=@hinta, huoneita=@huoneita,
+            postitoimipaikka=@postitoimipaikka , maa=@maa, hinta=@hinta, huoneita=@huoneita,
             pintaala=@pintaala, vuodepaikat=@vuodepaikat, lisatietoja=@lisatietoja, verkkoyhteys=@verkkoyhteys, lemmikit=@lemmikit WHERE mokkiid=@mokkiid";
         //Lisätään updatequeryyn parametrina annetun asiakkaan tiedot
         kasky.Parameters.AddWithValue("@mokkiid", m.Mokkiid);
@@ -136,7 +136,7 @@ namespace Mokkivarausjarjestelma
         yhteys = t.YhdistaTietokantaan();
         kasky = yhteys.CreateCommand();
         kasky.CommandText = @"INSERT INTO mokki (nimi, postiosoite, postinumero, postitoimipaikka, maa, hinta, huoneita, pintaala, vuodepaikat, lisatietoja, verkkoyhteys, lemmikit)
-                                VALUES (@postiosoite, @postinumero, @postitoimipaikka, @maa, @hinta, @huoneita, @pintaala, @vuodepaikat, @lisatietoja, @verkkoyhteys, @lemmikit)";
+                                VALUES (@nimi, @postiosoite, @postinumero, @postitoimipaikka, @maa, @hinta, @huoneita, @pintaala, @vuodepaikat, @lisatietoja, @verkkoyhteys, @lemmikit)";
         kasky.Parameters.AddWithValue("@nimi", m.Nimi);
         kasky.Parameters.AddWithValue("@postiosoite", m.Postiosoite);
         kasky.Parameters.AddWithValue("@postinumero", m.Postinumero);

@@ -46,6 +46,7 @@
             this.btnTallennaMokkiTiedot.TabIndex = 58;
             this.btnTallennaMokkiTiedot.Text = "MUOKKAA";
             this.btnTallennaMokkiTiedot.UseVisualStyleBackColor = true;
+            this.btnTallennaMokkiTiedot.Click += new System.EventHandler(this.btnTallennaMokkiTiedot_Click);
             // 
             // btnPoistaMokki
             // 
@@ -58,7 +59,6 @@
             this.btnPoistaMokki.TabIndex = 57;
             this.btnPoistaMokki.Text = "Poista mokki";
             this.btnPoistaMokki.UseVisualStyleBackColor = false;
-            this.btnPoistaMokki.Click += new System.EventHandler(this.btnPoistaMokki_Click);
             // 
             // btnLisaaUusiMokki
             // 
@@ -79,6 +79,7 @@
             this.dgvMokit.Name = "dgvMokit";
             this.dgvMokit.Size = new System.Drawing.Size(473, 150);
             this.dgvMokit.TabIndex = 59;
+            this.dgvMokit.SelectionChanged += new System.EventHandler(this.dgvMokit_SelectionChanged);
             // 
             // button1
             // 
@@ -88,6 +89,7 @@
             this.button1.TabIndex = 60;
             this.button1.Text = "POISTA";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Mokinhallinta
             // 

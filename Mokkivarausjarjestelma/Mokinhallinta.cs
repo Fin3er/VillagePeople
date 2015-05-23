@@ -46,15 +46,26 @@ namespace Mokkivarausjarjestelma
         }
         
         
-        //"Poista mökki" -napin toiminto.
-        private void btnPoistaMokki_Click(object sender, EventArgs e)
+        
+
+        private void btnTallennaMokkiTiedot_Click(object sender, EventArgs e)
         {
-            /*
-            this.mokki = lstbxMokkilista.SelectedItem as Mokki;
-            MessageBox.Show("Haluatko varmasti poistaa valitun asiakkaan?", "Vahvistus", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            Mokki n = new Mokki();
-            n.PoistaMokkiTietokannasta(this.mokki);
-            PaivitaMokkiLista(); */
+            var result = MessageBox.Show("Haluatko varmasti muokata valitun mökin tietoja?", "Vahvistus", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+                new Mokki_muokkaa(mokki).Show();
+            
+        }
+
+        private void dgvMokit_SelectionChanged(object sender, EventArgs e)
+        {
+            mokki = (Mokki)dgvMokit.CurrentRow.DataBoundItem;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("Haluatko varmasti poistaa valitun mökin?", "Vahvistus", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+                mokki.PoistaMokkiTietokannasta(mokki);
         }
 
 
