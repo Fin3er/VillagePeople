@@ -60,7 +60,7 @@ namespace Mokkivarausjarjestelma
                 /* Mikko S */
                 /* yhteys.ConnectionString = "server = 192.168.1.222; user id = newuser; password = uusi1234; database = tietokanta";*/
                 /* Tuomas */
-                yhteys.ConnectionString = "server = 192.168.2.101, 192.168.1.222; user id = newuser; password = uusi1234; database = villagepeople";
+                yhteys.ConnectionString = "server = 192.168.2.101; user id = newuser; password = uusi1234; database = villagepeople";
                 yhteys.Open();
                 MessageBox.Show("Yhdistetty MySql-tietokantaan");
                 return yhteys;

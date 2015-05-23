@@ -9,94 +9,101 @@ namespace Mokkivarausjarjestelma
     public partial class Mokki
 	{
 	
-	public string Mokkitunnus
+	public string Mokkiid
 	{
-		get {return mokkitunnus; }
-		set {mokkitunnus = value; }
-	}
-	
-	
-	public string Mokkiosoite
-	{
-		get {return mokkiosoite; }
-		set {mokkiosoite = value; }
-	}
-	
-	
-	public string Mokkipostinumero
-	{
-		get {return mokkipostinumero; }
-		set {mokkipostinumero = value; }
+		get {return mokkiid; }
+		set {mokkiid = value; }
 	}
 
-	
-	public string Mokkitoimipiste
-	{
-		get {return mokkitoimipiste; }
-		set {mokkitoimipiste = value; }
-	}
-
-    public string Mokkipostitoimipaikka
+    public string Nimi
     {
-        get { return mokkipostitoimipaikka; }
-        set { mokkipostitoimipaikka = value; }
+        get { return nimi; }
+        set { nimi = value; }
     }
 	
 	
-	public string Mokkimaa
+	public string Postiosoite
 	{
-		get {return mokkimaa; }
-		set {mokkimaa = value; }
+		get {return postiosoite; }
+		set {postiosoite = value; }
 	}
 	
 	
-	public string Mokkivuorokausihinta
+	public string Postinumero
 	{
-		get {return mokkivuorokausihinta; }
-		set {mokkivuorokausihinta = value; }
+		get {return postinumero; }
+		set {postinumero = value; }
 	}
-	
-	
-	public string Mokkihuoneita
-	{
-		get {return mokkihuoneita; }
-		set {mokkihuoneita = value; }
-	}
-	
-	
-	public string Mokkimakuuhuoneita
-	{
-		get {return mokkimakuuhuoneita; }
-		set {mokkimakuuhuoneita = value; }
-	}
-	
-	
-	public string Mokkipintaala
-	{
-		get {return mokkipintaala; }
-		set {mokkipintaala = value; }
-	}
-	
 
-	public string Mokkivuodepaikat
+	
+	/*public Toimipiste Toimipiste
 	{
-		get {return mokkivuodepaikat; }
-		set {mokkivuodepaikat = value; }
+		get {return toimipiste; }
+		set {toimipiste = value; }
+	} */
+
+    public string Postitoimipaikka
+    {
+        get { return postitoimipaikka; }
+        set { postitoimipaikka = value; }
+    }
+	
+	
+	public string Maa
+	{
+		get {return maa; }
+		set {maa = value; }
 	}
 	
 	
-	public string Mokkilisatietoa
+	public decimal Hinta
 	{
-		get {return mokkilisatietoa; }
-		set {mokkilisatietoa = value; }
+		get {return hinta; }
+		set {hinta = value; }
+	}
+	
+	
+	public string Huoneita
+	{
+		get {return huoneita; }
+		set {huoneita = value; }
+	}
+
+	
+	
+	public string Vuodepaikat
+	{
+		get {return vuodepaikat; }
+		set {vuodepaikat = value; }
+	}
+	
+	
+	public string Pintaala
+	{
+		get {return pintaala; }
+		set {pintaala = value; }
+	}
+	
+	
+	
+	public string Lisatietoja
+	{
+		get {return lisatietoja; }
+		set {lisatietoja = value; }
 	}
         
 
-	public string Mokkiverkkoyhteys
+	public string Verkkoyhteys
 	{
-		get {return mokkiverkkoyhteys; }
-		set {mokkiverkkoyhteys = value; }
+		get {return verkkoyhteys; }
+		set {verkkoyhteys = value; }
 	}
+
+    public string Lemmikit
+    {
+        get{return lemmikit;}
+        set { lemmikit = value; }
+    }
 	
 	}
 }
