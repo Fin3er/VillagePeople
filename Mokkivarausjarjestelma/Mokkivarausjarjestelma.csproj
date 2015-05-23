@@ -141,7 +141,7 @@
       <DependentUpon>Lisapalvelut_lisaa_muokkaa.cs</DependentUpon>
     </Compile>
     <Compile Include="Mokinhallinta.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Mokinhallinta.Designer.cs">
       <DependentUpon>Mokinhallinta.cs</DependentUpon>
@@ -159,6 +159,12 @@
     </Compile>
     <Compile Include="Mokkivaraus.Designer.cs">
       <DependentUpon>Mokkivaraus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mokki_lisaa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mokki_lisaa.Designer.cs">
+      <DependentUpon>Mokki_lisaa.cs</DependentUpon>
     </Compile>
     <Compile Include="Mokki_lisaa_muokkaa.cs">
       <SubType>Form</SubType>
@@ -249,6 +255,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Mokkivaraus.resx">
       <DependentUpon>Mokkivaraus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mokki_lisaa.resx">
+      <DependentUpon>Mokki_lisaa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
